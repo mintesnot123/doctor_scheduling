@@ -161,6 +161,11 @@ class _DoctorsListState extends State<DoctorsList> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
+                      onPressed: () {},
+                      child: const Text('Enabled'),
+                    ),
                     TextButton(
                       onPressed: () {
                         setState(() {
@@ -168,7 +173,7 @@ class _DoctorsListState extends State<DoctorsList> {
                         });
                       },
                       child: Text(
-                        'Show All',
+                        'Add Doctor',
                         style: GoogleFonts.lato(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
