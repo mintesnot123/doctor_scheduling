@@ -57,28 +57,42 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  final List<Page> pages = [
-    Page('Home', Icons.home),
-    Page('Feedback', Icons.feedback),
-    Page('Profile', Icons.person_outline),
+  List<Widget> drawerItemWidgets = [
+    DrawerHeader(
+      child: Text('Drawer Header'),
+      decoration: BoxDecoration(
+        color: Colors.blue,
+      ),
+    ),
+    ListTile(
+      title: Text("Home"),
+      leading: Icon(Icons.home),
+      selected: _currentPageIndex == 0,
+      onTap: () {
+        _openPage(0);
+        Navigator.pop(context);
+      },
+    ),
+    ListTile(
+      title: Text("Home"),
+      leading: Icon(Icons.home),
+      selected: _currentPageIndex == 0,
+      onTap: () {
+        _openPage(0);
+        Navigator.pop(context);
+      },
+    ),
+    ListTile(
+      title: Text("Home"),
+      leading: Icon(Icons.home),
+      selected: _currentPageIndex == 0,
+      onTap: () {
+        _openPage(0);
+        Navigator.pop(context);
+      },
+    ),
   ];
-
-  List<Widget> drawerItemWidgets =pages
-        .asMap()
-        .map((int index, Page page) => MapEntry<int, Widget>(
-            index,
-            ListTile(
-              title: Text(page.title),
-              leading: Icon(page.iconData),
-              selected: _currentPageIndex == index,
-              onTap: () {
-                _openPage(index);
-                Navigator.pop(context);
-              },
-            )))
-        .values
-        .toList();
-    drawerItemWidgets.insert(
+  /* drawerItemWidgets.insert(
       0,
       DrawerHeader(
         child: Text('Drawer Header'),
@@ -86,7 +100,7 @@ class _MainPageState extends State<MainPage> {
           color: Colors.blue,
         ),
       ),
-    );
+    ); */
 
   @override
   Widget build(BuildContext context) {
@@ -97,11 +111,11 @@ class _MainPageState extends State<MainPage> {
         key: _scaffoldKey,
         body: _pages[_selectedIndex],
         drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: drawerItemWidgets,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: drawerItemWidgets,
+          ),
         ),
-      ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
             color: Colors.white,
