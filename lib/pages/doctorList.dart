@@ -157,6 +157,28 @@ class _DoctorsListState extends State<DoctorsList> {
                 SizedBox(
                   height: 30,
                 ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.right,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        setState(() {
+                          _length = 1;
+                        });
+                      },
+                      child: Text(
+                        'Show All',
+                        style: GoogleFonts.lato(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                  ],
+                ),
                 TextFormField(
                   controller: _textController,
                   decoration: InputDecoration(
