@@ -69,7 +69,7 @@ class _MainPageState extends State<MainPage> {
       leading: Icon(Icons.home),
       selected: _currentPageIndex == 0,
       onTap: () {
-        _openPage(0);
+        /* _openPage(0); */
         Navigator.pop(context);
       },
     ),
@@ -78,7 +78,7 @@ class _MainPageState extends State<MainPage> {
       leading: Icon(Icons.home),
       selected: _currentPageIndex == 0,
       onTap: () {
-        _openPage(0);
+        /* _openPage(0); */
         Navigator.pop(context);
       },
     ),
@@ -87,7 +87,7 @@ class _MainPageState extends State<MainPage> {
       leading: Icon(Icons.home),
       selected: _currentPageIndex == 0,
       onTap: () {
-        _openPage(0);
+        /* _openPage(0); */
         Navigator.pop(context);
       },
     ),
