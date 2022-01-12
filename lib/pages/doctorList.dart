@@ -148,34 +148,47 @@ class _DoctorsListState extends State<DoctorsList> {
       ), */
       body: Container(
         padding: EdgeInsets.all(10),
-        child: _length == 0
-            ? Center(
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          setState(() {
-                            _length = 1;
-                          });
-                        },
-                        child: Text(
-                          'Show All',
-                          style: GoogleFonts.lato(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+        child: ListView(
+          physics: ClampingScrollPhysics(),
+          shrinkWrap: true,
+          children: <Widget>[
+            Column(
+              children: [
+                SizedBox(
+                  height: 30,
+                ),
+                (_length == 0
+                    ? Center(
+                        child: Container(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _length = 1;
+                                  });
+                                },
+                                child: Text(
+                                  'Show All',
+                                  style: GoogleFonts.lato(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Image(image: AssetImage('assets/images/search-bg.png')),
+                            ],
                           ),
                         ),
-                      ),
-                      Image(image: AssetImage('assets/images/search-bg.png')),
-                    ],
-                  ),
-                ),
-              )
-            : SearchList(
-                searchKey: search,
-              ),
+                      )
+                    : SearchList(
+                        searchKey: search,
+                      ))
+              ],
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
