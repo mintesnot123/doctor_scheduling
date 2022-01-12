@@ -162,11 +162,7 @@ class _DoctorsListState extends State<DoctorsList> {
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 18)),
-                      onPressed: () {
-                        setState(() {
-                          _length = 1;
-                        });
-                      },
+                      onPressed: () {},
                       child: const Text('Add Doctor'),
                     ),
                     SizedBox(
@@ -237,7 +233,9 @@ class _DoctorsListState extends State<DoctorsList> {
                   autofocus: false,
                 ),
                 (_length == 0
-                    ? Center(
+                    ? SearchList(
+                        searchKey: '',
+                      ))/* Center(
                         child: Container(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -260,7 +258,7 @@ class _DoctorsListState extends State<DoctorsList> {
                             ],
                           ),
                         ),
-                      )
+                      ) */
                     : SearchList(
                         searchKey: search,
                       ))
