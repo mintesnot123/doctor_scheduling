@@ -57,51 +57,6 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  /* List<Widget> drawerItemWidgets = [
-    DrawerHeader(
-      child: Text('Drawer Header'),
-      decoration: BoxDecoration(
-        color: Colors.blue,
-      ),
-    ),
-    ListTile(
-      title: Text("Home"),
-      leading: Icon(Icons.home),
-      selected: _selectedIndex == 0,
-      onTap: () {
-        /* _openPage(0); */
-        Navigator.pop(context);
-      },
-    ),
-    ListTile(
-      title: Text("Home"),
-      leading: Icon(Icons.home),
-      selected: _selectedIndex == 1,
-      onTap: () {
-        /* _openPage(0); */
-        Navigator.pop(context);
-      },
-    ),
-    ListTile(
-      title: Text("Home"),
-      leading: Icon(Icons.home),
-      selected: _selectedIndex == 2,
-      onTap: () {
-        /* _openPage(0); */
-        Navigator.pop(context);
-      },
-    ),
-  ]; */
-  /* drawerItemWidgets.insert(
-      0,
-      DrawerHeader(
-        child: Text('Drawer Header'),
-        decoration: BoxDecoration(
-          color: Colors.blue,
-        ),
-      ),
-    ); */
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -125,12 +80,12 @@ class _MainPageState extends State<MainPage> {
                 leading: Icon(Icons.home),
                 selected: _selectedIndex == 0,
                 onTap: () {
-                  /* _openPage(0); */
+                  _onItemTapped(0);
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                title: Text("Home"),
+                title: Text("Doctors"),
                 leading: Icon(Icons.home),
                 selected: _selectedIndex == 1,
                 onTap: () {
