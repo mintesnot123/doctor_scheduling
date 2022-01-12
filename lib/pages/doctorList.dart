@@ -235,6 +235,9 @@ class _DoctorsListState extends State<DoctorsList> {
                   textInputAction: TextInputAction.search,
                   autofocus: false,
                 ),
+                SizedBox(
+                  height: 15,
+                ),
                 (_length == 0
                     ? StreamBuilder(
                         stream: FirebaseFirestore.instance.collection('doctors').orderBy('name').snapshots(),
