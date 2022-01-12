@@ -235,7 +235,8 @@ class _DoctorsListState extends State<DoctorsList> {
                 (_length == 0
                     ? SearchList(
                         searchKey: '',
-                      ))/* Center(
+                      )
+                    /* Center(
                         child: Container(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
