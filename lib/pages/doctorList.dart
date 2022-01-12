@@ -162,10 +162,7 @@ class _DoctorsListState extends State<DoctorsList> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     ElevatedButton(
-                      style: GoogleFonts.lato(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 18)),
                       onPressed: () {
                         setState(() {
                           _length = 1;
