@@ -366,7 +366,7 @@ class _DoctorsListState extends State<DoctorsList> {
                                       );
                                     },
                                   ),
-                                ),
+                                )
                         },
                       )
 
