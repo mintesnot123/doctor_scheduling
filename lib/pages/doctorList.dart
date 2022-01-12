@@ -155,11 +155,10 @@ class _DoctorsListState extends State<DoctorsList> {
             Column(
               children: [
                 SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 18)),
