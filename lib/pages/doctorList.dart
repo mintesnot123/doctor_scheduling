@@ -366,9 +366,9 @@ class _DoctorsListState extends State<DoctorsList> {
                                       );
                                     },
                                   ),
-                                );
+                                ),
                         },
-                      ),
+                      )
 
                     /* Center(
                         child: Container(
