@@ -31,6 +31,46 @@ class _DoctorsListState extends State<DoctorsList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        actions: <Widget>[
+          Container()
+        ],
+        backgroundColor: Colors.blue.withOpacity(0.7),
+        /* elevation: 0, */
+        title: Container(
+          padding: EdgeInsets.only(top: 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                alignment: Alignment.center,
+                child: Text(
+                  "Find Doctors",
+                  style: GoogleFonts.lato(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 55,
+              ),
+              IconButton(
+                splashRadius: 20,
+                icon: Icon(Icons.notifications_active),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (contex) => NotificationList()));
+                },
+              ),
+            ],
+          ),
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ),
+      /* appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text('Find Doctors'),
         actions: <Widget>[
@@ -103,7 +143,7 @@ class _DoctorsListState extends State<DoctorsList> {
             ),
           )
         ],
-      ),
+      ), */
       body: Container(
         padding: EdgeInsets.all(10),
         child: _length == 0
