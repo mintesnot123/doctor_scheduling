@@ -67,7 +67,7 @@ class _MainPageState extends State<MainPage> {
     ListTile(
       title: Text("Home"),
       leading: Icon(Icons.home),
-      selected: _currentPageIndex == 0,
+      selected: _selectedIndex == 0,
       onTap: () {
         /* _openPage(0); */
         Navigator.pop(context);
@@ -76,7 +76,7 @@ class _MainPageState extends State<MainPage> {
     ListTile(
       title: Text("Home"),
       leading: Icon(Icons.home),
-      selected: _currentPageIndex == 0,
+      selected: _selectedIndex == 1,
       onTap: () {
         /* _openPage(0); */
         Navigator.pop(context);
@@ -85,7 +85,7 @@ class _MainPageState extends State<MainPage> {
     ListTile(
       title: Text("Home"),
       leading: Icon(Icons.home),
-      selected: _currentPageIndex == 0,
+      selected: _selectedIndex == 2,
       onTap: () {
         /* _openPage(0); */
         Navigator.pop(context);
