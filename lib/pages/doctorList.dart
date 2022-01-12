@@ -162,26 +162,19 @@ class _DoctorsListState extends State<DoctorsList> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     ElevatedButton(
-                      style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
-                      onPressed: () {},
-                      child: const Text('Enabled'),
-                    ),
-                    TextButton(
+                      style: GoogleFonts.lato(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                       onPressed: () {
                         setState(() {
                           _length = 1;
                         });
                       },
-                      child: Text(
-                        'Add Doctor',
-                        style: GoogleFonts.lato(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child: const Text('Add Doctor'),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 15,
                     ),
                   ],
                 ),
