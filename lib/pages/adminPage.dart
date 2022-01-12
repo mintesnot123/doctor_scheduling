@@ -164,3 +164,9 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+
+class Page {
+  final String title;
+  final IconData iconData;
+  Page(this.title, this.iconData);
+}
