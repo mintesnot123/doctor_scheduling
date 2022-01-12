@@ -57,7 +57,7 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  List<Widget> drawerItemWidgets = [
+  /* List<Widget> drawerItemWidgets = [
     DrawerHeader(
       child: Text('Drawer Header'),
       decoration: BoxDecoration(
@@ -91,7 +91,7 @@ class _MainPageState extends State<MainPage> {
         Navigator.pop(context);
       },
     ),
-  ];
+  ]; */
   /* drawerItemWidgets.insert(
       0,
       DrawerHeader(
@@ -113,7 +113,41 @@ class _MainPageState extends State<MainPage> {
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
-            children: drawerItemWidgets,
+            children: [
+              DrawerHeader(
+                child: Text('Drawer Header'),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+              ),
+              ListTile(
+                title: Text("Home"),
+                leading: Icon(Icons.home),
+                selected: _selectedIndex == 0,
+                onTap: () {
+                  /* _openPage(0); */
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text("Home"),
+                leading: Icon(Icons.home),
+                selected: _selectedIndex == 1,
+                onTap: () {
+                  /* _openPage(0); */
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text("Home"),
+                leading: Icon(Icons.home),
+                selected: _selectedIndex == 2,
+                onTap: () {
+                  /* _openPage(0); */
+                  Navigator.pop(context);
+                },
+              ),
+            ],
           ),
         ),
         bottomNavigationBar: Container(
