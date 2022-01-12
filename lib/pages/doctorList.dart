@@ -158,7 +158,8 @@ class _DoctorsListState extends State<DoctorsList> {
                   height: 30,
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     TextButton(
                       onPressed: () {
