@@ -44,10 +44,9 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => user == null ? SplashPage() : MyHomePage(),
+          '/': (context) => user == null ? SplashPage() : MainPage(),
           '/login': (context) => LoginPage(),
           '/register': (context) => RegisterPage(),
-          //'/home': (context) => MyHomePage(),
           '/home': (context) => /* user == null ? LoginPage() :  */ MainPage(),
         },
       ),

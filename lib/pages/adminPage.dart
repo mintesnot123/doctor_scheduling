@@ -57,6 +57,37 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
+  final List<Page> pages = [
+    Page('Home', Icons.home),
+    Page('Feedback', Icons.feedback),
+    Page('Profile', Icons.person_outline),
+  ];
+
+  List<Widget> drawerItemWidgets =pages
+        .asMap()
+        .map((int index, Page page) => MapEntry<int, Widget>(
+            index,
+            ListTile(
+              title: Text(page.title),
+              leading: Icon(page.iconData),
+              selected: _currentPageIndex == index,
+              onTap: () {
+                _openPage(index);
+                Navigator.pop(context);
+              },
+            )))
+        .values
+        .toList();
+    drawerItemWidgets.insert(
+      0,
+      DrawerHeader(
+        child: Text('Drawer Header'),
+        decoration: BoxDecoration(
+          color: Colors.blue,
+        ),
+      ),
+    );
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -65,6 +96,12 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: Colors.transparent,
         key: _scaffoldKey,
         body: _pages[_selectedIndex],
+        drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: drawerItemWidgets,
+        ),
+      ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
             color: Colors.white,
