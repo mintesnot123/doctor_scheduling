@@ -76,7 +76,7 @@ class Home extends StatelessWidget {
   }
 
   Center userPage(Map<String, dynamic> snapshot) {
-    return Center(child: Text(snapshot['name']));
+    return Center(child: Text('${snapshot['name']}'));
   }
 }
 
