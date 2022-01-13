@@ -42,12 +42,12 @@ class Home extends StatelessWidget {
   }
 
   Center checkRole(DocumentSnapshot snapshot) {
-    if (snapshot.data == null || snapshot.data.length == 0) {
+    if (snapshot.data == null) {
       return Center(
         child: Text('no data set in the userId document in firestore'),
       );
     }
-    if (snapshot.data['role'] && snapshot.data['role'] == 'admin') {
+    if (snapshot.data.role == 'admin') {
       return adminPage(snapshot);
     } else {
       return userPage(snapshot);
