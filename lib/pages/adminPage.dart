@@ -45,7 +45,8 @@ class Home extends StatelessWidget {
 
           if (snapshot.connectionState == ConnectionState.done) {
             Map<String, dynamic> data = snapshot.data.data() as Map<String, dynamic>;
-            return Text("Full Name: ${data['full_name']} ${data['last_name']}");
+            return checkRole(data);
+            //return Text("Full Name: ${data['full_name']} ${data['last_name']}");
           }
 
           return LinearProgressIndicator();
@@ -62,26 +63,22 @@ class Home extends StatelessWidget {
     );
   }
 
-  Center checkRole(DocumentSnapshot snapshot) {
-    /* if (snapshot.data == null) {
-      return Center(
-        child: Text('no data set in the userId document in firestore'),
-      );
-    }
-    if (snapshot.data.role == 'admin') {
+  Center checkRole(Map<String, dynamic> snapshot) {
+    
+    if (snapshot.data.['role'] == 'admin') {
       return adminPage(snapshot);
     } else {
       return userPage(snapshot);
-    } */
+    }
   }
 
-  /* Center adminPage(DocumentSnapshot snapshot) {
+  Center adminPage(Map<String, dynamic> snapshot) {
     return Center(child: Text('${snapshot.data['role']} ${snapshot.data['name']}'));
   }
 
-  Center userPage(DocumentSnapshot snapshot) {
+  Center userPage(Map<String, dynamic> snapshot) {
     return Center(child: Text(snapshot.data['name']));
-  } */
+  }
 }
 
 class MainPage extends StatefulWidget {
