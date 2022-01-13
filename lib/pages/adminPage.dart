@@ -63,7 +63,7 @@ class Home extends StatelessWidget {
     );
   }
 
-  Center checkRole(Map<String, dynamic> snapshot) {
+  Widget checkRole(Map<String, dynamic> snapshot) {
     if (snapshot['role'] == 'ADMIN') {
       return MainPage();
     } else {
