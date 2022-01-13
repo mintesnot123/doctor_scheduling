@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
     _getUser();
     return Scaffold(
       body: StreamBuilder<DocumentSnapshot>(
-        stream: Firestore.instance.collection('users').document(user.uid).snapshots(),
+        stream: FirebaseFirestore.instance.collection('users').doc(user.uid).snapshots(),
         builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
