@@ -42,7 +42,7 @@ class Home extends StatelessWidget {
   }
 
   Center checkRole(DocumentSnapshot snapshot) {
-    if (snapshot.data == null) {
+    /* if (snapshot.data == null) {
       return Center(
         child: Text('no data set in the userId document in firestore'),
       );
@@ -51,7 +51,7 @@ class Home extends StatelessWidget {
       return adminPage(snapshot);
     } else {
       return userPage(snapshot);
-    }
+    } */
   }
 
   Center adminPage(DocumentSnapshot snapshot) {
