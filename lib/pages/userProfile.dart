@@ -89,7 +89,7 @@ class _UserProfileState extends State<UserProfile> {
                         height: MediaQuery.of(context).size.height / 5,
                         padding: EdgeInsets.only(top: 75),
                         child: Text(
-                          user.displayName,
+                          user.displayName ? user.displayName : 'User',
                           style: GoogleFonts.lato(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
