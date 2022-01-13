@@ -47,7 +47,7 @@ class Home extends StatelessWidget {
         child: Text('no data set in the userId document in firestore'),
       );
     }
-    if (snapshot.data['role'] == 'admin') {
+    if (snapshot.data[0]['role'] == 'admin') {
       return adminPage(snapshot);
     } else {
       return userPage(snapshot);
