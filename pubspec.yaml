@@ -37,6 +37,7 @@ dependencies:
   quick_actions: ^0.5.0
   flutter_tabler_icons: ^1.0.2
   carousel_slider: ^3.0.0  
+  hexcolor: ^2.0.4
   url_launcher: ^6.0.2
   google_fonts:
 
