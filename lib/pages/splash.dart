@@ -165,7 +165,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             child: Center(
               child: ClipOval(
                 child: Icon(
-                  Icons.android_outlined,
+                  Icons.medical_services,
                   size: 128,
                 ), //put your logo here
               ),
