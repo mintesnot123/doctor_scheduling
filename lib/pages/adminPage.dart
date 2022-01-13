@@ -48,7 +48,7 @@ class Home extends StatelessWidget {
           Map<String, dynamic> data = snapshot.data.data() as Map<String, dynamic>;
           return checkRole(data);
         }
-        return Scaffold(body: Center(child: LinearProgressIndicator()));
+        return Scaffold(body: Center(child: CircularProgressIndicator()));
       },
     );
   }
