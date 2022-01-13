@@ -44,7 +44,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final logo = Hero(
+    /* final logo = Hero(
       tag: 'heroicon',
       child: Icon(
         Icons.medical_services,
@@ -101,7 +101,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
         'Made with ♥ by Horizon Tech',
         style: TextStyle(fontFamily: 'Poppins'),
       ),
-    );
+    ); */
 
     /* return Scaffold(
       backgroundColor: mainAnimation.value,
