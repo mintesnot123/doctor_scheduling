@@ -64,8 +64,8 @@ class Home extends StatelessWidget {
   }
 
   Center checkRole(Map<String, dynamic> snapshot) {
-    if (snapshot['role'] == 'admin') {
-      return adminPage(snapshot);
+    if (snapshot['role'] == 'ADMIN') {
+      return MainPage();
     } else {
       return userPage(snapshot);
     }
