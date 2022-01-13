@@ -26,17 +26,34 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _getUser();
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
     return Scaffold(
-      body: StreamBuilder<DocumentSnapshot>(
-        stream: FirebaseFirestore.instance.collection('users').doc(user.uid).snapshots(),
+      body: FutureBuilder<DocumentSnapshot>(
+        future: users.doc(user.uid).get(),
         builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return Text("Something went wrong");
+          }
+
+          if (snapshot.hasData && !snapshot.data!.exists) {
+            return Text("Document does not exist");
+          }
+
+          if (snapshot.connectionState == ConnectionState.done) {
+            Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+            return Text("Full Name: ${data['full_name']} ${data['last_name']}");
+          }
+
+          return LinearProgressIndicator();
+        },
+        /* builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           } else if (snapshot.hasData) {
             return checkRole(snapshot.data);
           }
           return LinearProgressIndicator();
-        },
+        }, */
       ),
     );
   }
