@@ -71,11 +71,11 @@ class Home extends StatelessWidget {
     }
   }
 
-  Center adminPage(Map<String, dynamic> snapshot) {
+  Scaffold adminPage(Map<String, dynamic> snapshot) {
     return Scaffold(body: Center(child: Text('${snapshot['role']} ${snapshot['name']}')));
   }
 
-  Center userPage(Map<String, dynamic> snapshot) {
+  Scaffold userPage(Map<String, dynamic> snapshot) {
     return Scaffold(body: Center(child: Text('${snapshot['name']}')));
   }
 }
