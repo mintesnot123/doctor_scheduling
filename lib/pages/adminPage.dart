@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -13,6 +14,54 @@ import 'package:yismaw/pages/adminHome.dart';
 import 'package:yismaw/pages/doctorList.dart';
 import 'package:yismaw/pages/associateList.dart';
 import 'package:yismaw/pages/userProfile.dart';
+
+class Home extends StatelessWidget {
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  User user;
+
+  Future<void> _getUser() async {
+    user = _auth.currentUser;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _getUser();
+    return Scaffold(
+      body: StreamBuilder<DocumentSnapshot>(
+        stream: Firestore.instance.collection('users').document(user.uid).snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          } else if (snapshot.hasData) {
+            return checkRole(snapshot.data);
+          }
+          return LinearProgressIndicator();
+        },
+      ),
+    );
+  }
+
+  Center checkRole(DocumentSnapshot snapshot) {
+    if (snapshot.data == null) {
+      return Center(
+        child: Text('no data set in the userId document in firestore'),
+      );
+    }
+    if (snapshot.data['role'] == 'admin') {
+      return adminPage(snapshot);
+    } else {
+      return userPage(snapshot);
+    }
+  }
+
+  Center adminPage(DocumentSnapshot snapshot) {
+    return Center(child: Text('${snapshot.data['role']} ${snapshot.data['name']}'));
+  }
+
+  Center userPage(DocumentSnapshot snapshot) {
+    return Center(child: Text(snapshot.data['name']));
+  }
+}
 
 class MainPage extends StatefulWidget {
   @override

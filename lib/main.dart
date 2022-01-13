@@ -44,10 +44,10 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => user == null ? SplashPage() : MainPage(),
+          '/': (context) => user == null ? SplashPage() : Home(),
           '/login': (context) => LoginPage(),
           '/register': (context) => RegisterPage(),
-          '/home': (context) => /* user == null ? LoginPage() :  */ MainPage(),
+          '/home': (context) => /* user == null ? LoginPage() :  */ Home(),
         },
       ),
     );
