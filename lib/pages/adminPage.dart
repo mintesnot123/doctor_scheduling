@@ -71,13 +71,13 @@ class Home extends StatelessWidget {
     } */
   }
 
-  Center adminPage(DocumentSnapshot snapshot) {
+  /* Center adminPage(DocumentSnapshot snapshot) {
     return Center(child: Text('${snapshot.data['role']} ${snapshot.data['name']}'));
   }
 
   Center userPage(DocumentSnapshot snapshot) {
     return Center(child: Text(snapshot.data['name']));
-  }
+  } */
 }
 
 class MainPage extends StatefulWidget {
