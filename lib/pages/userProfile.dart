@@ -9,7 +9,8 @@ import 'package:yismaw/firebase/appointmentHistoryList.dart';
 import 'package:yismaw/pages/userSettings.dart';
 
 class UserProfile extends StatefulWidget {
-  const UserProfile({Key key}) : super(key: key);
+  final String role;
+  const UserProfile({Key key, this.role}) : super(key: key);
 
   @override
   _UserProfileState createState() => _UserProfileState();
@@ -228,9 +229,9 @@ class _UserProfileState extends State<UserProfile> {
                         ),
                       ],
                     ),
-                    Container(
+                    /* Container(
                       child: getBio(),
-                    )
+                    ) */
                   ],
                 ),
               ),
