@@ -64,8 +64,7 @@ class Home extends StatelessWidget {
   }
 
   Center checkRole(Map<String, dynamic> snapshot) {
-    
-    if (snapshot.data.['role'] == 'admin') {
+    if (snapshot['role'] == 'admin') {
       return adminPage(snapshot);
     } else {
       return userPage(snapshot);
@@ -73,11 +72,11 @@ class Home extends StatelessWidget {
   }
 
   Center adminPage(Map<String, dynamic> snapshot) {
-    return Center(child: Text('${snapshot.data['role']} ${snapshot.data['name']}'));
+    return Center(child: Text('${snapshot['role']} ${snapshot['name']}'));
   }
 
   Center userPage(Map<String, dynamic> snapshot) {
-    return Center(child: Text(snapshot.data['name']));
+    return Center(child: Text(snapshot['name']));
   }
 }
 
