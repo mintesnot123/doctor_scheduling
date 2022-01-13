@@ -27,31 +27,32 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     _getUser();
     CollectionReference users = FirebaseFirestore.instance.collection('users');
-    return Scaffold(
-      body: FutureBuilder<DocumentSnapshot>(
-        future: users.doc(user.uid).get(),
-        builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-          if (snapshot.hasError) {
-            return Center(
-              child: Text("Something went wrong"),
-            );
-          }
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc(user.uid).get(),
+      builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Scaffold(
+              body: Center(
+            child: Text("Something went wrong"),
+          ));
+        }
 
-          if (snapshot.hasData && !snapshot.data.exists) {
-            return Center(
-              child: Text("Document does not exist"),
-            );
-          }
+        if (snapshot.hasData && !snapshot.data.exists) {
+          return Scaffold(
+              body: Center(
+            child: Text("Document does not exist"),
+          ));
+        }
 
-          if (snapshot.connectionState == ConnectionState.done) {
-            Map<String, dynamic> data = snapshot.data.data() as Map<String, dynamic>;
-            return checkRole(data);
-            //return Text("Full Name: ${data['full_name']} ${data['last_name']}");
-          }
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data = snapshot.data.data() as Map<String, dynamic>;
+          return checkRole(data);
+          //return Text("Full Name: ${data['full_name']} ${data['last_name']}");
+        }
 
-          return LinearProgressIndicator();
-        },
-        /* builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        return Scaffold(body: LinearProgressIndicator());
+      },
+      /* builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           } else if (snapshot.hasData) {
@@ -59,7 +60,6 @@ class Home extends StatelessWidget {
           }
           return LinearProgressIndicator();
         }, */
-      ),
     );
   }
 
@@ -72,11 +72,11 @@ class Home extends StatelessWidget {
   }
 
   Center adminPage(Map<String, dynamic> snapshot) {
-    return Center(child: Text('${snapshot['role']} ${snapshot['name']}'));
+    return Scaffold(body: Center(child: Text('${snapshot['role']} ${snapshot['name']}')));
   }
 
   Center userPage(Map<String, dynamic> snapshot) {
-    return Center(child: Text('${snapshot['name']}'));
+    return Scaffold(body: Center(child: Text('${snapshot['name']}')));
   }
 }
 
