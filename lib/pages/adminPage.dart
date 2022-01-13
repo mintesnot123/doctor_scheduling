@@ -35,12 +35,12 @@ class Home extends StatelessWidget {
             return Text("Something went wrong");
           }
 
-          if (snapshot.hasData && !snapshot.data!.exists) {
+          if (snapshot.hasData && snapshot.data && !snapshot.data.exists) {
             return Text("Document does not exist");
           }
 
           if (snapshot.connectionState == ConnectionState.done) {
-            Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+            Map<String, dynamic> data = snapshot.data.data() as Map<String, dynamic>;
             return Text("Full Name: ${data['full_name']} ${data['last_name']}");
           }
 
