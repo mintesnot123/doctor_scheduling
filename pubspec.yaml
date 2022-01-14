@@ -40,6 +40,7 @@ dependencies:
   hexcolor: ^2.0.4
   url_launcher: ^6.0.2
   google_fonts:
+  font_awesome_flutter:
 
 dev_dependencies:
   flutter_test:
