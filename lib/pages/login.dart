@@ -221,8 +221,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final node = FocusScope.of(context);
 
-    emailController.addListener(onChange);
-    passwordController.addListener(onChange);
     return ModalProgressHUD(
         inAsyncCall: loggingin,
         child: Scaffold(
@@ -263,10 +261,10 @@ class _LoginPageState extends State<LoginPage> {
                                         return null;
                                       },
                                       keyboardType: TextInputType.emailAddress,
-                                      autofocus: false,
+                                      //autofocus: false,
                                       controller: emailController,
-                                      textInputAction: TextInputAction.next,
-                                      onEditingComplete: () => node.nextFocus(),
+                                      //textInputAction: TextInputAction.next,
+                                      //onEditingComplete: () => node.nextFocus(),
                                       obscureText: false,
                                     ),
                                     decoration: ThemeHelper().inputBoxDecorationShaddow(),
@@ -284,11 +282,11 @@ class _LoginPageState extends State<LoginPage> {
                                         return null;
                                       },
                                       controller: passwordController,
-                                      textInputAction: TextInputAction.done,
-                                      onEditingComplete: () {},
-                                      onFieldSubmitted: (v) {
+                                      //textInputAction: TextInputAction.done,
+                                      //onEditingComplete: () {},
+                                      /* onFieldSubmitted: (v) {
                                         FocusScope.of(context).requestFocus(node);
-                                      },
+                                      }, */
                                       decoration: ThemeHelper().textInputDecoration('Password', 'Enter your password'),
                                     ),
                                     decoration: ThemeHelper().inputBoxDecorationShaddow(),
