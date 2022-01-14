@@ -253,12 +253,24 @@ class _LoginPageState extends State<LoginPage> {
                               Container(
                                 child: TextFormField(
                                   decoration: ThemeHelper().textInputDecoration('User Name', 'Enter your user name'),
+                                  validator: (value) {
+                                    if (value.isEmpty || !value.contains('@')) {
+                                      return 'Please enter a valid email.';
+                                    }
+                                    return null;
+                                  },
+                                  keyboardType: keyboard,
+                                  autofocus: false,
+                                  controller: emailController,
+                                  textInputAction: TextInputAction.next,
+                                  onEditingComplete: () => node.nextFocus(),
+                                  obscureText: false,
                                 ),
                                 decoration: ThemeHelper().inputBoxDecorationShaddow(),
                               ),
                               SizedBox(height: 30.0),
                               Container(
-                                child: TextField(
+                                child: TextFormField(
                                   obscureText: true,
                                   decoration: ThemeHelper().textInputDecoration('Password', 'Enter your password'),
                                 ),
