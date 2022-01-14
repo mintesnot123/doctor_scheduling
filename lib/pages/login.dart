@@ -4,6 +4,7 @@ import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:edge_alert/edge_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:yismaw/pages/adminPage.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -272,6 +273,20 @@ class _LoginPageState extends State<LoginPage> {
                               Container(
                                 child: TextFormField(
                                   obscureText: true,
+                                  validator: (value) {
+                                    if (value.isEmpty) {
+                                      return 'Please enter a password.';
+                                    } else if (value.length < 8) {
+                                      return 'Password must be atleast 8 char.';
+                                    }
+                                    return null;
+                                  },
+                                  controller: passwordController,
+                                  textInputAction: TextInputAction.done,
+                                  onEditingComplete: () {},
+                                  onFieldSubmitted: (v) {
+                                    FocusScope.of(context).requestFocus(node);
+                                  },
                                   decoration: ThemeHelper().textInputDecoration('Password', 'Enter your password'),
                                 ),
                                 decoration: ThemeHelper().inputBoxDecorationShaddow(),
@@ -303,9 +318,26 @@ class _LoginPageState extends State<LoginPage> {
                                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
                                     ),
                                   ),
-                                  onPressed: () {
-                                    //After successful login we will redirect to profile page. Let's create profile page now
-                                    /* Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfilePage())); */
+                                  onPressed: () async {
+                                    if (_formKey.currentState.validate()) {
+                                      setState(() {
+                                        loggingin = true;
+                                      });
+                                      try {
+                                        UserCredential userCredential = await _firebaseAuth.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+                                        setState(() {
+                                          loggingin = false;
+                                        });
+                                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()))
+                            
+                                      } on FirebaseAuthException catch (e) {
+                                        processError(e);
+                                        setState(() {
+                                          loggingin = false;
+                                        });
+                                        EdgeAlert.show(context, title: 'Login Failed', description: e.toString(), gravity: EdgeAlert.BOTTOM, icon: Icons.error, backgroundColor: Colors.deepPurple[900]);
+                                      }
+                                    }
                                   },
                                 ),
                               ),
