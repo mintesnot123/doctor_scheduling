@@ -16,10 +16,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // Create a global key that will uniquely identify the Form widget and allow
-  // us to validate the form
-  //
-  // Note: This is a GlobalKey<FormState>, not a GlobalKey<MyCustomFormState>!
   double _headerHeight = 250;
   final _formKey = GlobalKey<FormState>();
 
@@ -222,6 +218,10 @@ class _LoginPageState extends State<LoginPage> {
   } */
   @override
   Widget build(BuildContext context) {
+    final node = FocusScope.of(context);
+
+    emailController.addListener(onChange);
+    passwordController.addListener(onChange);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -251,7 +251,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Column(
                             children: [
                               Container(
-                                child: TextField(
+                                child: TextFormField(
                                   decoration: ThemeHelper().textInputDecoration('User Name', 'Enter your user name'),
                                 ),
                                 decoration: ThemeHelper().inputBoxDecorationShaddow(),
