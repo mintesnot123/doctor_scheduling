@@ -259,7 +259,7 @@ class _LoginPageState extends State<LoginPage> {
                                     }
                                     return null;
                                   },
-                                  keyboardType: keyboard,
+                                  keyboardType: TextInputType.emailAddress,
                                   autofocus: false,
                                   controller: emailController,
                                   textInputAction: TextInputAction.next,
