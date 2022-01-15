@@ -109,9 +109,6 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                                 obscureText: false,
                                 keyboardType: TextInputType.text,
                                 validator: (value) {
-                                  /*if (value.isEmpty) {
-                                    return 'Please enter your name.';
-                                  }*/
                                   return null;
                                 },
                                 controller: nameController,
@@ -174,7 +171,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                                 child: Padding(
                                   padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
                                   child: Text(
-                                    "Create Account".toUpperCase(),
+                                    "Registor".toUpperCase(),
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -241,7 +238,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
 
         if (type == "doctor") {
         } else {}
-
+        // todo back to doctors list
         //Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Home()), (Route<dynamic> route) => false);
         setState(() {
           signingup = false;
