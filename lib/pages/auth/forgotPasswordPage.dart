@@ -173,7 +173,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         MaterialPageRoute(builder: (context) => ForgotPasswordVerificationPage()),
       );
       setState(() {
-        sendingResetEmail = true;
+        sendingResetEmail = false;
       });
     } on FirebaseAuthException catch (e) {
       /* print(e.code);
@@ -189,7 +189,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         },
       );
       setState(() {
-        sendingResetEmail = true;
+        sendingResetEmail = false;
       });
     }
   }
