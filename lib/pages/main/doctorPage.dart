@@ -9,6 +9,7 @@ import 'package:yismaw/pages/auth/forgotPasswordVerificationPage.dart';
 import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/main/dashboard.dart';
+import 'package:yismaw/pages/main/dashboard2.dart';
 
 class ContainerPage extends StatefulWidget {
   @override
@@ -220,7 +221,7 @@ class _ContainerPageState extends State<ContainerPage> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
+      body: /* SingleChildScrollView(
         child: Stack(
           children: [
             Container(
@@ -335,7 +336,8 @@ class _ContainerPageState extends State<ContainerPage> {
             )
           ],
         ),
-      ),
+      ), */
+          DashboardPage(),
     );
   }
 }
