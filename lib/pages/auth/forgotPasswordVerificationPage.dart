@@ -59,11 +59,10 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                                   TextSpan(
                                     text: "We have send reset password link to your email. please",
                                     style: TextStyle(
-                                          // fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black54),
-                                      // textAlign: TextAlign.center,
-                                    ),
+                                        // fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black54),
+                                    // textAlign: TextAlign.center,
                                   ),
                                   TextSpan(
                                     text: 'Login',
@@ -79,11 +78,10 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                                   TextSpan(
                                     text: "to your account.",
                                     style: TextStyle(
-                                          // fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black54),
-                                      // textAlign: TextAlign.center,
-                                    ),
+                                        // fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black54),
+                                    // textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),
