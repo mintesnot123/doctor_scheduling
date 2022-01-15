@@ -361,9 +361,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              // Add your onPressed code here!
-            },
+            onPressed: () {},
             backgroundColor: Colors.blue.withOpacity(0.7),
             child: const Icon(Icons.add),
           ),
