@@ -257,7 +257,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                   //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                   children: [
                                                     CircleAvatar(
-                                                      backgroundImage: NetworkImage(doctor['image']),
+                                                      backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
                                                       //backgroundColor: Colors.blue,
                                                       radius: 25,
                                                     ),
