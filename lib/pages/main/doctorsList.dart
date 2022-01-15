@@ -256,11 +256,42 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                   crossAxisAlignment: CrossAxisAlignment.center,
                                                   //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                   children: [
-                                                    CircleAvatar(
+                                                    Flexible(
+                                                      flex: 1,
+                                                      child: Stack(
+                                                        children: <Widget>[
+                                                          ClipRRect(
+                                                            borderRadius: BorderRadius.circular(15.0),
+                                                            child: Image.network(
+                                                              "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_960_720.jpg",
+                                                            ),
+                                                          ),
+                                                          Positioned(
+                                                            bottom: 0,
+                                                            right: 0,
+                                                            child: Container(
+                                                              width: 15.0,
+                                                              height: 15.0,
+                                                              decoration: BoxDecoration(
+                                                                color: Color.blue,
+                                                                shape: BoxShape.circle,
+                                                              ),
+                                                              child: FittedBox(
+                                                                child: Icon(
+                                                                  Icons.notifications,
+                                                                  color: Colors.white,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    /* CircleAvatar(
                                                       backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
                                                       //backgroundColor: Colors.blue,
                                                       radius: 25,
-                                                    ),
+                                                    ), */
                                                     SizedBox(
                                                       width: 20,
                                                     ),
