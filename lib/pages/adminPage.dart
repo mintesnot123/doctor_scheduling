@@ -55,7 +55,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _getUser(BuildContext context);
+    _getUser(context);
     
     CollectionReference users = FirebaseFirestore.instance.collection('users');
     return FutureBuilder<DocumentSnapshot>(
