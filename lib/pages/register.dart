@@ -147,7 +147,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 decoration: ThemeHelper().textInputDecoration("E-mail address", "Enter your email"),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: (val) {
-                                  if (!(val!.isEmpty) && !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$").hasMatch(val)) {
+                                  if (!(val.isEmpty) && !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$").hasMatch(val)) {
                                     return "Enter a valid email address";
                                   }
                                   return null;
