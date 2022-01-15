@@ -264,25 +264,27 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                             backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
                                                             radius: 30,
                                                           ),
-                                                          Positioned(
-                                                            bottom: 0,
-                                                            right: 0,
-                                                            child: Container(
-                                                              width: 15.0,
-                                                              height: 15.0,
-                                                              decoration: BoxDecoration(
-                                                                color: Colors.white,
-                                                                shape: BoxShape.circle,
-                                                              ),
-                                                              child: FittedBox(
-                                                                child: Icon(
-                                                                  Icons.check,
-                                                                  color: Colors.red[900],
-                                                                  size: 400,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          )
+                                                          (doctor['approved'] == "")
+                                                              ? Positioned(
+                                                                  bottom: 0,
+                                                                  right: 0,
+                                                                  child: Container(
+                                                                    width: 15.0,
+                                                                    height: 15.0,
+                                                                    decoration: BoxDecoration(
+                                                                      color: Colors.white,
+                                                                      shape: BoxShape.circle,
+                                                                    ),
+                                                                    child: FittedBox(
+                                                                      child: Icon(
+                                                                        Icons.check,
+                                                                        color: Colors.red[900],
+                                                                        size: 24,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                )
+                                                              : Container()
                                                         ],
                                                       ),
                                                     ),
