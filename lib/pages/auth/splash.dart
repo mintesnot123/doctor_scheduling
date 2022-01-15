@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:yismaw/widgets/custombutton.dart';
-import 'package:yismaw/pages/register.dart';
-import 'package:yismaw/pages/login.dart';
+import 'package:yismaw/pages/auth/register.dart';
+import 'package:yismaw/pages/auth/login.dart';
 
 class SplashPage extends StatefulWidget {
   @override

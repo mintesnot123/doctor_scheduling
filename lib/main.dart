@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-import 'package:yismaw/pages/splash.dart';
-import 'package:yismaw/pages/login.dart';
-import 'package:yismaw/pages/register.dart';
+import 'package:yismaw/pages/auth/splash.dart';
+import 'package:yismaw/pages/auth/login.dart';
+import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/adminPage.dart';
 
 void main() async {

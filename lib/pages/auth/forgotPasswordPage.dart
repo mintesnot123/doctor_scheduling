@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:yismaw/common/theme_helper.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
-import 'forgotPasswordVerificationPage.dart';
-import 'package:yismaw/widgets/header_widget.dart';
-import 'package:yismaw/pages/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'package:yismaw/common/theme_helper.dart';
+import 'package:yismaw/widgets/header_widget.dart';
+import 'package:yismaw/pages/auth/forgotPasswordVerificationPage.dart';
+import 'package:yismaw/pages/auth/login.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key key}) : super(key: key);
@@ -21,8 +22,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final _formKey = GlobalKey<FormState>();
 
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
   final TextEditingController emailController = new TextEditingController();
 
   bool sendingResetEmail = false;
@@ -63,18 +62,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                 Text(
                                   'Forgot Password?',
                                   style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.black54),
-                                  // textAlign: TextAlign.center,
                                 ),
                                 SizedBox(
                                   height: 10,
                                 ),
                                 Text(
                                   'Enter the email address associated with your account.',
-                                  style: TextStyle(
-                                      // fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black54),
-                                  // textAlign: TextAlign.center,
+                                  style: TextStyle(Weight.bold, color: Colors.black54),
                                 ),
                                 SizedBox(
                                   height: 10,
@@ -83,9 +77,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                   'We will email you a verification code to check your authenticity.',
                                   style: TextStyle(
                                     color: Colors.black38,
-                                    // fontSize: 20,
                                   ),
-                                  // textAlign: TextAlign.center,
                                 ),
                               ],
                             ),
@@ -186,10 +178,16 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     } on FirebaseAuthException catch (e) {
       /* print(e.code);
       print(e.message); */
-      final snackBar = SnackBar(
+      /* final snackBar = SnackBar(
         content: Text(e.message),
       );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      ScaffoldMessenger.of(context).showSnackBar(snackBar); */
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return ThemeHelper().alartDialog("Error", e.message, context);
+        },
+      );
       setState(() {
         sendingResetEmail = true;
       });

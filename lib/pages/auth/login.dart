@@ -1,16 +1,16 @@
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-import 'package:edge_alert/edge_alert.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:yismaw/pages/adminPage.dart';
-import 'package:yismaw/pages/adminPage.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/widgets/header_widget.dart';
-import 'package:yismaw/pages/register.dart';
+import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
+import 'package:yismaw/pages/auth/emailVerificationPage.dart';
+import 'package:yismaw/pages/adminPage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -24,8 +24,6 @@ class _LoginPageState extends State<LoginPage> {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
-
-  String _errorMessage = '';
 
   bool loggingin = false;
 
@@ -135,22 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                                       ),
                                       onPressed: () async {
                                         if (_formKey.currentState.validate()) {
-                                          setState(() {
-                                            loggingin = true;
-                                          });
-                                          try {
-                                            UserCredential userCredential = await _firebaseAuth.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
-                                            setState(() {
-                                              loggingin = false;
-                                            });
-                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
-                                          } on FirebaseAuthException catch (e) {
-                                            processError(e);
-                                            setState(() {
-                                              loggingin = false;
-                                            });
-                                            EdgeAlert.show(context, title: 'Login Failed', description: e.toString(), gravity: EdgeAlert.BOTTOM, icon: Icons.error, backgroundColor: Colors.deepPurple[900]);
-                                          }
+                                          _signIn();
                                         }
                                       },
                                     ),
@@ -181,19 +164,70 @@ class _LoginPageState extends State<LoginPage> {
         ));
   }
 
-  void processError(final FirebaseAuthException error) {
-    if (error.code == "user-not-found") {
+  void _signIn() async {
+    User user;
+    UserCredential credential;
+
+    setState(() {
+      loggingin = true;
+    });
+
+    try {
+      credential = await _firebaseAuth.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+    } catch (error) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return ThemeHelper().alartDialog("Error", processError(error), context);
+        },
+      );
       setState(() {
-        _errorMessage = "Unable to find user. Please register.";
-      });
-    } else if (error.code == "wrong-password") {
-      setState(() {
-        _errorMessage = "Incorrect password.";
-      });
-    } else {
-      setState(() {
-        _errorMessage = "There was an error logging in. Please try again later.";
+        loggingin = false;
       });
     }
+    user = credential.user;
+
+    if (user != null) {
+      if (!user.emailVerified) {
+        try {
+          await user.sendEmailVerification();
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => EmailVerificationPage(user: user)),
+          );
+        } catch (error) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return ThemeHelper().alartDialog("Error", error.message, context);
+            },
+          );
+          setState(() {
+            loggingin = false;
+          });
+        }
+      } else {
+        setState(() {
+          loggingin = false;
+        });
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
+      }
+    } else {
+      setState(() {
+        loggingin = false;
+      });
+    }
+  }
+
+  String processError(final dynamic error) {
+    String messageVar = "";
+    if (error.code == "user-not-found") {
+      messageVar = "Unable to find user. Please register.";
+    } else if (error.code == "wrong-password") {
+      messageVar = "Incorrect password.";
+    } else {
+      messageVar = "There was an error logging in. Please try again later.";
+    }
+    return messageVar;
   }
 }

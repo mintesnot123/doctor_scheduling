@@ -5,14 +5,15 @@ import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/widgets/header_widget.dart';
 import 'package:yismaw/pages/auth/login.dart';
 
-class ForgotPasswordVerificationPage extends StatefulWidget {
-  const ForgotPasswordVerificationPage({Key key}) : super(key: key);
+class EmailVerificationPage extends StatefulWidget {
+  final user;
+  const EmailVerificationPage({Key key, this.user}) : super(key: key);
 
   @override
-  _ForgotPasswordVerificationPageState createState() => _ForgotPasswordVerificationPageState();
+  _EmailVerificationPageState createState() => _EmailVerificationPageState();
 }
 
-class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificationPage> {
+class _EmailVerificationPageState extends State<EmailVerificationPage> {
   @override
   Widget build(BuildContext context) {
     double _headerHeight = 300;
@@ -40,9 +41,8 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Verification',
+                              'Email Verification',
                               style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.black54),
-                              // textAlign: TextAlign.center,
                             ),
                             SizedBox(
                               height: 10,
@@ -51,12 +51,8 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                               TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: "We have send reset password link to your email. please ",
-                                    style: TextStyle(
-                                        // fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black54),
-                                    // textAlign: TextAlign.center,
+                                    text: "We have send email verification link to your email. please ",
+                                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
                                   ),
                                   TextSpan(
                                     text: 'Login',
@@ -74,11 +70,7 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                                   ),
                                   TextSpan(
                                     text: " to your account.",
-                                    style: TextStyle(
-                                        // fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black54),
-                                    // textAlign: TextAlign.center,
+                                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
                                   ),
                                 ],
                               ),
@@ -91,7 +83,7 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                         TextSpan(
                           children: [
                             TextSpan(
-                              text: "If you didn't receive a code! ",
+                              text: "If you didn't receive an email! ",
                               style: TextStyle(
                                 color: Colors.black38,
                               ),
@@ -100,12 +92,22 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                               text: 'Resend',
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                  showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return ThemeHelper().alartDialog("Successful", "Verification code resend successful.", context);
-                                    },
-                                  );
+                                  try {
+                                    await widget.user.sendEmailVerification();
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return ThemeHelper().alartDialog("Successful", "Verification code resend successful.", context);
+                                      },
+                                    );
+                                  } catch (error) {
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return ThemeHelper().alartDialog("Error", error.message, context);
+                                      },
+                                    );
+                                  }
                                 },
                               style: TextStyle(fontWeight: FontWeight.bold, color: Colors.orange),
                             ),

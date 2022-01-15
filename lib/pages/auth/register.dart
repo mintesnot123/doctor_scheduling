@@ -1,19 +1,18 @@
-import 'package:yismaw/widgets/customtextinput.dart';
-import 'package:yismaw/widgets/custombutton.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-import 'package:edge_alert/edge_alert.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:yismaw/pages/login.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:yismaw/pages/adminPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'package:yismaw/pages/auth/login.dart';
+import 'package:yismaw/pages/auth/emailVerificationPage.dart';
+import 'package:yismaw/pages/adminPage.dart';
 import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/widgets/header_widget.dart';
-import 'package:yismaw/pages/login.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -36,14 +35,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final FocusNode _phoneFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
 
-  String _errorMessage = '';
-
-  void processError(final FirebaseAuthException error) {
-    setState(() {
-      _errorMessage = error.message;
-    });
-  }
-
   bool signingup = false;
 
   @override
@@ -57,6 +48,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
   bool checkedValue = false;
   bool checkboxValue = false;
+
+  String type = "doctor";
 
   @override
   Widget build(BuildContext context) {
@@ -270,7 +263,6 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             Container(
                               margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
-                              //child: Text('Don\'t have an account? Create'),
                               child: Text.rich(TextSpan(children: [
                                 TextSpan(text: "Already have an account? "),
                                 TextSpan(
@@ -382,7 +374,12 @@ class _RegisterPageState extends State<RegisterPage> {
     try {
       credential = await _firebaseAuth.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text);
     } catch (error) {
-      processError(error);
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return ThemeHelper().alartDialog("Error", error.message, context);
+        },
+      );
       setState(() {
         signingup = false;
       });
@@ -391,34 +388,60 @@ class _RegisterPageState extends State<RegisterPage> {
 
     if (user != null) {
       if (!user.emailVerified) {
-        await user.sendEmailVerification();
+        try {
+          await user.sendEmailVerification();
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => EmailVerificationPage(user: user)),
+          );
+        } catch (error) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return ThemeHelper().alartDialog("Error", error.message, context);
+            },
+          );
+          setState(() {
+            signingup = false;
+          });
+        }
+      } else {
+        try {
+          await user.updateProfile(displayName: nameController.text);
+
+          await _firestore.collection('users').doc(user.uid).set({
+            'name': nameController.text,
+            'email': emailController.text,
+            'phone': phoneController.text,
+            'role': type == "doctor" ? "DOCTOR" : "ASSOCIATE",
+            'approved': 'ONPROGRESS',
+            'birthDate': null,
+            'bio': null,
+            'city': null,
+          }, SetOptions(merge: true));
+
+          if (type == "doctor") {
+          } else {}
+          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Home()), (Route<dynamic> route) => false);
+          setState(() {
+            signingup = false;
+          });
+        } catch (error) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return ThemeHelper().alartDialog("Error", error.message, context);
+            },
+          );
+          setState(() {
+            signingup = false;
+          });
+        }
       }
-      await user.updateProfile(displayName: nameController.text);
-
-      _firestore.collection('users').doc(user.uid).set({
-        'name': nameController.text,
-        'birthDate': null,
-        'email': emailController.text,
-        'phone': null,
-        'bio': null,
-        'city': null,
-      }, SetOptions(merge: true));
-
-      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Home()), (Route<dynamic> route) => false);
-      /*  Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false); */
-      setState(() {
-        signingup = false;
-      });
     } else {
       setState(() {
         signingup = false;
       });
     }
-  }
-
-  void _pushPage(BuildContext context, Widget page) {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => page),
-    );
   }
 }
