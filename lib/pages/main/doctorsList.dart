@@ -191,7 +191,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                           height: 30,
                         ),
                         StreamBuilder(
-                          stream: FirebaseFirestore.instance.collection('doctors').orderBy('name').snapshots(),
+                          stream: FirebaseFirestore.instance.collection('users').orderBy('name').snapshots(),
                           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                             if (!snapshot.hasData)
                               return Center(
