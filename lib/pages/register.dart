@@ -10,6 +10,9 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:yismaw/pages/adminPage.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
+import 'package:yismaw/common/theme_helper.dart';
+import 'package:yismaw/widgets/header_widget.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
