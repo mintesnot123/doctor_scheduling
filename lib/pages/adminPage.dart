@@ -31,24 +31,10 @@ class Home extends StatelessWidget {
         MaterialPageRoute(builder: (context) => SplashPage()),
       );
     } else if (!user.emailVerified) {
-      try {
-        await user.sendEmailVerification();
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => EmailVerificationPage(user: user)),
-        );
-      } catch (error) {
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return ThemeHelper().alartDialog("Error", error.message, context);
-          },
-        );
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => SplashPage()),
-        );
-      }
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => EmailVerificationPage(user: user)),
+      );
     }
   }
 
