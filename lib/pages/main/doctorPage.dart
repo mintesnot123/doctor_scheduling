@@ -10,6 +10,7 @@ import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/main/dashboard.dart';
 import 'package:yismaw/pages/main/dashboard2.dart';
+import 'package:yismaw/pages/main/doctorsList.dart';
 
 class ContainerPage extends StatefulWidget {
   @override
@@ -337,7 +338,7 @@ class _ContainerPageState extends State<ContainerPage> {
           ],
         ),
       ), */
-          DashboardPage(),
+          DoctorsListPage(),
     );
   }
 }
