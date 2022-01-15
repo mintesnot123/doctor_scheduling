@@ -256,16 +256,16 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                   crossAxisAlignment: CrossAxisAlignment.center,
                                                   //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                   children: [
-                                                    Flexible(
-                                                      flex: 1,
-                                                      child: Stack(
-                                                        children: <Widget>[
-                                                          CircleAvatar(
-                                                            backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
-                                                            radius: 30,
-                                                          ),
-                                                          (doctor['approved'] == "")
-                                                              ? Positioned(
+                                                    (doctor['approved'] == "")
+                                                        ? Flexible(
+                                                            flex: 1,
+                                                            child: Stack(
+                                                              children: <Widget>[
+                                                                CircleAvatar(
+                                                                  backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                                                  radius: 30,
+                                                                ),
+                                                                Positioned(
                                                                   bottom: 0,
                                                                   right: 0,
                                                                   child: Container(
@@ -284,15 +284,14 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                                     ),
                                                                   ),
                                                                 )
-                                                              : Container()
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    /* CircleAvatar(
-                                                      backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
-                                                      //backgroundColor: Colors.blue,
-                                                      radius: 25,
-                                                    ), */
+                                                              ],
+                                                            ),
+                                                          )
+                                                        : CircleAvatar(
+                                                            backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                                            //backgroundColor: Colors.blue,
+                                                            radius: 30,
+                                                          ),
                                                     SizedBox(
                                                       width: 20,
                                                     ),
