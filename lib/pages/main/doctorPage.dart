@@ -191,7 +191,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ForgotPasswordVerificationPage()),
+                    MaterialPageRoute(builder: (context) => MyAppA()),
                   );
                 },
               ),
