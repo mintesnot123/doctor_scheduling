@@ -25,11 +25,6 @@ class Home extends StatelessWidget {
 
   Future<void> _getUser() async {
     user = _auth.currentUser;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    _getUser();
     if (user == null) {
       Navigator.pushReplacement(
         context,
@@ -55,6 +50,13 @@ class Home extends StatelessWidget {
         );
       }
     }
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    _getUser();
+    
     CollectionReference users = FirebaseFirestore.instance.collection('users');
     return FutureBuilder<DocumentSnapshot>(
       future: users.doc(user.uid).get(),
