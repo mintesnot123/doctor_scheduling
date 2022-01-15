@@ -6,6 +6,7 @@ import 'package:yismaw/common/theme_helper.dart';
 
 //import 'profile_page.dart';
 import 'package:yismaw/widgets/header_widget.dart';
+import 'package:yismaw/pages/login.dart';
 
 class ForgotPasswordVerificationPage extends StatefulWidget {
   const ForgotPasswordVerificationPage({Key key}) : super(key: key);
@@ -51,6 +52,41 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                             ),
                             SizedBox(
                               height: 10,
+                            ),
+                            Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: "We have send reset password link to your email. please",
+                                    style: TextStyle(
+                                          // fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black54),
+                                      // textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'Login',
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => LoginPage()),
+                                        );
+                                      },
+                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  TextSpan(
+                                    text: "to your account.",
+                                    style: TextStyle(
+                                          // fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black54),
+                                      // textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             Text(
                               'We have send reset password link to your email.',
