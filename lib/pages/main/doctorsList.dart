@@ -275,13 +275,13 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                                 color: Colors.white,
                                                                 shape: BoxShape.circle,
                                                               ),
-                                                              /* child: FittedBox( */
-                                                              child: Icon(
-                                                                Icons.check,
-                                                                color: Colors.blue[900],
-                                                                size: 400,
+                                                              child: FittedBox(
+                                                                child: Icon(
+                                                                  Icons.check,
+                                                                  color: Colors.blue[900],
+                                                                  size: 400,
+                                                                ),
                                                               ),
-                                                              /* ), */
                                                             ),
                                                           )
                                                         ],
