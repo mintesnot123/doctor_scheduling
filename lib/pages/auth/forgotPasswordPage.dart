@@ -173,9 +173,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: emailController.text);
       final snackBar = SnackBar(
-        content: Text(
-          text: 'password reset email sent!',
-        ),
+        content: Text('password reset email sent!'),
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       Navigator.pushReplacement(
@@ -189,9 +187,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       /* print(e.code);
       print(e.message); */
       final snackBar = SnackBar(
-        content: Text(
-          text: e.message,
-        ),
+        content: Text(e.message),
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       setState(() {
