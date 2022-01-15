@@ -256,7 +256,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 child: Padding(
                                   padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
                                   child: Text(
-                                    "Register".toUpperCase(),
+                                    "Register as a doctor".toUpperCase(),
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
