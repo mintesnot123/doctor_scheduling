@@ -79,7 +79,6 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                         SizedBox(
                           height: 20,
                         ),
-                        
                       ],
                     ),
                   ),
