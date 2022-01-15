@@ -57,7 +57,7 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                               TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: "We have send reset password link to your email. please",
+                                    text: "We have send reset password link to your email. please ",
                                     style: TextStyle(
                                         // fontSize: 20,
                                         fontWeight: FontWeight.bold,
@@ -73,10 +73,13 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                                           MaterialPageRoute(builder: (context) => LoginPage()),
                                         );
                                       },
-                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Theme.of(context).accentColor,
+                                    ),
                                   ),
                                   TextSpan(
-                                    text: "to your account.",
+                                    text: " to your account.",
                                     style: TextStyle(
                                         // fontSize: 20,
                                         fontWeight: FontWeight.bold,
@@ -85,14 +88,6 @@ class _ForgotPasswordVerificationPageState extends State<ForgotPasswordVerificat
                                   ),
                                 ],
                               ),
-                            ),
-                            Text(
-                              'We have send reset password link to your email.',
-                              style: TextStyle(
-                                  // fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black54),
-                              // textAlign: TextAlign.center,
                             ),
                           ],
                         ),
