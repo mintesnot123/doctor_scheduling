@@ -13,6 +13,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/widgets/header_widget.dart';
+import 'package:yismaw/pages/login.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -28,9 +29,11 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController nameController = new TextEditingController();
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
+  final TextEditingController phoneController = new TextEditingController();
 
   final FocusNode _nameFocus = FocusNode();
   final FocusNode _emailFocus = FocusNode();
+  final FocusNode _phoneFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
 
   String _errorMessage = '';
@@ -47,6 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
   void dispose() {
     nameController.dispose();
     emailController.dispose();
+    phoneController.dispose();
     passwordController.dispose();
     super.dispose();
   }
@@ -136,15 +140,8 @@ class _RegisterPageState extends State<RegisterPage> {
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
                             ),
                             SizedBox(
-                              height: 30,
+                              height: 20,
                             ),
-                            Container(
-                              child: TextFormField(
-                                decoration: ThemeHelper().textInputDecoration('Last Name', 'Enter your last name'),
-                              ),
-                              decoration: ThemeHelper().inputBoxDecorationShaddow(),
-                            ),
-                            SizedBox(height: 20.0),
                             Container(
                               child: TextFormField(
                                 decoration: ThemeHelper().textInputDecoration("E-mail address", "Enter your email"),
@@ -156,18 +153,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                   return null;
                                 },
                                 obscureText: false,
-
-                                /* validator: (value) {
-                              if (value.isEmpty || !value.contains('@')) {
-                                return 'Please enter a valid email.';
-                              }
-                              return null;
-                            }, */
                                 controller: emailController,
                                 textInputAction: TextInputAction.next,
                                 focusNode: _emailFocus,
                                 onFieldSubmitted: (term) {
-                                  FocusScope.of(context).requestFocus(_passwordFocus);
+                                  FocusScope.of(context).requestFocus(_phoneFocus);
                                 },
                                 onEditingComplete: () {},
                               ),
@@ -183,6 +173,13 @@ class _RegisterPageState extends State<RegisterPage> {
                                     return "Enter a valid phone number";
                                   }
                                   return null;
+                                },
+                                obscureText: false,
+                                controller: phoneController,
+                                textInputAction: TextInputAction.next,
+                                focusNode: _phoneFocus,
+                                onFieldSubmitted: (term) {
+                                  FocusScope.of(context).requestFocus(_passwordFocus);
                                 },
                               ),
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
@@ -272,7 +269,22 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                             ),
                             SizedBox(height: 30.0),
-                            Text(
+                            Container(
+                              margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                              //child: Text('Don\'t have an account? Create'),
+                              child: Text.rich(TextSpan(children: [
+                                TextSpan(text: "Already have an account? "),
+                                TextSpan(
+                                  text: 'Login',
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                                    },
+                                  style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).accentColor),
+                                ),
+                              ])),
+                            ),
+                            /* Text(
                               "Or create account using social media",
                               style: TextStyle(color: Colors.grey),
                             ),
@@ -346,7 +358,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   },
                                 ),
                               ],
-                            ),
+                            ), */
                           ],
                         ),
                       ),
