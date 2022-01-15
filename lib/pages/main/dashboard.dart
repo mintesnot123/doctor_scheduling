@@ -5,12 +5,12 @@ enum TransactionType { sent, received, pending }
 
 //void main() => runApp(MyApp());
 
-/* class MyAppA extends StatelessWidget {
+class MyAppA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
+      /* theme: ThemeData(
         primaryColor: Color(0xff2931a5),
         textTheme: TextTheme(
           title: TextStyle(
@@ -19,11 +19,11 @@ enum TransactionType { sent, received, pending }
             fontWeight: FontWeight.bold,
           ),
         ),
-      ),
+      ), */
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
-} */
+}
 
 class MyHomePage extends StatelessWidget {
   final String title;
