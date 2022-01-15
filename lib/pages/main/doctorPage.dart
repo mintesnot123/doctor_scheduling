@@ -8,6 +8,7 @@ import 'package:yismaw/widgets/header_widget.dart';
 import 'package:yismaw/pages/auth/forgotPasswordVerificationPage.dart';
 import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 import 'package:yismaw/pages/auth/register.dart';
+import 'package:yismaw/pages/main/dashboard.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
