@@ -3,11 +3,13 @@ import 'package:edge_alert/edge_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yismaw/pages/adminPage.dart';
+import 'package:yismaw/pages/adminPage.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/widgets/header_widget.dart';
+import 'package:yismaw/pages/register.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -158,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                                         text: 'Create',
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
-                                            /* Navigator.push(context, MaterialPageRoute(builder: (context) => RegistrationPage())); */
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterPage()));
                                           },
                                         style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).accentColor),
                                       ),
