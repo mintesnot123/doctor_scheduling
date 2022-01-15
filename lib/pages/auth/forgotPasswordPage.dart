@@ -68,7 +68,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                 ),
                                 Text(
                                   'Enter the email address associated with your account.',
-                                  style: TextStyle(Weight.bold, color: Colors.black54),
+                                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
                                 ),
                                 SizedBox(
                                   height: 10,
