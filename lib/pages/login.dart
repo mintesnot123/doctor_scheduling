@@ -10,6 +10,7 @@ import 'package:flutter/gestures.dart';
 import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/widgets/header_widget.dart';
 import 'package:yismaw/pages/register.dart';
+import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -108,7 +109,10 @@ class _LoginPageState extends State<LoginPage> {
                                     alignment: Alignment.topRight,
                                     child: GestureDetector(
                                       onTap: () {
-                                        /* Navigator.push( context, MaterialPageRoute( builder: (context) => ForgotPasswordPage()), ); */
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => ForgotPasswordPage()),
+                                        );
                                       },
                                       child: Text(
                                         "Forgot your password?",
