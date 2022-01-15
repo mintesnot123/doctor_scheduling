@@ -262,8 +262,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                         children: <Widget>[
                                                           CircleAvatar(
                                                             backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
-                                                            //backgroundColor: Colors.blue,
-                                                            radius: 25,
+                                                            radius: 30,
                                                           ),
                                                           Positioned(
                                                             bottom: 0,
