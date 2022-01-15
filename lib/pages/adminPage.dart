@@ -8,12 +8,15 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 import 'package:quick_actions/quick_actions.dart';
+import 'package:flutter/gestures.dart';
 
 import 'package:yismaw/firebase/searchList.dart';
 import 'package:yismaw/pages/adminHome.dart';
 import 'package:yismaw/pages/doctorList.dart';
 import 'package:yismaw/pages/associateList.dart';
 import 'package:yismaw/pages/userProfile.dart';
+import 'package:yismaw/pages/auth/splash.dart';
+import 'package:yismaw/pages/auth/emailVerificationPage.dart';
 
 class Home extends StatelessWidget {
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -26,6 +29,31 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _getUser();
+    if (user == null) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => SplashPage(user: user)),
+      );
+    } else if (!user.emailVerified) {
+      try {
+        await user.sendEmailVerification();
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => EmailVerificationPage(user: user)),
+        );
+      } catch (error) {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return ThemeHelper().alartDialog("Error", error.message, context);
+          },
+        );
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => SplashPage(user: user)),
+        );
+      }
+    }
     CollectionReference users = FirebaseFirestore.instance.collection('users');
     return FutureBuilder<DocumentSnapshot>(
       future: users.doc(user.uid).get(),
