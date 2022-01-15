@@ -58,6 +58,14 @@ class MyApp extends StatelessWidget {
           accentColor: _accentColor,
           scaffoldBackgroundColor: Colors.grey.shade100,
           primarySwatch: Colors.grey,
+          //primaryColor: Color(0xff2931a5),
+          textTheme: TextTheme(
+            title: TextStyle(
+              fontSize: 27,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
         initialRoute: '/',
         routes: {
