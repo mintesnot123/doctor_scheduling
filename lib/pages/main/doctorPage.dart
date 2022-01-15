@@ -10,23 +10,25 @@ import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/main/dashboard.dart';
 
-class ProfilePage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ProfilePageState();
+    return _HomePageState();
   }
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _HomePageState extends State<HomePage> {
   double _drawerIconSize = 24;
   double _drawerFontSize = 17;
+
+  String pageTitle = "Dashboard";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Profile Page",
+          pageTitle,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         elevation: 0.5,
@@ -105,7 +107,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Container(
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    "FlutterTutorial.Net",
+                    "Doctors Management",
                     style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -117,7 +119,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Theme.of(context).accentColor,
                 ),
                 title: Text(
-                  'Splash Screen',
+                  'Dashboard',
                   style: TextStyle(fontSize: 17, color: Theme.of(context).accentColor),
                 ),
                 onTap: () {
@@ -127,7 +129,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ListTile(
                 leading: Icon(Icons.login_rounded, size: _drawerIconSize, color: Theme.of(context).accentColor),
                 title: Text(
-                  'Login Page',
+                  'Doctors List',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
                 onTap: () {
@@ -144,7 +146,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ListTile(
                 leading: Icon(Icons.person_add_alt_1, size: _drawerIconSize, color: Theme.of(context).accentColor),
                 title: Text(
-                  'Registration Page',
+                  'Associates List',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
                 onTap: () {
@@ -165,7 +167,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Theme.of(context).accentColor,
                 ),
                 title: Text(
-                  'Forgot Password Page',
+                  'Profile Page',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
                 onTap: () {
@@ -186,7 +188,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Theme.of(context).accentColor,
                 ),
                 title: Text(
-                  'Verification Page',
+                  'Add Users',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
                 onTap: () {
