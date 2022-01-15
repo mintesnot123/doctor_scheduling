@@ -30,7 +30,7 @@ class Home extends StatelessWidget {
         context,
         MaterialPageRoute(builder: (context) => SplashPage()),
       );
-    } else if (!user.emailVerified) async {
+    } else if (!user.emailVerified) {
       try {
         await user.sendEmailVerification();
         Navigator.pushReplacement(
@@ -52,11 +52,10 @@ class Home extends StatelessWidget {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     _getUser(context);
-    
+
     CollectionReference users = FirebaseFirestore.instance.collection('users');
     return FutureBuilder<DocumentSnapshot>(
       future: users.doc(user.uid).get(),
