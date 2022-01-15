@@ -216,7 +216,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                             value: checkboxValue,
                                             onChanged: (value) {
                                               setState(() {
-                                                checkboxValue = value!;
+                                                checkboxValue = value;
                                                 state.didChange(value);
                                               });
                                             }),
