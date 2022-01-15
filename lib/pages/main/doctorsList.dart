@@ -256,7 +256,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                   crossAxisAlignment: CrossAxisAlignment.center,
                                                   //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                   children: [
-                                                    (doctor['approved'] == "")
+                                                    (doctor['approved'] == "ONPROGRESS")
                                                         ? Flexible(
                                                             flex: 1,
                                                             child: Stack(
