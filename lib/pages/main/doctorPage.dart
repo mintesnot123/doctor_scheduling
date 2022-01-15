@@ -10,14 +10,14 @@ import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/main/dashboard.dart';
 
-class HomePage extends StatefulWidget {
+class ContainerPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _HomePageState();
+    return _ContainerPageState();
   }
 }
 
-class _HomePageState extends State<HomePage> {
+class _ContainerPageState extends State<ContainerPage> {
   double _drawerIconSize = 24;
   double _drawerFontSize = 17;
 

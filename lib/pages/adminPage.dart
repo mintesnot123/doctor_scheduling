@@ -74,7 +74,7 @@ class Home extends StatelessWidget {
     if (snapshot['role'] == 'ADMIN') {
       return MainPage();
     } else if (snapshot['role'] == 'DOCTOR') {
-      return HomePage();
+      return ContainerPage();
     } else if (snapshot['role'] == 'ASSOCIATE') {
       return AssociatePage();
     } else {
