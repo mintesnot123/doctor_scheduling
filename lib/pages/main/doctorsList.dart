@@ -272,14 +272,13 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                               width: 15.0,
                                                               height: 15.0,
                                                               decoration: BoxDecoration(
-                                                                color: Colors.blue,
-                                                                opacity: 0.9,
+                                                                /* color: Colors.blue,  */
                                                                 shape: BoxShape.circle,
                                                               ),
                                                               child: FittedBox(
                                                                 child: Icon(
                                                                   Icons.check,
-                                                                  color: Colors.white,
+                                                                  color: Colors.blue,
                                                                 ),
                                                               ),
                                                             ),
