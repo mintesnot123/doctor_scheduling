@@ -387,56 +387,57 @@ class _RegisterPageState extends State<RegisterPage> {
     user = credential.user;
 
     if (user != null) {
-      if (!user.emailVerified) {
-        try {
-          await user.sendEmailVerification();
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => EmailVerificationPage(user: user)),
-          );
-        } catch (error) {
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return ThemeHelper().alartDialog("Error", error.message, context);
-            },
-          );
-          setState(() {
-            signingup = false;
-          });
-        }
-      } else {
-        try {
-          await user.updateProfile(displayName: nameController.text);
+      try {
+        await user.updateProfile(displayName: nameController.text);
 
-          await _firestore.collection('users').doc(user.uid).set({
-            'name': nameController.text,
-            'email': emailController.text,
-            'phone': phoneController.text,
-            'role': type == "doctor" ? "DOCTOR" : "ASSOCIATE",
-            'approved': 'ONPROGRESS',
-            'birthDate': null,
-            'bio': null,
-            'city': null,
-          }, SetOptions(merge: true));
+        await _firestore.collection('users').doc(user.uid).set({
+          'name': nameController.text,
+          'email': emailController.text,
+          'phone': phoneController.text,
+          'role': type == "doctor" ? "DOCTOR" : "ASSOCIATE",
+          'approved': 'ONPROGRESS',
+          'birthDate': null,
+          'bio': null,
+          'city': null,
+        }, SetOptions(merge: true));
 
-          if (type == "doctor") {
-          } else {}
+        if (type == "doctor") {
+        } else {}
+
+        if (!user.emailVerified) {
+          try {
+            await user.sendEmailVerification();
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => EmailVerificationPage(user: user)),
+            );
+          } catch (error) {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return ThemeHelper().alartDialog("Error", error.message, context);
+              },
+            );
+            setState(() {
+              signingup = false;
+            });
+          }
+        } else {
           Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Home()), (Route<dynamic> route) => false);
           setState(() {
             signingup = false;
           });
-        } catch (error) {
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return ThemeHelper().alartDialog("Error", error.message, context);
-            },
-          );
-          setState(() {
-            signingup = false;
-          });
         }
+      } catch (error) {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return ThemeHelper().alartDialog("Error", error.message, context);
+          },
+        );
+        setState(() {
+          signingup = false;
+        });
       }
     } else {
       setState(() {
