@@ -51,7 +51,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                               TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: "We have send email verification link to your email. please ",
+                                    text: "We've sent an email to verify your email address. please check your email and ",
                                     style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
                                   ),
                                   TextSpan(
