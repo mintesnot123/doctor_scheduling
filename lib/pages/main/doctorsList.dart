@@ -279,7 +279,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                                 child: Icon(
                                                                   Icons.check,
                                                                   color: Colors.blue,
-                                                                  size: 20,
+                                                                  size: 40,
                                                                 ),
                                                               ),
                                                             ),
