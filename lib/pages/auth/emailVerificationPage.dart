@@ -91,7 +91,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                             TextSpan(
                               text: 'Resend',
                               recognizer: TapGestureRecognizer()
-                                ..onTap = () {
+                                ..onTap = () async {
                                   try {
                                     await widget.user.sendEmailVerification();
                                     showDialog(
