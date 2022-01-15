@@ -176,7 +176,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 decoration: ThemeHelper().textInputDecoration("Mobile Number", "Enter your mobile number"),
                                 keyboardType: TextInputType.phone,
                                 validator: (val) {
-                                  if (!(val!.isEmpty) && !RegExp(r"^(\d+)*$").hasMatch(val)) {
+                                  if (!(val.isEmpty) && !RegExp(r"^(\d+)*$").hasMatch(val)) {
                                     return "Enter a valid phone number";
                                   }
                                   return null;
@@ -188,7 +188,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             Container(
                               child: TextFormField(
                                 decoration: ThemeHelper().textInputDecoration("Password*", "Enter your password"),
-                                obscure: true,
+                                obscureText: true,
                                 validator: (value) {
                                   if (value.isEmpty) {
                                     return 'Please enter a password.';
