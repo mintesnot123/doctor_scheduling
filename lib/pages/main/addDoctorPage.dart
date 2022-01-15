@@ -1,3 +1,5 @@
+import 'dart:ui';
+import 'package:flutter/painting.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -8,27 +10,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/widgets/header_widget.dart';
-import 'package:yismaw/pages/auth/register.dart';
-import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
-import 'package:yismaw/pages/auth/emailVerificationPage.dart';
-import 'package:yismaw/pages/adminPage.dart';
-
-import 'dart:async';
-import 'dart:ui';
-import 'package:flutter/painting.dart';
-import 'package:intl/intl.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import 'package:flutter/foundation.dart';
-
-import 'package:yismaw/model/cardModel.dart';
-import 'package:yismaw/components/carouselSlider.dart';
-import 'package:yismaw/firebase/searchList.dart';
-import 'package:yismaw/firebase/topRatedList.dart';
-import 'package:yismaw/firebase/notificationList.dart';
-import 'package:yismaw/pages/exploreList.dart';
 
 class AddDoctorPage extends StatefulWidget {
   @override
@@ -76,7 +57,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
                   child: HeaderWidget(100, false, Icons.house_rounded),
                 ),
                 Container(
-                  margin: EdgeInsets.fromLTRB(25, 50, 25, 10),
+                  margin: EdgeInsets.fromLTRB(25, 25, 25, 10),
                   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                   alignment: Alignment.center,
                   child: Column(
