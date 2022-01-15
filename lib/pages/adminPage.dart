@@ -8,7 +8,8 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 import 'package:quick_actions/quick_actions.dart';
-import 'package:flutter/gestures.dart';
+
+import 'package:flutter/cupertino.dart';
 
 import 'package:yismaw/firebase/searchList.dart';
 import 'package:yismaw/pages/adminHome.dart';
@@ -32,7 +33,7 @@ class Home extends StatelessWidget {
     if (user == null) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => SplashPage(user: user)),
+        MaterialPageRoute(builder: (context) => SplashPage()),
       );
     } else if (!user.emailVerified) {
       try {
@@ -50,7 +51,7 @@ class Home extends StatelessWidget {
         );
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => SplashPage(user: user)),
+          MaterialPageRoute(builder: (context) => SplashPage()),
         );
       }
     }
