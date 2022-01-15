@@ -51,7 +51,7 @@ class MyHomePage extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Hey James,",
-                                  style: Theme.of(context).textTheme.title,
+                                  style: Theme.of(context).textTheme.headline6,
                                 ),
                                 Text(
                                   "What would you do like to do today ?",
