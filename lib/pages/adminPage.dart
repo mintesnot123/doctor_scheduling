@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
         context,
         MaterialPageRoute(builder: (context) => SplashPage()),
       );
-    } else if (!user.emailVerified) {
+    } else if (!user.emailVerified) async {
       try {
         await user.sendEmailVerification();
         Navigator.pushReplacement(
