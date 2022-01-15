@@ -268,7 +268,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 30.0),
                             Container(
                               margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
                               //child: Text('Don\'t have an account? Create'),
@@ -284,6 +283,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ),
                               ])),
                             ),
+                            SizedBox(height: 30.0),
                             /* Text(
                               "Or create account using social media",
                               style: TextStyle(color: Colors.grey),
