@@ -264,7 +264,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                     SizedBox(
                                                       width: 20,
                                                     ),
-                                                    /* Column(
+                                                    Column(
                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                       mainAxisAlignment: MainAxisAlignment.center,
                                                       children: [
@@ -281,7 +281,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                           style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
                                                         ),
                                                       ],
-                                                    ), */
+                                                    ),
                                                     SizedBox(
                                                       width: 10,
                                                     ),
