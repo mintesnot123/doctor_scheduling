@@ -9,6 +9,7 @@ import 'package:yismaw/pages/login.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:yismaw/pages/adminPage.dart';
+import 'package:flutter/cupertino.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -113,8 +114,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             Container(
                               child: TextFormField(
                                 decoration: ThemeHelper().textInputDecoration('Name', 'Enter your name'),
-                                obscure: false,
-                                keyboard: TextInputType.text,
+                                obscureText: false,
+                                keyboardType: TextInputType.text,
                                 validator: (value) {
                                   if (value.isEmpty) {
                                     return 'Please enter your name.';
@@ -151,7 +152,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   }
                                   return null;
                                 },
-                                obscure: false,
+                                obscureText: false,
 
                                 /* validator: (value) {
                               if (value.isEmpty || !value.contains('@')) {
