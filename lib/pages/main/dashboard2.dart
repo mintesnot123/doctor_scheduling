@@ -35,8 +35,27 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  double _drawerIconSize = 24;
-  double _drawerFontSize = 17;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  TextEditingController _doctorName = TextEditingController();
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  User user;
+
+  Future<void> _getUser() async {
+    user = _auth.currentUser;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getUser();
+    _doctorName = new TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _doctorName.dispose();
+    super.dispose();
+  }
 
   bool loggingin = false;
 
@@ -67,6 +86,97 @@ class _DashboardPageState extends State<DashboardPage> {
                             'Signin into your account',
                             style: TextStyle(color: Colors.grey),
                           ), */
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        padding: EdgeInsets.only(left: 20, bottom: 10),
+                        child: Text(
+                          "Hello " + (user.displayName ?? "User"),
+                          style: GoogleFonts.lato(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        padding: EdgeInsets.only(left: 20, bottom: 25),
+                        child: Text(
+                          "Let's Find Your\nDoctor",
+                          style: GoogleFonts.lato(
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.fromLTRB(20, 0, 20, 25),
+                        child: TextFormField(
+                          textInputAction: TextInputAction.search,
+                          controller: _doctorName,
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                              borderSide: BorderSide.none,
+                            ),
+                            filled: true,
+                            fillColor: Colors.grey[200],
+                            hintText: 'Search doctor',
+                            hintStyle: GoogleFonts.lato(
+                              color: Colors.black26,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w800,
+                            ),
+                            suffixIcon: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.blue[900].withOpacity(0.9),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: IconButton(
+                                iconSize: 20,
+                                splashRadius: 20,
+                                color: Colors.white,
+                                icon: Icon(FlutterIcons.search1_ant),
+                                onPressed: () {
+                                  _doctorName.text.length == 0
+                                      ? Container()
+                                      : Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => SearchList(
+                                              searchKey: _doctorName.text,
+                                            ),
+                                          ),
+                                        );
+                                },
+                              ),
+                            ),
+                          ),
+                          style: GoogleFonts.lato(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800,
+                          ),
+                          onFieldSubmitted: (String value) {
+                            setState(
+                              () {
+                                value.length == 0
+                                    ? Container()
+                                    : Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => SearchList(
+                                            searchKey: value,
+                                          ),
+                                        ),
+                                      );
+                              },
+                            );
+                          },
+                        ),
+                      ),
                       Container(
                         padding: EdgeInsets.only(left: 23, bottom: 10),
                         alignment: Alignment.centerLeft,
