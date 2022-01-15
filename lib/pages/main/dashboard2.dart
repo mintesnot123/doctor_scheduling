@@ -33,9 +33,13 @@ class _DashboardPageState extends State<DashboardPage> {
             child: Column(
               children: [
                 Container(
+                  height: 100,
+                  child: HeaderWidget(100, false, Icons.house_rounded),
+                ),
+                /* Container(
                   height: _headerHeight,
                   child: HeaderWidget(_headerHeight, true, Icons.login_rounded), //let's create a common header widget
-                ),
+                ), */
                 SafeArea(
                   child: Container(
                       padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
