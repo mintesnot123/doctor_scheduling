@@ -9,7 +9,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 import 'package:quick_actions/quick_actions.dart';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 
 import 'package:yismaw/firebase/searchList.dart';
 import 'package:yismaw/pages/adminHome.dart';
