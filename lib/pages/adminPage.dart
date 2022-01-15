@@ -18,6 +18,7 @@ import 'package:yismaw/pages/associateList.dart';
 import 'package:yismaw/pages/userProfile.dart';
 import 'package:yismaw/pages/auth/splash.dart';
 import 'package:yismaw/pages/auth/emailVerificationPage.dart';
+import 'package:yismaw/pages/main/doctorPage.dart';
 
 class Home extends StatelessWidget {
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -73,7 +74,7 @@ class Home extends StatelessWidget {
     if (snapshot['role'] == 'ADMIN') {
       return MainPage();
     } else if (snapshot['role'] == 'DOCTOR') {
-      return DoctorPage();
+      return ProfilePage();
     } else if (snapshot['role'] == 'ASSOCIATE') {
       return AssociatePage();
     } else {
