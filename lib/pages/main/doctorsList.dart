@@ -273,6 +273,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                               height: 15.0,
                                                               decoration: BoxDecoration(
                                                                 color: Colors.blue,
+                                                                opacity: 0.9,
                                                                 shape: BoxShape.circle,
                                                               ),
                                                               child: FittedBox(
