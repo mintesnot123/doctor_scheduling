@@ -256,11 +256,11 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                   crossAxisAlignment: CrossAxisAlignment.center,
                                                   //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                   children: [
-                                                    /* CircleAvatar(
+                                                    CircleAvatar(
                                                       backgroundImage: NetworkImage(doctor['image']),
                                                       //backgroundColor: Colors.blue,
                                                       radius: 25,
-                                                    ), */
+                                                    ),
                                                     SizedBox(
                                                       width: 20,
                                                     ),
