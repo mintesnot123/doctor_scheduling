@@ -5,7 +5,7 @@ enum TransactionType { sent, received, pending }
 
 //void main() => runApp(MyApp());
 
-class MyAppA extends StatelessWidget {
+/* class MyAppA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,7 +23,7 @@ class MyAppA extends StatelessWidget {
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
-}
+} */
 
 class MyHomePage extends StatelessWidget {
   final String title;

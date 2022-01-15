@@ -192,7 +192,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MyAppA()),
+                    MaterialPageRoute(builder: (context) => MyHomePage()),
                   );
                 },
               ),
