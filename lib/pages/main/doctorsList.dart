@@ -256,15 +256,15 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                   crossAxisAlignment: CrossAxisAlignment.center,
                                                   //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                   children: [
-                                                    CircleAvatar(
+                                                    /* CircleAvatar(
                                                       backgroundImage: NetworkImage(doctor['image']),
                                                       //backgroundColor: Colors.blue,
                                                       radius: 25,
-                                                    ),
+                                                    ), */
                                                     SizedBox(
                                                       width: 20,
                                                     ),
-                                                    Column(
+                                                    /* Column(
                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                       mainAxisAlignment: MainAxisAlignment.center,
                                                       children: [
@@ -281,11 +281,11 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                           style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
                                                         ),
                                                       ],
-                                                    ),
+                                                    ), */
                                                     SizedBox(
                                                       width: 10,
                                                     ),
-                                                    Expanded(
+                                                    /* Expanded(
                                                       child: Container(
                                                         alignment: Alignment.centerRight,
                                                         child: Row(
@@ -311,7 +311,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                           ],
                                                         ),
                                                       ),
-                                                    ),
+                                                    ), */
                                                   ],
                                                 ),
                                               ),
