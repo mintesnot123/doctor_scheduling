@@ -277,7 +277,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                               ),
                                                               child: FittedBox(
                                                                 child: Icon(
-                                                                  Icons.notifications,
+                                                                  Icons.check,
                                                                   color: Colors.white,
                                                                 ),
                                                               ),
