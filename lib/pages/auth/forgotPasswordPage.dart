@@ -141,7 +141,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                               MaterialPageRoute(builder: (context) => LoginPage()),
                                             );
                                           },
-                                        style: TextStyle(fontWeight: FontWeight.bold),
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Theme.of(context).accentColor,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -176,12 +179,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         sendingResetEmail = false;
       });
     } on FirebaseAuthException catch (e) {
-      /* print(e.code);
-      print(e.message); */
-      /* final snackBar = SnackBar(
-        content: Text(e.message),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar); */
       showDialog(
         context: context,
         builder: (BuildContext context) {
