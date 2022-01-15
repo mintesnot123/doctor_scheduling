@@ -364,7 +364,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
             onPressed: () {
               // Add your onPressed code here!
             },
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Colors.blue.withOpacity(0.7),
             child: const Icon(Icons.add),
           ),
         ));
