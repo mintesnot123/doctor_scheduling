@@ -51,6 +51,29 @@ class _DoctorAppointmentsScreenState extends State<DoctorAppointmentsScreen> {
                 height: 100,
                 child: HeaderWidget(100, false, Icons.house_rounded),
               ),
+              Container(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(left: 20, bottom: 25),
+                child: Text(
+                  "Dr. ${widget.doctorName ?? "User"}",
+                  style: GoogleFonts.lato(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 20),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Pending Appointments",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+              ),
               SizedBox(
                 height: 30,
               ),
