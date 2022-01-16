@@ -131,23 +131,23 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                               contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                                               leading: Icon(Icons.my_location),
                                               title: Text("Location"),
-                                              subtitle: Text("${document.data()['location'] ?? "not found"}"),
+                                              subtitle: Text("${document.containsValue('location') ? document['location'] : "not found"}"),
                                             ),
-                                            ListTile(
+                                            /* ListTile(
                                               leading: Icon(Icons.email),
                                               title: Text("Email"),
-                                              subtitle: Text("${document.data()['email'] ?? "not found"}"),
+                                              subtitle: Text("${document['email'] ?? "not found"}"),
                                             ),
                                             ListTile(
                                               leading: Icon(Icons.phone),
                                               title: Text("Phone"),
-                                              subtitle: Text("${document.data()['phone'] ?? "not found"}"),
+                                              subtitle: Text("${document['phone'] ?? "not found"}"),
                                             ),
                                             ListTile(
                                               leading: Icon(Icons.person),
                                               title: Text("About Me"),
-                                              subtitle: Text("${document.data()['aboutme'] ?? "not found"}"),
-                                            ),
+                                              subtitle: Text("${document['aboutme'] ?? "not found"}"),
+                                            ), */
                                           ],
                                         ),
                                       ],
