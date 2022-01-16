@@ -77,10 +77,41 @@ class _DoctorDetailState extends State<DoctorDetail> {
                             ),
                           ],
                         ),
-                        child: CircleAvatar(
-                          backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* document['image'] */),
-                          radius: 80,
-                        ),
+                        child: (doctor['approved'] == "ONPROGRESS")
+                            ? Flexible(
+                                flex: 1,
+                                child: Stack(
+                                  children: <Widget>[
+                                    CircleAvatar(
+                                      backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                      radius: 80,
+                                    ),
+                                    Positioned(
+                                      bottom: 0,
+                                      right: 0,
+                                      child: Container(
+                                        width: 15.0,
+                                        height: 15.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: FittedBox(
+                                          child: Icon(
+                                            Icons.check,
+                                            color: Colors.red[900],
+                                            size: 24,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )
+                            : CircleAvatar(
+                                backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                radius: 80,
+                              ),
                       ),
                       SizedBox(
                         height: 20,
