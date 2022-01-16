@@ -63,9 +63,6 @@ class _DoctorAppointmentsScreenState extends State<DoctorAppointmentsScreen> {
                   ),
                 ),
               ),
-              /* SizedBox(
-                height: 30,
-              ), */
               Container(
                 padding: EdgeInsets.only(left: 20),
                 alignment: Alignment.centerLeft,
