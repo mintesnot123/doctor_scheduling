@@ -207,7 +207,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 elevation: 2,
-                                primary: Theme.of(context).primaryColor.withOpacity(0.9),
+                                primary: document['approved'] == "APPROVED" ? Color.red[400].withOpacity(0.9) : Color.green[400].withOpacity(0.9),
                                 onPrimary: Colors.black,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(32.0),
