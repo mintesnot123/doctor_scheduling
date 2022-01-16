@@ -29,12 +29,12 @@ import 'package:yismaw/firebase/topRatedList.dart';
 import 'package:yismaw/firebase/notificationList.dart';
 import 'package:yismaw/pages/exploreList.dart';
 
-class DashboardPage extends StatefulWidget {
+class DashboardPage2 extends StatefulWidget {
   @override
-  _DashboardPageState createState() => new _DashboardPageState();
+  _DashboardPage2State createState() => new _DashboardPage2State();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _DashboardPage2State extends State<DashboardPage2> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController _doctorName = TextEditingController();
   FirebaseAuth _auth = FirebaseAuth.instance;
