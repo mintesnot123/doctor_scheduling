@@ -51,10 +51,10 @@ class _SearchListState extends State<SearchList> {
             ),
             SafeArea(
               child: StreamBuilder(
-                stream: FirebaseFirestore.instance.collection('doctors').orderBy('name').startAt([
-                  /* 'Dr. ' +  */ widget.searchKey
+                stream: FirebaseFirestore.instance.collection('users').where("role", "==", "DOCTOR").orderBy('name').startAt([
+                  widget.searchKey
                 ]).endAt([
-                  /* 'Dr. ' +  */ widget.searchKey + '\uf8ff'
+                  widget.searchKey + '\uf8ff'
                 ]).snapshots(),
                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (!snapshot.hasData)
