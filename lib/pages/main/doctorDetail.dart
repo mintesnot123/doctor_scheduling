@@ -79,13 +79,8 @@ class _DoctorDetailState extends State<DoctorDetail> {
                         ),
                         child: CircleAvatar(
                           backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* document['image'] */),
-                          radius: 100,
-                        ) /* Icon(
-                          Icons.person,
-                          size: 80,
-                          color: Colors.grey.shade300,
-                        ) */
-                        ,
+                          radius: 80,
+                        ),
                       ),
                       SizedBox(
                         height: 20,
@@ -98,7 +93,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                         height: 20,
                       ),
                       Text(
-                        '${document['name'] ?? "Specialist Doctor"}',
+                        '${document['type'] ?? "Specialist Doctor"}',
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
@@ -136,22 +131,22 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                               contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                                               leading: Icon(Icons.my_location),
                                               title: Text("Location"),
-                                              subtitle: Text("USA"),
+                                              subtitle: Text("${document['location'] ?? "not found"}"),
                                             ),
                                             ListTile(
                                               leading: Icon(Icons.email),
                                               title: Text("Email"),
-                                              subtitle: Text("donaldtrump@gmail.com"),
+                                              subtitle: Text("${document['email'] ?? "not found"}"),
                                             ),
                                             ListTile(
                                               leading: Icon(Icons.phone),
                                               title: Text("Phone"),
-                                              subtitle: Text("99--99876-56"),
+                                              subtitle: Text("${document['phone'] ?? "not found"}"),
                                             ),
                                             ListTile(
                                               leading: Icon(Icons.person),
                                               title: Text("About Me"),
-                                              subtitle: Text("This is a about me link and you can khow about me in this section."),
+                                              subtitle: Text("${document['aboutme'] ?? "not found"}"),
                                             ),
                                           ],
                                         ),
