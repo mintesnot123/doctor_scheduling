@@ -60,7 +60,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                       child: CircularProgressIndicator(),
                     );
                   }
-                  var document = snapshot.data();
+                  var document = snapshot.data;
                   return Column(
                     children: [
                       Container(
@@ -131,7 +131,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                               contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                                               leading: Icon(Icons.my_location),
                                               title: Text("Location"),
-                                              subtitle: Text("${document.containsValue('location') ? document['location'] : "not found"}"),
+                                              subtitle: Text("${document!['location']}"),
                                             ),
                                             /* ListTile(
                                               leading: Icon(Icons.email),
