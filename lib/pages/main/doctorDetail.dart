@@ -77,7 +77,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                             ),
                           ],
                         ),
-                        child: (document['approved'] == "ONPROGRESS")
+                        child: (document['approved'] == "APPROVED")
                             ? Flexible(
                                 flex: 1,
                                 child: Stack(
@@ -200,7 +200,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             elevation: 2,
-                            primary: Colors.indigo.withOpacity(0.9),
+                            primary: Theme.of(context).primaryColor.withOpacity(0.9),
                             onPrimary: Colors.black,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(32.0),
