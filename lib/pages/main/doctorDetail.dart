@@ -226,6 +226,9 @@ class _DoctorDetailState extends State<DoctorDetail> {
                           ),
                         ),
                       ),
+                      SizedBox(
+                        height: 15,
+                      ),
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 30),
                         height: 50,
