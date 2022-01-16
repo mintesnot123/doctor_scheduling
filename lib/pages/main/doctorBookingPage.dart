@@ -90,49 +90,6 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
     date_Time = selectedTime.toString().substring(10, 15);
   }
 
-  showAlertDialog(BuildContext context) {
-    // set up the button
-    Widget okButton = TextButton(
-      child: Text(
-        "OK",
-        style: GoogleFonts.lato(fontWeight: FontWeight.bold),
-      ),
-      onPressed: () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => MyAppointments(),
-          ),
-        );
-      },
-    );
-
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text(
-        "Done!",
-        style: GoogleFonts.lato(
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      content: Text(
-        "Appointment is registered.",
-        style: GoogleFonts.lato(),
-      ),
-      actions: [
-        okButton,
-      ],
-    );
-
-    // show the dialog
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
-  }
-
   @override
   void initState() {
     super.initState();
@@ -218,7 +175,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                               if (value.isEmpty) return 'Please Enter Patient Name';
                               return null;
                             },
-                            style: GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.bold),
+                            //style: GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.bold),
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
                               border: OutlineInputBorder(
@@ -537,6 +494,41 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
         'doctor': _doctorController.text,
         'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
       }, SetOptions(merge: true));
+      Widget okButton = TextButton(
+        child: Text(
+          "OK",
+          style: GoogleFonts.lato(fontWeight: FontWeight.bold),
+        ),
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MyAppointments(),
+            ),
+          );
+        },
+      );
+      AlertDialog alert = AlertDialog(
+        title: Text(
+          "Done!",
+          style: GoogleFonts.lato(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        content: Text(
+          "Appointment is registered.",
+          style: GoogleFonts.lato(),
+        ),
+        actions: [
+          okButton,
+        ],
+      );
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        },
+      );
       setState(() {
         booking = false;
       });
