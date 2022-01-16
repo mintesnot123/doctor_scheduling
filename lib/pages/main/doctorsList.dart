@@ -39,6 +39,7 @@ import 'package:typicons_flutter/typicons_flutter.dart';
 
 import 'package:yismaw/firebase/searchList.dart';
 import 'package:yismaw/firebase/notificationList.dart';
+import 'package:yismaw/pages/main/doctorDetail.dart';
 
 class DoctorsListPage extends StatefulWidget {
   @override
@@ -246,7 +247,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                   Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
-                                                      builder: (context) => DoctorProfile(
+                                                      builder: (context) => DoctorDetail(
                                                         doctor: doctor.id,
                                                       ),
                                                     ),

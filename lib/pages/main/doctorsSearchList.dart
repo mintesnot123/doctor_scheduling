@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:yismaw/pages/doctorProfile.dart';
-import 'package:typicons_flutter/typicons_flutter.dart';
 import 'package:yismaw/widgets/header_widget.dart';
+import 'package:yismaw/pages/doctorProfile.dart';
 
 class SearchList extends StatefulWidget {
   final String searchKey;
@@ -66,7 +65,7 @@ class _SearchListState extends State<SearchList> {
             ),
             SafeArea(
               child: StreamBuilder(
-                stream: FirebaseFirestore.instance.collection('users') /* .where("role", isEqualTo: "DOCTOR") */ .orderBy('name').startAt([
+                stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").orderBy('name').startAt([
                   widget.searchKey
                 ]).endAt([
                   widget.searchKey + '\uf8ff'
