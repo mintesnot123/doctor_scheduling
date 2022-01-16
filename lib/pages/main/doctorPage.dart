@@ -57,7 +57,7 @@ class _ContainerPageState extends State<ContainerPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          pageTitle[_selectedIndex],
+          'Dashboard' /* pageTitle[_selectedIndex] */,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         elevation: 0.5,
