@@ -77,7 +77,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                             ),
                           ],
                         ),
-                        child: (doctor['approved'] == "ONPROGRESS")
+                        child: (document['approved'] == "ONPROGRESS")
                             ? Flexible(
                                 flex: 1,
                                 child: Stack(
