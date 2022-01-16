@@ -6,6 +6,7 @@ import 'package:yismaw/widgets/header_widget.dart';
 import 'package:yismaw/pages/bookingScreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:yismaw/common/theme_helper.dart';
+import 'package:yismaw/pages/main/doctorBookingPage.dart';
 
 class DoctorDetail extends StatefulWidget {
   final String doctor;
@@ -246,8 +247,9 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => BookingScreen(
+                                    builder: (context) => DoctorBookingScreen(
                                       doctor: document.id,
+                                      doctorName: document['name'],
                                     ),
                                   ),
                                 );
@@ -283,14 +285,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
 
     try {
       await _firestore.collection('users').doc(widget.doctor).set({
-        /* 'name': nameController.text,
-        'email': emailController.text,
-        'phone': phoneController.text,
-        'role': type == "doctor" ? "DOCTOR" : "ASSOCIATE", */
         'approved': approve ? 'APPROVED' : 'REJECTED',
-        /* 'birthDate': null,
-        'bio': null,
-        'city': null, */
       }, SetOptions(merge: true));
       setState(() {
         approving = false;
