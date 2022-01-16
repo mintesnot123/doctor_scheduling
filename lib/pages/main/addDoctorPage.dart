@@ -205,9 +205,10 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
     setState(() {
       signingup = true;
     });
+    FirebaseApp app = await Firebase.initializeApp(name: 'Secondary', options: Firebase.app().options);
 
     try {
-      credential = await _firebaseAuth.createUserWithEmailAndPassword(email: emailController.text, password: defaultPassword);
+      credential = await FirebaseAuth.instanceFor(app: app).createUserWithEmailAndPassword(email: emailController.text, password: defaultPassword);
     } catch (error) {
       showDialog(
         context: context,
@@ -220,7 +221,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
       });
     }
     user = credential.user;
-
+    await app.delete();
     if (user != null) {
       try {
         await user.updateProfile(displayName: nameController.text);
