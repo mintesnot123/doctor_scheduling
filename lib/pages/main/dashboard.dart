@@ -12,7 +12,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:yismaw/model/cardModel.dart';
 import 'package:yismaw/components/carouselSlider.dart';
 import 'package:yismaw/firebase/searchList.dart';
-import 'package:yismaw/pages/exploreList.dart'
+import 'package:yismaw/pages/exploreList.dart';
 
 class DashboardPage extends StatefulWidget {
   @override
