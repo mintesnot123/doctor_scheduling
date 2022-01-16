@@ -50,7 +50,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
             ),
             Container(
               alignment: Alignment.center,
-              margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
+              margin: EdgeInsets.fromLTRB(5, 5, 5, 10),
               padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance.collection('users').doc(widget.doctor).snapshots(),
