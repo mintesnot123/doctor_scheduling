@@ -51,7 +51,7 @@ class _SearchListState extends State<SearchList> {
             ),
             SafeArea(
               child: StreamBuilder(
-                stream: FirebaseFirestore.instance.collection('users').where("role", "==", "DOCTOR").orderBy('name').startAt([
+                stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").orderBy('name').startAt([
                   widget.searchKey
                 ]).endAt([
                   widget.searchKey + '\uf8ff'
