@@ -49,6 +49,21 @@ class _SearchListState extends State<SearchList> {
               height: 100,
               child: HeaderWidget(100, false, Icons.house_rounded),
             ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 20),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "All doctors",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
             SafeArea(
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance.collection('users') /* .where("role", isEqualTo: "DOCTOR") */ .orderBy('name').startAt([
