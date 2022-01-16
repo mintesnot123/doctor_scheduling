@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:yismaw/widgets/header_widget.dart';
 import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/pages/main/doctorBookingPage.dart';
+import 'package:yismaw/pages/main/doctorAppointments.dart';
+import 'package:flutter/gestures.dart';
 
 class DoctorDetail extends StatefulWidget {
   final String doctor;
@@ -84,10 +86,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                               ],
                             ),
                             child: (document['approved'] == "APPROVED")
-                                ? /* Flexible(
-                                    flex: 1,
-                                    child:  */
-                                Stack(
+                                ? Stack(
                                     children: <Widget>[
                                       CircleAvatar(
                                         backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
@@ -113,7 +112,6 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                         ),
                                       )
                                     ],
-                                    /* ), */
                                   )
                                 : CircleAvatar(
                                     backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
@@ -196,6 +194,29 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                 )
                               ],
                             ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            child: Text.rich(TextSpan(children: [
+                              /* TextSpan(text: "Already have an account? "), */
+                              TextSpan(
+                                text: 'See doctor appointments',
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => DoctorAppointmentsScreen(
+                                                  doctor: document.id,
+                                                  doctorName: document['name'],
+                                                )));
+                                  },
+                                style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).accentColor),
+                              ),
+                            ])),
                           ),
                           SizedBox(
                             height: 50,
