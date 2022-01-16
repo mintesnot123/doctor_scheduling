@@ -442,10 +442,6 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                               ),
                               onPressed: () {
                                 if (_formKey.currentState.validate()) {
-                                  print(_nameController.text);
-                                  print(_dateController.text);
-                                  print(widget.doctor);
-                                  showAlertDialog(context);
                                   _createAppointment();
                                 }
                               },
