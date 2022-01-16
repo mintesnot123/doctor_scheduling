@@ -518,7 +518,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
 
   Future<void> _createAppointment() async {
     print(dateUTC + ' ' + date_Time + ':00');
-    FirebaseFirestore.instance.collection('appointments').doc(user.email).collection('pending').doc().set({
+    FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('pending').doc().set({
       'name': _nameController.text,
       'phone': _phoneController.text,
       'description': _descriptionController.text,
@@ -526,7 +526,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
       'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
     }, SetOptions(merge: true));
 
-    FirebaseFirestore.instance.collection('appointments').doc(user.email).collection('all').doc().set({
+    FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('all').doc().set({
       'name': _nameController.text,
       'phone': _phoneController.text,
       'description': _descriptionController.text,
