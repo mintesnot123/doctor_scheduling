@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yismaw/widgets/header_widget.dart';
 import 'package:yismaw/pages/doctorProfile.dart';
+import 'package:yismaw/pages/main/doctorDetail.dart';
 
 class SearchList extends StatefulWidget {
   final String searchKey;
@@ -51,21 +52,9 @@ class _SearchListState extends State<SearchList> {
             SizedBox(
               height: 30,
             ),
-            Container(
-              padding: EdgeInsets.only(left: 20),
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Search result: ${widget.searchKey}",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
             SafeArea(
               child: StreamBuilder(
-                stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").orderBy('name').startAt([
+                stream: FirebaseFirestore.instance.collection('users') /* .where("role", isEqualTo: "DOCTOR") */ .orderBy('name').startAt([
                   widget.searchKey
                 ]).endAt([
                   widget.searchKey + '\uf8ff'
@@ -100,100 +89,114 @@ class _SearchListState extends State<SearchList> {
                           ),
                         )
                       : Scrollbar(
-                          child: ListView.builder(
-                            scrollDirection: Axis.vertical,
-                            physics: ClampingScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: snapshot.data.size,
-                            itemBuilder: (context, index) {
-                              DocumentSnapshot doctor = snapshot.data.docs[index];
-                              return Padding(
-                                padding: const EdgeInsets.only(top: 0.0),
-                                child: Card(
-                                  color: Colors.blue[50],
-                                  elevation: 0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Container(
-                                    padding: EdgeInsets.only(left: 10, right: 10, top: 0),
-                                    width: MediaQuery.of(context).size.width,
-                                    height: MediaQuery.of(context).size.height / 9,
-                                    child: TextButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => DoctorProfile(
-                                              doctor: doctor.id,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      child: Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: [
-                                          (doctor['approved'] == "APPROVED")
-                                              ? Flexible(
-                                                  flex: 1,
-                                                  child: Stack(
-                                                    children: <Widget>[
-                                                      CircleAvatar(
-                                                        backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
-                                                        radius: 30,
-                                                      ),
-                                                      Positioned(
-                                                        bottom: 0,
-                                                        right: 0,
-                                                        child: Container(
-                                                          width: 15.0,
-                                                          height: 15.0,
-                                                          decoration: BoxDecoration(
-                                                            color: Colors.white,
-                                                            shape: BoxShape.circle,
-                                                          ),
-                                                          child: FittedBox(
-                                                            child: Icon(
-                                                              Icons.check,
-                                                              color: Colors.red[900],
-                                                              size: 24,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                )
-                                              : CircleAvatar(
-                                                  backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
-                                                  radius: 30,
+                          child: Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.only(left: 20),
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  "Search result for ${widget.searchKey}",
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              ListView.builder(
+                                scrollDirection: Axis.vertical,
+                                physics: ClampingScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: snapshot.data.size,
+                                itemBuilder: (context, index) {
+                                  DocumentSnapshot doctor = snapshot.data.docs[index];
+                                  return Padding(
+                                    padding: const EdgeInsets.only(top: 0.0),
+                                    child: Card(
+                                      color: Colors.blue[50],
+                                      elevation: 0,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Container(
+                                        padding: EdgeInsets.only(left: 10, right: 10, top: 0),
+                                        width: MediaQuery.of(context).size.width,
+                                        height: MediaQuery.of(context).size.height / 9,
+                                        child: TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => DoctorProfile(
+                                                  doctor: doctor.id,
                                                 ),
-                                          SizedBox(
-                                            width: 20,
-                                          ),
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            mainAxisAlignment: MainAxisAlignment.center,
+                                              ),
+                                            );
+                                          },
+                                          child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                             children: [
-                                              Text(
-                                                doctor['name'],
-                                                style: GoogleFonts.lato(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 17,
-                                                  color: Colors.black87,
-                                                ),
+                                              (doctor['approved'] == "APPROVED")
+                                                  ? Flexible(
+                                                      flex: 1,
+                                                      child: Stack(
+                                                        children: <Widget>[
+                                                          CircleAvatar(
+                                                            backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                                            radius: 30,
+                                                          ),
+                                                          Positioned(
+                                                            bottom: 0,
+                                                            right: 0,
+                                                            child: Container(
+                                                              width: 15.0,
+                                                              height: 15.0,
+                                                              decoration: BoxDecoration(
+                                                                color: Colors.white,
+                                                                shape: BoxShape.circle,
+                                                              ),
+                                                              child: FittedBox(
+                                                                child: Icon(
+                                                                  Icons.check,
+                                                                  color: Colors.red[900],
+                                                                  size: 24,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    )
+                                                  : CircleAvatar(
+                                                      backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                                      radius: 30,
+                                                    ),
+                                              SizedBox(
+                                                width: 20,
                                               ),
-                                              Text(
-                                                doctor['type'],
-                                                style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    doctor['name'],
+                                                    style: GoogleFonts.lato(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 17,
+                                                      color: Colors.black87,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    doctor['type'],
+                                                    style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          /* Expanded(
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              /* Expanded(
                                             child: Container(
                                               alignment: Alignment.centerRight,
                                               child: Row(
@@ -220,13 +223,15 @@ class _SearchListState extends State<SearchList> {
                                               ),
                                             ),
                                           ), */
-                                        ],
+                                            ],
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                              );
-                            },
+                                  );
+                                },
+                              ),
+                            ],
                           ),
                         );
                 },
