@@ -56,7 +56,7 @@ class _SearchListState extends State<SearchList> {
               padding: EdgeInsets.only(left: 20),
               alignment: Alignment.centerLeft,
               child: Text(
-                "All doctors",
+                "Search result: ${widget.searchKey}",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
               ),
