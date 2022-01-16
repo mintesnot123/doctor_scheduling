@@ -94,7 +94,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                         height: 20,
                       ),
                       Text(
-                        'Former President',
+                        '${document['name'] ?? "Specialist Doctor"}',
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
