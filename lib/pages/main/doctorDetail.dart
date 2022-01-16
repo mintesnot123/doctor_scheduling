@@ -90,8 +90,8 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                       bottom: 0,
                                       right: 0,
                                       child: Container(
-                                        width: 30.0,
-                                        height: 30.0,
+                                        width: 45.0,
+                                        height: 45.0,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           shape: BoxShape.circle,
@@ -99,7 +99,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                         child: FittedBox(
                                           child: Icon(
                                             Icons.check,
-                                            color: Colors.red[900],
+                                            color: Colors.blue[900],
                                             size: 24,
                                           ),
                                         ),
