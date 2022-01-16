@@ -217,6 +217,39 @@ class _DoctorDetailState extends State<DoctorDetail> {
                             );
                           },
                           child: Text(
+                            'Approve Account',
+                            style: GoogleFonts.lato(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 30),
+                        height: 50,
+                        width: MediaQuery.of(context).size.width,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            elevation: 2,
+                            primary: Theme.of(context).primaryColor.withOpacity(0.9),
+                            onPrimary: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(32.0),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BookingScreen(
+                                  doctor: document.id,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Text(
                             'Book an Appointment',
                             style: GoogleFonts.lato(
                               color: Colors.white,
