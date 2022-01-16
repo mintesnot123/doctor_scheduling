@@ -1,574 +1,276 @@
+import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-enum ButtonType { payBills, donate, receiptients, offers }
-enum TransactionType { sent, received, pending }
+import 'package:firebase_auth/firebase_auth.dart';
 
-//void main() => runApp(MyApp());
+import 'package:yismaw/common/theme_helper.dart';
+import 'package:yismaw/widgets/header_widget.dart';
+import 'package:yismaw/pages/auth/register.dart';
+import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
+import 'package:yismaw/pages/auth/emailVerificationPage.dart';
+import 'package:yismaw/pages/adminPage.dart';
 
-class MyAppA extends StatelessWidget {
+import 'dart:async';
+import 'dart:ui';
+import 'package:flutter/painting.dart';
+import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter/foundation.dart';
+
+import 'package:yismaw/model/cardModel.dart';
+import 'package:yismaw/components/carouselSlider.dart';
+import 'package:yismaw/firebase/searchList.dart';
+import 'package:yismaw/firebase/topRatedList.dart';
+import 'package:yismaw/firebase/notificationList.dart';
+import 'package:yismaw/pages/exploreList.dart';
+
+class DashboardPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      /* theme: ThemeData(
-        primaryColor: Color(0xff2931a5),
-        textTheme: TextTheme(
-          title: TextStyle(
-            fontSize: 27,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ), */
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+  _DashboardPageState createState() => new _DashboardPageState();
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  MyHomePage({this.title});
+class _DashboardPageState extends State<DashboardPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  TextEditingController _doctorName = TextEditingController();
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  User user;
+
+  Future<void> _getUser() async {
+    user = _auth.currentUser;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getUser();
+    _doctorName = new TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _doctorName.dispose();
+    super.dispose();
+  }
+
+  bool loggingin = false;
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: <Widget>[
-            SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.all(21),
-                    color: Theme.of(context).primaryColor,
+    return ModalProgressHUD(
+        inAsyncCall: loggingin,
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  height: 100,
+                  child: HeaderWidget(100, false, Icons.house_rounded),
+                ),
+                SafeArea(
+                  child: Container(
                     child: Column(
-                      children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  "Hey James,",
-                                  style: Theme.of(context).textTheme.headline6,
-                                ),
-                                Text(
-                                  "What would you do like to do today ?",
-                                  style: TextStyle(color: Colors.white70),
-                                ),
-                              ],
+                      children: [
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: EdgeInsets.only(left: 20, bottom: 10),
+                          child: Text(
+                            "Hello " + (user.displayName ?? "User"),
+                            style: GoogleFonts.lato(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
                             ),
-                            Container(
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black45,
-                                    blurRadius: 5.0,
-                                    offset: Offset(0, 3),
-                                  ),
-                                ],
-                                shape: BoxShape.circle,
-                                color: Colors.transparent,
+                          ),
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: EdgeInsets.only(left: 20, bottom: 25),
+                          child: Text(
+                            "Let's Find Your\nDoctor",
+                            style: GoogleFonts.lato(
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(20, 0, 20, 25),
+                          child: TextFormField(
+                            textInputAction: TextInputAction.search,
+                            controller: _doctorName,
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                borderSide: BorderSide.none,
                               ),
-                              child: CircleAvatar(
-                                backgroundImage: NetworkImage(
-                                  "https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg",
+                              filled: true,
+                              fillColor: Colors.grey[200],
+                              hintText: 'Search doctor',
+                              hintStyle: GoogleFonts.lato(
+                                color: Colors.black26,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w800,
+                              ),
+                              suffixIcon: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.blue[900].withOpacity(0.9),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: IconButton(
+                                  iconSize: 20,
+                                  splashRadius: 20,
+                                  color: Colors.white,
+                                  icon: Icon(FlutterIcons.search1_ant),
+                                  onPressed: () {
+                                    _doctorName.text.length == 0
+                                        ? Container()
+                                        : Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => SearchList(
+                                                searchKey: _doctorName.text,
+                                              ),
+                                            ),
+                                          );
+                                  },
                                 ),
                               ),
-                            )
-                          ],
+                            ),
+                            style: GoogleFonts.lato(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w800,
+                            ),
+                            onFieldSubmitted: (String value) {
+                              setState(
+                                () {
+                                  value.length == 0
+                                      ? Container()
+                                      : Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => SearchList(
+                                              searchKey: value,
+                                            ),
+                                          ),
+                                        );
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(left: 23, bottom: 10),
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "We care for you",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: Carouselslider(),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(left: 20),
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Specialists",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
+                          ),
+                        ),
+                        Container(
+                          height: 150,
+                          padding: EdgeInsets.only(top: 14),
+                          child: ListView.builder(
+                            physics: ClampingScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            itemCount: cards.length,
+                            itemBuilder: (context, index) {
+                              //print("images path: ${cards[index].cardImage.toString()}");
+                              return Container(
+                                margin: EdgeInsets.only(right: 14),
+                                height: 150,
+                                width: 140,
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Color(cards[index].cardBackground), boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey[400],
+                                    blurRadius: 4.0,
+                                    spreadRadius: 0.0,
+                                    offset: Offset(3, 3),
+                                  ),
+                                ]
+                                    // image: DecorationImage(
+                                    //   image: AssetImage(cards[index].cardImage),
+                                    //   fit: BoxFit.fill,
+                                    // ),
+                                    ),
+                                // ignore: deprecated_member_use
+                                child: FlatButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ExploreList(
+                                                type: cards[index].doctor,
+                                              )),
+                                    );
+                                  },
+                                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20)),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        height: 16,
+                                      ),
+                                      Container(
+                                        child: CircleAvatar(
+                                            backgroundColor: Colors.white,
+                                            radius: 29,
+                                            child: Icon(
+                                              cards[index].cardIcon,
+                                              size: 26,
+                                              color: Color(cards[index].cardBackground),
+                                            )),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        alignment: Alignment.bottomCenter,
+                                        child: Text(
+                                          cards[index].doctor,
+                                          style: GoogleFonts.lato(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
                         ),
                         SizedBox(
-                          height: 15.0,
-                        ),
-                        SendReceiveSwitch(),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(21),
-                    color: Color(0xfff4f5f9),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Flexible(
-                          child: CustomButton(buttonType: ButtonType.payBills),
-                        ),
-                        Flexible(
-                          child: CustomButton(buttonType: ButtonType.donate),
-                        ),
-                        Flexible(
-                          child: CustomButton(buttonType: ButtonType.receiptients),
-                        ),
-                        Flexible(
-                          child: CustomButton(buttonType: ButtonType.offers),
+                          height: 30,
                         ),
                       ],
                     ),
                   ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.all(21.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Text(
-                      "RECENT TRANSACTIONS",
-                      style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: 17.0,
-                      ),
-                    ),
-                    Expanded(
-                      child: ListView(
-                        children: <Widget>[
-                          Transaction(
-                            receptient: "Amazigh Halzoun",
-                            transactionAmout: "5000.00",
-                            transactionDate: "26 Jun 2019",
-                            transactionInfo: "Laptop",
-                            transactionType: TransactionType.sent,
-                          ),
-                          Transaction(
-                            receptient: "Awesome Client",
-                            transactionAmout: "15000.00",
-                            transactionDate: "26 Jun 2019",
-                            transactionInfo: "Mobile App",
-                            transactionType: TransactionType.received,
-                          ),
-                          Transaction(
-                            receptient: "Lazy Client",
-                            transactionAmout: "25000.00",
-                            transactionDate: "24 Jun 2019",
-                            transactionInfo: "Mobile App",
-                            transactionType: TransactionType.pending,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Theme.of(context).primaryColor,
-          selectedItemColor: Theme.of(context).primaryColor,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text("Home"),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.access_time),
-              title: Text("History"),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.message),
-              title: Text("Notifications"),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              title: Text("Settings"),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class SendReceiveSwitch extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        color: Colors.white54,
-      ),
-      padding: EdgeInsets.all(21.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          DragTarget(
-            builder: (context, List<int> candidateData, rejectedData) {
-              return Container(
-                padding: EdgeInsets.all(15.0),
-                child: Text(
-                  "Receive",
-                  style: TextStyle(color: Colors.white),
-                ),
-              );
-            },
-            onWillAccept: (data) {
-              return true;
-            },
-            onAccept: (data) {
-              Scaffold.of(context).showSnackBar(
-                SnackBar(
-                  content: Text("Receive!"),
-                ),
-              );
-            },
-          ),
-          Draggable(
-            data: 5,
-            child: Container(
-              width: 51,
-              height: 51,
-              padding: EdgeInsets.all(15.0),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [
-                      Colors.white54,
-                      Theme.of(context).primaryColor
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [
-                      0.3,
-                      1
-                    ]),
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.attach_money,
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-            feedback: Container(
-              width: 51,
-              height: 51,
-              padding: EdgeInsets.all(15.0),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [
-                      Colors.white54,
-                      Theme.of(context).primaryColor
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [
-                      0.3,
-                      1
-                    ]),
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.attach_money,
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-            axis: Axis.horizontal,
-            childWhenDragging: Container(
-              width: 51,
-              height: 51,
-            ),
-          ),
-          DragTarget(
-            builder: (context, List<int> candidateData, rejectedData) {
-              return Container(
-                padding: EdgeInsets.all(15.0),
-                child: Text(
-                  "Send",
-                  style: TextStyle(color: Colors.white),
-                ),
-              );
-            },
-            onWillAccept: (data) {
-              return true;
-            },
-            onAccept: (data) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return SendScreen();
-                  },
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  final ButtonType buttonType;
-  const CustomButton({Key key, this.buttonType}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    String buttonText = "", buttonImage;
-    switch (buttonType) {
-      case ButtonType.payBills:
-        buttonText = "Pay Bills";
-        buttonImage = "assets/receipt.png";
-        break;
-      case ButtonType.donate:
-        buttonText = "Donate";
-        buttonImage = "assets/donation.png";
-        break;
-      case ButtonType.receiptients:
-        buttonText = "Receipients";
-        buttonImage = "assets/users.png";
-        break;
-      case ButtonType.offers:
-        buttonText = "Offers";
-        buttonImage = "assets/discount.png";
-        break;
-    }
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: () {},
-        child: Container(
-          padding: EdgeInsets.all(5.0),
-          child: Column(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(17),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(7.0),
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.white10,
-                      Colors.black12
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 5.0,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Image.asset(
-                  buttonImage,
-                ),
-              ),
-              SizedBox(
-                height: 5.0,
-              ),
-              FittedBox(
-                child: Text(buttonText),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Transaction extends StatelessWidget {
-  final TransactionType transactionType;
-  final String transactionAmout, transactionInfo, transactionDate, receptient;
-  const Transaction({Key key, this.transactionType, this.transactionAmout, this.transactionInfo, this.transactionDate, this.receptient}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    String transactionName;
-    IconData transactionIconData;
-    Color color;
-    switch (transactionType) {
-      case TransactionType.sent:
-        transactionName = "Sent";
-        transactionIconData = Icons.arrow_upward;
-        color = Theme.of(context).primaryColor;
-        break;
-      case TransactionType.received:
-        transactionName = "Received";
-        transactionIconData = Icons.arrow_downward;
-        color = Colors.green;
-        break;
-      case TransactionType.pending:
-        transactionName = "Pending";
-        transactionIconData = Icons.arrow_downward;
-        color = Colors.orange;
-        break;
-    }
-    return Container(
-      margin: EdgeInsets.all(9.0),
-      padding: EdgeInsets.all(9.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 5.0,
-            color: Colors.grey[350],
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Row(
-        children: <Widget>[
-          Flexible(
-            flex: 1,
-            child: Stack(
-              children: <Widget>[
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(15.0),
-                  child: Image.network(
-                    "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_960_720.jpg",
-                  ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: Container(
-                    width: 15.0,
-                    height: 15.0,
-                    decoration: BoxDecoration(
-                      color: color,
-                      shape: BoxShape.circle,
-                    ),
-                    child: FittedBox(
-                      child: Icon(
-                        transactionIconData,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-          SizedBox(width: 5.0),
-          Flexible(
-            flex: 4,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      receptient,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "\$ $transactionAmout",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      "$transactionInfo - $transactionDate",
-                      style: TextStyle(color: Colors.grey[700]),
-                    ),
-                    Text(
-                      "$transactionName",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: color,
-                      ),
-                    ),
-                  ],
                 ),
               ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class SendScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Send Money"),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Text(
-                "Select Payee",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19.0),
-              ),
-              IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {},
-              )
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 4,
-              itemBuilder: (context, payees) {
-                return ListTile(
-                  title: PayeeContainer(),
-                  onTap: () {},
-                );
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class PayeeContainer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Flexible(
-            flex: 1,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Image.network(
-                "https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg",
-              ),
-            ),
-          ),
-          Flexible(
-            flex: 6,
-            child: Container(
-              padding: EdgeInsets.all(13.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "John Doe",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "+213123456789",
-                    style: TextStyle(
-                      color: Colors.grey[700],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }

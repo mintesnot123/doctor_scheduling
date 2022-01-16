@@ -4,12 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:yismaw/pages/auth/login.dart';
 import 'package:yismaw/pages/auth/splash.dart';
 import 'package:yismaw/widgets/header_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:yismaw/pages/auth/forgotPasswordVerificationPage.dart';
 import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/main/dashboard.dart';
-import 'package:yismaw/pages/main/dashboard2.dart';
 import 'package:yismaw/pages/main/doctorsList.dart';
 import 'package:yismaw/pages/main/addDoctorPage.dart';
 
@@ -21,8 +21,28 @@ class ContainerPage extends StatefulWidget {
 }
 
 class _ContainerPageState extends State<ContainerPage> {
+  FirebaseAuth _auth = FirebaseAuth.instance;
   double _drawerIconSize = 24;
   double _drawerFontSize = 17;
+
+  int _selectedIndex = 0;
+  List<Widget> _pages = [
+    DashboardPage(),
+    DoctorsListPage(),
+    RegisterPage(),
+    ForgotPasswordPage(),
+    UserProfile(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  Future _signOut() async {
+    await _auth.signOut();
+  }
 
   String pageTitle = "Dashboard";
 
@@ -125,9 +145,14 @@ class _ContainerPageState extends State<ContainerPage> {
                   'Dashboard',
                   style: TextStyle(fontSize: 17, color: Theme.of(context).accentColor),
                 ),
+                selected: _selectedIndex == 0,
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SplashPage(/* title: "Splash Screen" */)));
+                  _onItemTapped(0);
+                  Navigator.pop(context);
                 },
+                /* onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SplashPage(/* title: "Splash Screen" */)));
+                }, */
               ),
               ListTile(
                 leading: Icon(Icons.login_rounded, size: _drawerIconSize, color: Theme.of(context).accentColor),
@@ -135,12 +160,17 @@ class _ContainerPageState extends State<ContainerPage> {
                   'Doctors List',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
+                selected: _selectedIndex == 1,
                 onTap: () {
+                  _onItemTapped(1);
+                  Navigator.pop(context);
+                },
+                /* onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => LoginPage()),
                   );
-                },
+                }, */
               ),
               Divider(
                 color: Theme.of(context).primaryColor,
@@ -152,12 +182,17 @@ class _ContainerPageState extends State<ContainerPage> {
                   'Associates List',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
+                selected: _selectedIndex == 2,
                 onTap: () {
+                  _onItemTapped(2);
+                  Navigator.pop(context);
+                },
+                /* onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => RegisterPage()),
                   );
-                },
+                }, */
               ),
               Divider(
                 color: Theme.of(context).primaryColor,
@@ -173,12 +208,17 @@ class _ContainerPageState extends State<ContainerPage> {
                   'Profile Page',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
+                selected: _selectedIndex == 3,
                 onTap: () {
+                  _onItemTapped(3);
+                  Navigator.pop(context);
+                },
+                /* onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ForgotPasswordPage()),
                   );
-                },
+                }, */
               ),
               Divider(
                 color: Theme.of(context).primaryColor,
@@ -194,12 +234,17 @@ class _ContainerPageState extends State<ContainerPage> {
                   'Add Users',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
+                selected: _selectedIndex == 4,
                 onTap: () {
+                  _onItemTapped(4);
+                  Navigator.pop(context);
+                },
+                /* onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => MyAppA()),
                   );
-                },
+                }, */
               ),
               Divider(
                 color: Theme.of(context).primaryColor,
@@ -216,6 +261,11 @@ class _ContainerPageState extends State<ContainerPage> {
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
                 onTap: () {
+                  _signOut();
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
                   SystemNavigator.pop();
                 },
               ),
@@ -339,7 +389,7 @@ class _ContainerPageState extends State<ContainerPage> {
           ],
         ),
       ), */
-          AddDoctorPage(),
+          _pages[_selectedIndex],
     );
   }
 }
