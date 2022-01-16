@@ -120,15 +120,15 @@ class _SearchListState extends State<SearchList> {
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                         children: [
-                                          CircleAvatar(
+                                          /* CircleAvatar(
                                             backgroundImage: NetworkImage(doctor['image']),
                                             //backgroundColor: Colors.blue,
                                             radius: 25,
-                                          ),
+                                          ), */
                                           SizedBox(
                                             width: 20,
                                           ),
-                                          Column(
+                                          /* Column(
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
@@ -145,11 +145,11 @@ class _SearchListState extends State<SearchList> {
                                                 style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
                                               ),
                                             ],
-                                          ),
+                                          ), */
                                           SizedBox(
                                             width: 10,
                                           ),
-                                          Expanded(
+                                          /* Expanded(
                                             child: Container(
                                               alignment: Alignment.centerRight,
                                               child: Row(
@@ -175,7 +175,7 @@ class _SearchListState extends State<SearchList> {
                                                 ],
                                               ),
                                             ),
-                                          ),
+                                          ), */
                                         ],
                                       ),
                                     ),
