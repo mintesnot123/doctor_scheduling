@@ -67,7 +67,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
-                          border: Border.all(width: 5, color: Colors.white),
+                          border: Border.all(width: 1, color: Colors.white),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
