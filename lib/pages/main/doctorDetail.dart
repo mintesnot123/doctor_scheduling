@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yismaw/widgets/header_widget.dart';
-import 'package:yismaw/pages/doctorProfile.dart';
+import 'package:yismaw/pages/bookingScreen.dart';
 
 class DoctorDetail extends StatefulWidget {
   final String doctor;
@@ -131,9 +131,9 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                               contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                                               leading: Icon(Icons.my_location),
                                               title: Text("Location"),
-                                              subtitle: Text("${document!['location']}"),
+                                              subtitle: Text("${document['location'] ?? "not found"}"),
                                             ),
-                                            /* ListTile(
+                                            ListTile(
                                               leading: Icon(Icons.email),
                                               title: Text("Email"),
                                               subtitle: Text("${document['email'] ?? "not found"}"),
@@ -147,7 +147,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                               leading: Icon(Icons.person),
                                               title: Text("About Me"),
                                               subtitle: Text("${document['aboutme'] ?? "not found"}"),
-                                            ), */
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -158,7 +158,46 @@ class _DoctorDetailState extends State<DoctorDetail> {
                             )
                           ],
                         ),
-                      )
+                      ),
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 30),
+                        height: 50,
+                        width: MediaQuery.of(context).size.width,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            elevation: 2,
+                            primary: Colors.indigo.withOpacity(0.9),
+                            onPrimary: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(32.0),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BookingScreen(
+                                  doctor: document.id,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Book an Appointment',
+                            style: GoogleFonts.lato(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
                     ],
                   );
                 },
