@@ -60,7 +60,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                       child: CircularProgressIndicator(),
                     );
                   }
-                  var document = snapshot.data;
+                  var document = snapshot.data();
                   return Column(
                     children: [
                       Container(
