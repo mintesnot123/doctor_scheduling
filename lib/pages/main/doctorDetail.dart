@@ -79,7 +79,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                         ),
                         child: CircleAvatar(
                           backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* document['image'] */),
-                          radius: 80,
+                          radius: 100,
                         ) /* Icon(
                           Icons.person,
                           size: 80,
