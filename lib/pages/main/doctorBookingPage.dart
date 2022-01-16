@@ -523,7 +523,10 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => MyAppointments(),
+              builder: (context) => DoctorAppointmentsScreen(
+                doctor: widget.doctor,
+                doctorName: widget.doctorName,
+              ),
             ),
           );
         },

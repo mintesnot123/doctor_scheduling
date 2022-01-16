@@ -1,6 +1,7 @@
 import 'package:yismaw/widgets/header_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:yismaw/pages/main/appointmentsList.dart';
 
 class DoctorAppointmentsScreen extends StatefulWidget {
   final String doctor;
@@ -49,6 +50,12 @@ class _DoctorAppointmentsScreenState extends State<DoctorAppointmentsScreen> {
               Container(
                 height: 100,
                 child: HeaderWidget(100, false, Icons.house_rounded),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              AppointmentList(
+                doctor: widget.doctor,
               ),
             ]),
           ),
