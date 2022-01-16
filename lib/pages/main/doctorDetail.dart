@@ -90,8 +90,8 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                       bottom: 0,
                                       right: 0,
                                       child: Container(
-                                        width: 45.0,
-                                        height: 45.0,
+                                        width: 40.0,
+                                        height: 40.0,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           shape: BoxShape.circle,
