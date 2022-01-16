@@ -63,9 +63,9 @@ class _DoctorAppointmentsScreenState extends State<DoctorAppointmentsScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              /* SizedBox(
                 height: 30,
-              ),
+              ), */
               Container(
                 padding: EdgeInsets.only(left: 20),
                 alignment: Alignment.centerLeft,
@@ -76,7 +76,7 @@ class _DoctorAppointmentsScreenState extends State<DoctorAppointmentsScreen> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 20,
               ),
               AppointmentList(
                 doctor: widget.doctor,
