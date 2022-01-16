@@ -175,7 +175,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                               if (value.isEmpty) return 'Please Enter Patient Name';
                               return null;
                             },
-                            //style: GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: GoogleFonts.lato(fontSize: 18),
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
                               border: OutlineInputBorder(
