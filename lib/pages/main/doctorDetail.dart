@@ -199,7 +199,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                             height: 20,
                           ),
                           Container(
-                            margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                             child: Text.rich(TextSpan(children: [
                               /* TextSpan(text: "Already have an account? "), */
                               TextSpan(
