@@ -201,7 +201,6 @@ class _DoctorDetailState extends State<DoctorDetail> {
                           Container(
                             margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                             child: Text.rich(TextSpan(children: [
-                              /* TextSpan(text: "Already have an account? "), */
                               TextSpan(
                                 text: 'See doctor appointments',
                                 recognizer: TapGestureRecognizer()

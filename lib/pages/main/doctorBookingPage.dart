@@ -6,6 +6,8 @@ import 'package:intl/intl.dart';
 import 'package:yismaw/pages/myAppointments.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:yismaw/common/theme_helper.dart';
+import 'package:yismaw/pages/main/doctorAppointments.dart';
+import 'package:flutter/gestures.dart';
 
 class DoctorBookingScreen extends StatefulWidget {
   final String doctor;
@@ -454,6 +456,28 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                 ),
                               ),
                             ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                            child: Text.rich(TextSpan(children: [
+                              TextSpan(
+                                text: 'See doctor appointments',
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => DoctorAppointmentsScreen(
+                                                  doctor: widget.doctor,
+                                                  doctorName: widget.doctorName,
+                                                )));
+                                  },
+                                style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).accentColor),
+                              ),
+                            ])),
                           ),
                           SizedBox(
                             height: 40,
