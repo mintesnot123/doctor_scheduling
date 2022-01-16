@@ -27,7 +27,7 @@ class _ContainerPageState extends State<ContainerPage> {
 
   int _selectedIndex = 0;
   List<Widget> _pages = [
-    DashboardPage2(),
+    DashboardPage(),
     DoctorsListPage(),
     RegisterPage(),
     ForgotPasswordPage(),
