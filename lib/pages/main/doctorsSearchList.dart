@@ -127,7 +127,7 @@ class _SearchListState extends State<SearchList> {
                                             Navigator.push(
                                               context,
                                               MaterialPageRoute(
-                                                builder: (context) => DoctorProfile(
+                                                builder: (context) => DoctorDetail(
                                                   doctor: doctor.id,
                                                 ),
                                               ),
