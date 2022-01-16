@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:yismaw/widgets/header_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:yismaw/pages/myAppointments.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:yismaw/common/theme_helper.dart';
 
 class DoctorBookingScreen extends StatefulWidget {
   final String doctor;
@@ -517,21 +517,39 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
   }
 
   Future<void> _createAppointment() async {
-    print(dateUTC + ' ' + date_Time + ':00');
-    FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('pending').doc().set({
-      'name': _nameController.text,
-      'phone': _phoneController.text,
-      'description': _descriptionController.text,
-      'doctor': _doctorController.text,
-      'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
-    }, SetOptions(merge: true));
+    setState(() {
+      booking = true;
+    });
 
-    FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('all').doc().set({
-      'name': _nameController.text,
-      'phone': _phoneController.text,
-      'description': _descriptionController.text,
-      'doctor': _doctorController.text,
-      'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
-    }, SetOptions(merge: true));
+    try {
+      await FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('pending').doc().set({
+        'name': _nameController.text,
+        'phone': _phoneController.text,
+        'description': _descriptionController.text,
+        'doctor': _doctorController.text,
+        'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
+      }, SetOptions(merge: true));
+
+      await FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('all').doc().set({
+        'name': _nameController.text,
+        'phone': _phoneController.text,
+        'description': _descriptionController.text,
+        'doctor': _doctorController.text,
+        'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
+      }, SetOptions(merge: true));
+      setState(() {
+        booking = false;
+      });
+    } catch (error) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return ThemeHelper().alartDialog("Error", error.message, context);
+        },
+      );
+      setState(() {
+        booking = false;
+      });
+    }
   }
 }

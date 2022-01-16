@@ -3,8 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yismaw/widgets/header_widget.dart';
-import 'package:yismaw/pages/bookingScreen.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/pages/main/doctorBookingPage.dart';
 
