@@ -204,7 +204,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                             keyboardType: TextInputType.phone,
                             focusNode: f2,
                             controller: _phoneController,
-                            style: GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: GoogleFonts.lato(fontSize: 18),
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
                               border: OutlineInputBorder(
@@ -242,7 +242,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                             controller: _descriptionController,
                             keyboardType: TextInputType.multiline,
                             maxLines: null,
-                            style: GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: GoogleFonts.lato(fontSize: 18),
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
                               border: OutlineInputBorder(
@@ -273,7 +273,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                               if (value.isEmpty) return 'Please enter Doctor name';
                               return null;
                             },
-                            style: GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: GoogleFonts.lato(fontSize: 18),
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
                               border: OutlineInputBorder(
@@ -331,13 +331,13 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                     FocusScope.of(context).requestFocus(f5);
                                   },
                                   textInputAction: TextInputAction.next,
-                                  style: GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.bold),
+                                  style: GoogleFonts.lato(fontSize: 18),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(right: 5.0),
                                   child: ClipOval(
                                     child: Material(
-                                      color: Colors.indigo, // button color
+                                      color: Theme.of(context).primaryColor,
                                       child: InkWell(
                                         // inkwell color
                                         child: SizedBox(
@@ -398,13 +398,13 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                     f5.unfocus();
                                   },
                                   textInputAction: TextInputAction.next,
-                                  style: GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.bold),
+                                  style: GoogleFonts.lato(fontSize: 18),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(right: 5.0),
                                   child: ClipOval(
                                     child: Material(
-                                      color: Colors.indigo, // button color
+                                      color: Theme.of(context).primaryColor,
                                       child: InkWell(
                                         // inkwell color
                                         child: SizedBox(
@@ -434,7 +434,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 elevation: 2,
-                                primary: Colors.indigo,
+                                primary: Theme.of(context).primaryColor,
                                 onPrimary: Colors.black,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(32.0),
