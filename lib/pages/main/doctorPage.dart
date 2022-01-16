@@ -31,7 +31,7 @@ class _ContainerPageState extends State<ContainerPage> {
     DoctorsListPage(),
     RegisterPage(),
     ForgotPasswordPage(),
-    UserProfile(),
+    AddDoctorPage(),
   ];
 
   void _onItemTapped(int index) {
