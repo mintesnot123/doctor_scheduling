@@ -77,17 +77,21 @@ class _DoctorDetailState extends State<DoctorDetail> {
                             ),
                           ],
                         ),
-                        child: Icon(
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* document['image'] */),
+                          radius: 80,
+                        ) /* Icon(
                           Icons.person,
                           size: 80,
                           color: Colors.grey.shade300,
-                        ),
+                        ) */
+                        ,
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       Text(
-                        'Dr. ${document['name']}',
+                        'Dr. ${document['name'] ?? "User"}',
                         style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
