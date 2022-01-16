@@ -266,7 +266,6 @@ class _ContainerPageState extends State<ContainerPage> {
                     context,
                     MaterialPageRoute(builder: (context) => LoginPage()),
                   );
-                  SystemNavigator.pop();
                 },
               ),
             ],
