@@ -24,7 +24,7 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
-        inAsyncCall: booking,
+        inAsyncCall: false,
         child: Scaffold(
           backgroundColor: Colors.white,
           key: _scaffoldKey,
