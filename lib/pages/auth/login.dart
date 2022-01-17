@@ -10,7 +10,7 @@ import 'package:yismaw/widgets/header_widget.dart';
 import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 import 'package:yismaw/pages/auth/emailVerificationPage.dart';
-import 'package:yismaw/pages/adminPage.dart';
+import 'package:yismaw/pages/mainPage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
