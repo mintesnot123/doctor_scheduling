@@ -162,7 +162,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
               ListTile(
                 leading: Icon(Icons.list, size: _drawerIconSize, color: Theme.of(context).accentColor),
                 title: Text(
-                  'Doctors List',
+                  'My Appointments',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
                 selected: _selectedIndex == 1,
