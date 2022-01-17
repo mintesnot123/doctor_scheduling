@@ -185,7 +185,7 @@ class _UserProfileState extends State<UserProfile> {
                       SizedBox(
                         height: 20,
                       ),
-                      (document['role'] == "APPROVED")
+                      (document['role'] == "DOCTOR")
                           ? Container(
                               margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                               child: Text.rich(TextSpan(children: [
