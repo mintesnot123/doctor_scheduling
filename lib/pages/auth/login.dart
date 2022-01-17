@@ -165,6 +165,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _signIn() async {
+    FocusScope.of(context).unfocus();
     User user;
     UserCredential credential;
 
