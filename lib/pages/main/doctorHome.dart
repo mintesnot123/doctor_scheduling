@@ -168,9 +168,9 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
                   'Profile Page',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
-                selected: _selectedIndex == 3,
+                selected: _selectedIndex == 2,
                 onTap: () {
-                  _onItemTapped(3);
+                  _onItemTapped(2);
                   Navigator.pop(context);
                 },
               ),
