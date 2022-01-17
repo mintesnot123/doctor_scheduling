@@ -246,6 +246,9 @@ class _AddUserPageState extends State<AddUserPage> {
         } else {}
         // todo back to doctors list
         //Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Home()), (Route<dynamic> route) => false);
+        nameController.text = "";
+        emailController.text = "";
+        phoneController.text = "";
         showDialog(
           context: context,
           builder: (BuildContext context) {
