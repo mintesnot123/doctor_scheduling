@@ -26,14 +26,7 @@ class _AssociateHomePageState extends State<AssociateHomePage> {
     DoctorsListPage(
       role: 'associate',
     ),
-    AssociateListPage(),
     UserProfile(),
-    AddUserPage(
-      type: "doctor",
-    ),
-    AddUserPage(
-      type: "associate",
-    ),
   ];
 
   void _onItemTapped(int index) {
@@ -49,10 +42,7 @@ class _AssociateHomePageState extends State<AssociateHomePage> {
   List<String> pageTitle = [
     'Dashboard',
     'Doctors',
-    'Associates',
     "Profile",
-    "Add Doctor",
-    "Add Associate",
   ];
 
   @override
@@ -173,18 +163,6 @@ class _AssociateHomePageState extends State<AssociateHomePage> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.list_alt, size: _drawerIconSize, color: Theme.of(context).accentColor),
-                title: Text(
-                  'Associates List',
-                  style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
-                ),
-                selected: _selectedIndex == 2,
-                onTap: () {
-                  _onItemTapped(2);
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
                 leading: Icon(
                   Icons.person,
                   size: _drawerIconSize,
@@ -194,41 +172,9 @@ class _AssociateHomePageState extends State<AssociateHomePage> {
                   'Profile Page',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
-                selected: _selectedIndex == 3,
+                selected: _selectedIndex == 2,
                 onTap: () {
-                  _onItemTapped(3);
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.person_add_alt_1,
-                  size: _drawerIconSize,
-                  color: Theme.of(context).accentColor,
-                ),
-                title: Text(
-                  'Add Doctor',
-                  style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
-                ),
-                selected: _selectedIndex == 4,
-                onTap: () {
-                  _onItemTapped(4);
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.person_add_alt_1,
-                  size: _drawerIconSize,
-                  color: Theme.of(context).accentColor,
-                ),
-                title: Text(
-                  'Add Associate',
-                  style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
-                ),
-                selected: _selectedIndex == 5,
-                onTap: () {
-                  _onItemTapped(5);
+                  _onItemTapped(2);
                   Navigator.pop(context);
                 },
               ),
