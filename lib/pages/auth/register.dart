@@ -48,7 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
   bool checkboxValue = false;
 
   String type = "doctor";
-  String _registorAs = "doctor";
+  //String _registorAs = "doctor";
 
   @override
   Widget build(BuildContext context) {
@@ -216,11 +216,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                   leading: Radio(
                                     value: "doctor",
-                                    groupValue: _registorAs,
+                                    groupValue: type,
                                     activeColor: Color(0xFF6200EE),
                                     onChanged: (String value) {
                                       setState(() {
-                                        _registorAs = value;
+                                        type = value;
                                       });
                                     },
                                   ),
@@ -231,11 +231,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                   leading: Radio(
                                     value: "associate",
-                                    groupValue: _registorAs,
+                                    groupValue: type,
                                     activeColor: Color(0xFF6200EE),
                                     onChanged: (String value) {
                                       setState(() {
-                                        _registorAs = value;
+                                        type = value;
                                       });
                                     },
                                   ),
