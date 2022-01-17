@@ -45,7 +45,7 @@ class _MyAppointmentsScreenState extends State<MyAppointmentsScreen> {
                 alignment: Alignment.centerLeft,
                 padding: EdgeInsets.only(left: 20, bottom: 25),
                 child: Text(
-                  "Dr. ${user.diplayName ?? "User"}",
+                  "Dr. ${user.displayName ?? "User"}",
                   style: GoogleFonts.lato(
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
