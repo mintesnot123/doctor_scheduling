@@ -48,6 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
   bool checkboxValue = false;
 
   String type = "doctor";
+  String _registorAs = "doctor";
 
   @override
   Widget build(BuildContext context) {
@@ -192,6 +193,42 @@ class _RegisterPageState extends State<RegisterPage> {
                                 textInputAction: TextInputAction.done,
                               ),
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
+                            ),
+                            Row(
+                              children: <Widget>[
+                                ListTile(
+                                  title: Text(
+                                    'Doctor',
+                                    style: Theme.of(context).textTheme.subtitle1.copyWith(Colors.black),
+                                  ),
+                                  leading: Radio(
+                                    value: "doctor",
+                                    groupValue: _registorAs,
+                                    activeColor: Color(0xFF6200EE),
+                                    onChanged: (String value) {
+                                      setState(() {
+                                        _registorAs = value;
+                                      });
+                                    },
+                                  ),
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    'Associate',
+                                    style: Theme.of(context).textTheme.subtitle1.copyWith(Colors.black),
+                                  ),
+                                  leading: Radio(
+                                    value: "associate",
+                                    groupValue: _registorAs,
+                                    activeColor: Color(0xFF6200EE),
+                                    onChanged: (String value) {
+                                      setState(() {
+                                        _registorAs = value;
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ],
                             ),
                             SizedBox(height: 15.0),
                             FormField<bool>(
