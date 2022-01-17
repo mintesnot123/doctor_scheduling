@@ -333,18 +333,20 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
               ],
             ),
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AddDoctorPage(),
-                ),
-              );
-            },
-            backgroundColor: Colors.blue.withOpacity(0.7),
-            child: const Icon(Icons.add),
-          ),
+          floatingActionButton: (widget.role == 'admin')
+              ? FloatingActionButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AddDoctorPage(),
+                      ),
+                    );
+                  },
+                  backgroundColor: Colors.blue.withOpacity(0.7),
+                  child: const Icon(Icons.add),
+                )
+              : null,
         ));
   }
 }
