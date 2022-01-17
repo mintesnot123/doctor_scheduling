@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:yismaw/pages/auth/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:yismaw/pages/main/dashboard.dart';
-import 'package:yismaw/pages/main/doctorsList.dart';
-import 'package:yismaw/pages/main/addUserPage.dart';
-import 'package:yismaw/pages/main/associateList.dart';
 import 'package:yismaw/pages/main/profilePage.dart';
 import 'package:yismaw/pages/main/myAppointments.dart';
 
@@ -25,14 +22,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
   List<Widget> _pages = [
     DashboardPage(),
     MyAppointmentsScreen(),
-    AssociateListPage(),
     UserProfile(),
-    AddUserPage(
-      type: "doctor",
-    ),
-    AddUserPage(
-      type: "associate",
-    ),
   ];
 
   void _onItemTapped(int index) {
@@ -48,10 +38,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
   List<String> pageTitle = [
     'Dashboard',
     'My Appointments',
-    'Associates',
     "Profile",
-    "Add Doctor",
-    "Add Associate",
   ];
 
   @override
@@ -172,18 +159,6 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.list_alt, size: _drawerIconSize, color: Theme.of(context).accentColor),
-                title: Text(
-                  'Associates List',
-                  style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
-                ),
-                selected: _selectedIndex == 2,
-                onTap: () {
-                  _onItemTapped(2);
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
                 leading: Icon(
                   Icons.person,
                   size: _drawerIconSize,
@@ -196,38 +171,6 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
                 selected: _selectedIndex == 3,
                 onTap: () {
                   _onItemTapped(3);
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.person_add_alt_1,
-                  size: _drawerIconSize,
-                  color: Theme.of(context).accentColor,
-                ),
-                title: Text(
-                  'Add Doctor',
-                  style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
-                ),
-                selected: _selectedIndex == 4,
-                onTap: () {
-                  _onItemTapped(4);
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.person_add_alt_1,
-                  size: _drawerIconSize,
-                  color: Theme.of(context).accentColor,
-                ),
-                title: Text(
-                  'Add Associate',
-                  style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
-                ),
-                selected: _selectedIndex == 5,
-                onTap: () {
-                  _onItemTapped(5);
                   Navigator.pop(context);
                 },
               ),
