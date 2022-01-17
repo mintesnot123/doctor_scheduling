@@ -199,10 +199,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ListTile(
                                   title: Text(
                                     'Doctor',
-                                    style: TextStyle(
+                                    /*  style: TextStyle(
                                       color: Theme.of(context).errorColor,
                                       fontSize: 12,
-                                    ),
+                                    ), */
                                   ),
                                   leading: Radio(
                                     value: "doctor",
@@ -218,10 +218,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ListTile(
                                   title: Text(
                                     'Associate',
-                                    style: TextStyle(
+                                    /* style: TextStyle(
                                       color: Theme.of(context).errorColor,
                                       fontSize: 12,
-                                    ),
+                                    ), */
                                   ),
                                   leading: Radio(
                                     value: "associate",
