@@ -10,7 +10,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:yismaw/firebase/searchList.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:yismaw/pages/main/doctorDetail.dart';
 import 'package:yismaw/pages/main/addAssociatePage.dart';
 import 'package:yismaw/pages/main/associateDetail.dart';
 

@@ -226,7 +226,7 @@ class _AddUserPageState extends State<AddUserPage> {
       });
     }
     user = credential.user;
-    await app.delete();
+
     if (user != null) {
       try {
         await user.updateProfile(displayName: nameController.text);
@@ -246,6 +246,12 @@ class _AddUserPageState extends State<AddUserPage> {
         } else {}
         // todo back to doctors list
         //Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Home()), (Route<dynamic> route) => false);
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return ThemeHelper().alartDialog("Success", "User added successfully!", context);
+          },
+        );
         setState(() {
           signingup = false;
         });
@@ -265,5 +271,6 @@ class _AddUserPageState extends State<AddUserPage> {
         signingup = false;
       });
     }
+    await app.delete();
   }
 }
