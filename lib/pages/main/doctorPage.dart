@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:yismaw/pages/auth/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 import 'package:yismaw/pages/main/dashboard.dart';
 import 'package:yismaw/pages/main/doctorsList.dart';
 import 'package:yismaw/pages/main/addUserPage.dart';
 import 'package:yismaw/pages/main/associateList.dart';
+import 'package:yismaw/pages/main/profilePage.dart';
 
 class ContainerPage extends StatefulWidget {
   @override
@@ -25,7 +25,7 @@ class _ContainerPageState extends State<ContainerPage> {
     DashboardPage(),
     DoctorsListPage(),
     AssociateListPage(),
-    ForgotPasswordPage(),
+    UserProfile(),
     AddUserPage(
       type: "doctor",
     ),
