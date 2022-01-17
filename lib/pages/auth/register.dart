@@ -194,7 +194,11 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
                             ),
-                            Column(children: <Widget>[
+                            Row(children: <Widget>[
+                              Text(
+                                "I accept all terms and conditions.",
+                                style: TextStyle(color: Colors.grey),
+                              ),
                               Column(
                                 children: <Widget>[
                                   ListTile(
