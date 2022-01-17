@@ -1,12 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:yismaw/pages/auth/login.dart';
-import 'package:yismaw/pages/auth/splash.dart';
-import 'package:yismaw/widgets/header_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
-import 'package:yismaw/pages/auth/forgotPasswordVerificationPage.dart';
 import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/main/dashboard.dart';

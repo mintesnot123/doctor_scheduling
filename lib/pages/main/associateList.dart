@@ -1,16 +1,45 @@
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
+
+import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/widgets/header_widget.dart';
+import 'package:yismaw/pages/auth/register.dart';
+import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
+import 'package:yismaw/pages/auth/emailVerificationPage.dart';
+import 'package:yismaw/pages/adminPage.dart';
 import 'package:yismaw/pages/main/addDoctorPage.dart';
+
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/painting.dart';
+import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter/foundation.dart';
+
+import 'package:yismaw/model/cardModel.dart';
+import 'package:yismaw/components/carouselSlider.dart';
 import 'package:yismaw/firebase/searchList.dart';
+import 'package:yismaw/firebase/topRatedList.dart';
+import 'package:yismaw/firebase/notificationList.dart';
+import 'package:yismaw/pages/exploreList.dart';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:yismaw/pages/doctorProfile.dart';
+import 'package:typicons_flutter/typicons_flutter.dart';
+
+import 'package:yismaw/firebase/searchList.dart';
+import 'package:yismaw/firebase/notificationList.dart';
 import 'package:yismaw/pages/main/doctorDetail.dart';
 
 class DoctorsListPage extends StatefulWidget {
