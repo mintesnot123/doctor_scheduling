@@ -7,7 +7,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:yismaw/pages/auth/splash.dart';
 import 'package:yismaw/pages/auth/login.dart';
 import 'package:yismaw/pages/auth/register.dart';
-import 'package:yismaw/pages/adminPage.dart';
+import 'package:yismaw/pages/mainPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
