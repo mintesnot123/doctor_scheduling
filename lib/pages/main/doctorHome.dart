@@ -7,6 +7,7 @@ import 'package:yismaw/pages/main/doctorsList.dart';
 import 'package:yismaw/pages/main/addUserPage.dart';
 import 'package:yismaw/pages/main/associateList.dart';
 import 'package:yismaw/pages/main/profilePage.dart';
+import 'package:yismaw/pages/main/myAppointments.dart';
 
 class DoctorHomePage extends StatefulWidget {
   @override
@@ -23,7 +24,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
   int _selectedIndex = 0;
   List<Widget> _pages = [
     DashboardPage(),
-    DoctorsListPage(),
+    MyAppointmentsScreen(),
     AssociateListPage(),
     UserProfile(),
     AddUserPage(
@@ -46,7 +47,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
 
   List<String> pageTitle = [
     'Dashboard',
-    'Doctors',
+    'My Appointments',
     'Associates',
     "Profile",
     "Add Doctor",

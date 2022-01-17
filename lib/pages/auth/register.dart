@@ -4,10 +4,8 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:yismaw/pages/auth/login.dart';
 import 'package:yismaw/pages/auth/emailVerificationPage.dart';
 import 'package:yismaw/pages/mainPage.dart';
