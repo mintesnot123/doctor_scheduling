@@ -185,25 +185,29 @@ class _UserProfileState extends State<UserProfile> {
                       SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                        child: Text.rich(TextSpan(children: [
-                          TextSpan(
-                            text: 'See my appointments',
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DoctorAppointmentsScreen(
-                                              doctor: document.id,
-                                              doctorName: document['name'],
-                                            )));
-                              },
-                            style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).accentColor),
-                          ),
-                        ])),
-                      ),
+                      (document['role'] == "APPROVED")
+                          ? Container(
+                              margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                              child: Text.rich(TextSpan(children: [
+                                TextSpan(
+                                  text: 'See my appointments',
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => DoctorAppointmentsScreen(
+                                                    doctor: document.id,
+                                                    doctorName: document['name'],
+                                                  )));
+                                    },
+                                  style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).accentColor),
+                                ),
+                              ])),
+                            )
+                          : SizedBox(
+                              height: 2,
+                            ),
                       SizedBox(
                         height: 50,
                       ),
