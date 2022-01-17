@@ -371,7 +371,8 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                 ),
               );
             },
-            backgroundColor: Colors.blue.withOpacity(0.7),
+            backgroundColor: Theme.of(context).primaryColor,
+            /* Colors.blue.withOpacity(0.7), */
             child: const Icon(Icons.add),
           ),
         ));
