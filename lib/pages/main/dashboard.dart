@@ -14,7 +14,7 @@ import 'package:yismaw/model/cardModel.dart';
 import 'package:yismaw/widgets/header_widget.dart';
 import 'package:yismaw/components/carouselSlider.dart';
 import 'package:yismaw/pages/main/doctorsSearchList.dart';
-import 'package:yismaw/pages/exploreList.dart';
+import 'package:yismaw/pages/main/doctorsListByCategory.dart';
 
 class DashboardPage extends StatefulWidget {
   final String role;
@@ -215,8 +215,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => ExploreList(
-                                                type: cards[index].doctor,
+                                          builder: (context) => DoctorsListByCategory(
+                                                searchKey: cards[index].doctor,
+                                                role: widget.role,
                                               )),
                                     );
                                   },
