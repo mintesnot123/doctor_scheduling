@@ -13,6 +13,11 @@ import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/widgets/header_widget.dart';
 
 class AddUserPage extends StatefulWidget {
+  final type;
+  const AddUserPage({
+    Key key,
+    this.type,
+  }) : super(key: key);
   @override
   _AddUserPageState createState() => new _AddUserPageState();
 }
@@ -41,7 +46,6 @@ class _AddUserPageState extends State<AddUserPage> {
     super.dispose();
   }
 
-  String type = "doctor";
   String defaultPassword = "123456789";
 
   @override
@@ -231,14 +235,14 @@ class _AddUserPageState extends State<AddUserPage> {
           'name': nameController.text,
           'email': emailController.text,
           'phone': phoneController.text,
-          'role': type == "doctor" ? "DOCTOR" : "ASSOCIATE",
+          'role': widget.type == "doctor" ? "DOCTOR" : "ASSOCIATE",
           'approved': 'ONPROGRESS',
-          'birthDate': null,
-          'bio': null,
-          'city': null,
+          'type': null,
+          'location': null,
+          'aboutme': null,
         }, SetOptions(merge: true));
 
-        if (type == "doctor") {
+        if (widget.type == "doctor") {
         } else {}
         // todo back to doctors list
         //Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Home()), (Route<dynamic> route) => false);

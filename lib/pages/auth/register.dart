@@ -397,9 +397,9 @@ class _RegisterPageState extends State<RegisterPage> {
           'phone': phoneController.text,
           'role': type == "doctor" ? "DOCTOR" : "ASSOCIATE",
           'approved': 'ONPROGRESS',
-          'birthDate': null,
-          'bio': null,
-          'city': null,
+          'type': null,
+          'location': null,
+          'aboutme': null,
         }, SetOptions(merge: true));
 
         if (type == "doctor") {

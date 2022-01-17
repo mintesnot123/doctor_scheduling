@@ -31,7 +31,12 @@ class _ContainerPageState extends State<ContainerPage> {
     DoctorsListPage(),
     RegisterPage(),
     ForgotPasswordPage(),
-    AddUserPage(),
+    AddUserPage(
+      type: "doctor",
+    ),
+    AddUserPage(
+      type: "associate",
+    ),
   ];
 
   void _onItemTapped(int index) {
@@ -49,7 +54,8 @@ class _ContainerPageState extends State<ContainerPage> {
     'Doctors',
     'Associates',
     "Profile",
-    "Add User",
+    "Add Doctor",
+    "Add Associate",
   ];
 
   @override

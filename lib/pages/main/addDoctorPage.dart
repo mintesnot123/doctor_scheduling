@@ -41,7 +41,9 @@ class _AddDoctorPageState extends State<AddDoctorPage> {
               Navigator.pop(context);
             }),
       ),
-      body: AddUserPage(),
+      body: AddUserPage(
+        type: "doctor",
+      ),
     );
   }
 }
