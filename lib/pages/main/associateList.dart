@@ -6,20 +6,9 @@ import 'package:yismaw/widgets/header_widget.dart';
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/painting.dart';
-import 'package:intl/intl.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:flutter/foundation.dart';
-
-import 'package:yismaw/model/cardModel.dart';
-import 'package:yismaw/components/carouselSlider.dart';
 import 'package:yismaw/firebase/searchList.dart';
-import 'package:yismaw/firebase/topRatedList.dart';
-import 'package:yismaw/firebase/notificationList.dart';
-import 'package:yismaw/pages/exploreList.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:yismaw/pages/main/doctorDetail.dart';
 import 'package:yismaw/pages/main/addAssociatePage.dart';
