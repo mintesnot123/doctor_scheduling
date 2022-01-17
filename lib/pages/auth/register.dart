@@ -194,48 +194,42 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
                             ),
-                            Column(
-                              children: <Widget>[
-                                ListTile(
-                                  title: Text(
-                                    'Doctor',
-                                    /*  style: TextStyle(
-                                      color: Theme.of(context).errorColor,
-                                      fontSize: 12,
-                                    ), */
+                            Column(children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  ListTile(
+                                    title: Text(
+                                      'Doctor',
+                                    ),
+                                    leading: Radio(
+                                      value: "doctor",
+                                      groupValue: _registorAs,
+                                      activeColor: Color(0xFF6200EE),
+                                      onChanged: (String value) {
+                                        setState(() {
+                                          _registorAs = value;
+                                        });
+                                      },
+                                    ),
                                   ),
-                                  leading: Radio(
-                                    value: "doctor",
-                                    groupValue: _registorAs,
-                                    activeColor: Color(0xFF6200EE),
-                                    onChanged: (String value) {
-                                      setState(() {
-                                        _registorAs = value;
-                                      });
-                                    },
+                                  ListTile(
+                                    title: Text(
+                                      'Associate',
+                                    ),
+                                    leading: Radio(
+                                      value: "associate",
+                                      groupValue: _registorAs,
+                                      activeColor: Color(0xFF6200EE),
+                                      onChanged: (String value) {
+                                        setState(() {
+                                          _registorAs = value;
+                                        });
+                                      },
+                                    ),
                                   ),
-                                ),
-                                ListTile(
-                                  title: Text(
-                                    'Associate',
-                                    /* style: TextStyle(
-                                      color: Theme.of(context).errorColor,
-                                      fontSize: 12,
-                                    ), */
-                                  ),
-                                  leading: Radio(
-                                    value: "associate",
-                                    groupValue: _registorAs,
-                                    activeColor: Color(0xFF6200EE),
-                                    onChanged: (String value) {
-                                      setState(() {
-                                        _registorAs = value;
-                                      });
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
+                                ],
+                              ),
+                            ]),
                             SizedBox(height: 15.0),
                             FormField<bool>(
                               builder: (state) {
