@@ -164,7 +164,7 @@ class _ContainerPageState extends State<ContainerPage> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.login_rounded, size: _drawerIconSize, color: Theme.of(context).accentColor),
+                leading: Icon(Icons.list, size: _drawerIconSize, color: Theme.of(context).accentColor),
                 title: Text(
                   'Doctors List',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
@@ -175,12 +175,8 @@ class _ContainerPageState extends State<ContainerPage> {
                   Navigator.pop(context);
                 },
               ),
-              Divider(
-                color: Theme.of(context).primaryColor,
-                height: 1,
-              ),
               ListTile(
-                leading: Icon(Icons.person_add_alt_1, size: _drawerIconSize, color: Theme.of(context).accentColor),
+                leading: Icon(Icons.list_alt, size: _drawerIconSize, color: Theme.of(context).accentColor),
                 title: Text(
                   'Associates List',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
@@ -191,13 +187,9 @@ class _ContainerPageState extends State<ContainerPage> {
                   Navigator.pop(context);
                 },
               ),
-              Divider(
-                color: Theme.of(context).primaryColor,
-                height: 1,
-              ),
               ListTile(
                 leading: Icon(
-                  Icons.password_rounded,
+                  Icons.user,
                   size: _drawerIconSize,
                   color: Theme.of(context).accentColor,
                 ),
@@ -211,13 +203,9 @@ class _ContainerPageState extends State<ContainerPage> {
                   Navigator.pop(context);
                 },
               ),
-              Divider(
-                color: Theme.of(context).primaryColor,
-                height: 1,
-              ),
               ListTile(
                 leading: Icon(
-                  Icons.verified_user_sharp,
+                  Icons.person_add_alt_1,
                   size: _drawerIconSize,
                   color: Theme.of(context).accentColor,
                 ),
@@ -231,13 +219,9 @@ class _ContainerPageState extends State<ContainerPage> {
                   Navigator.pop(context);
                 },
               ),
-              Divider(
-                color: Theme.of(context).primaryColor,
-                height: 1,
-              ),
               ListTile(
                 leading: Icon(
-                  Icons.verified_user_sharp,
+                  Icons.person_add_alt_1,
                   size: _drawerIconSize,
                   color: Theme.of(context).accentColor,
                 ),
