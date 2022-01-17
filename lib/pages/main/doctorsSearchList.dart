@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yismaw/widgets/header_widget.dart';
-import 'package:yismaw/pages/doctorProfile.dart';
 import 'package:yismaw/pages/main/doctorDetail.dart';
 
 class SearchList extends StatefulWidget {

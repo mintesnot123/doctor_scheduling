@@ -42,12 +42,12 @@ import 'package:yismaw/firebase/searchList.dart';
 import 'package:yismaw/firebase/notificationList.dart';
 import 'package:yismaw/pages/main/doctorDetail.dart';
 
-class DoctorsListPage extends StatefulWidget {
+class AssociateListPage extends StatefulWidget {
   @override
-  _DoctorsListPageState createState() => new _DoctorsListPageState();
+  _AssociateListPageState createState() => new _AssociateListPageState();
 }
 
-class _DoctorsListPageState extends State<DoctorsListPage> {
+class _AssociateListPageState extends State<AssociateListPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController _doctorName = TextEditingController();
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -127,7 +127,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                               ),
                               filled: true,
                               fillColor: Colors.grey[200],
-                              hintText: 'Search doctor',
+                              hintText: 'Search Associate',
                               hintStyle: GoogleFonts.lato(
                                 color: Colors.black26,
                                 fontSize: 18,
@@ -184,7 +184,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                           padding: EdgeInsets.only(left: 20),
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            "All doctors",
+                            "All assocaites",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
                           ),
