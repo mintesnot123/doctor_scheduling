@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:yismaw/pages/auth/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
-import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/main/dashboard.dart';
 import 'package:yismaw/pages/main/doctorsList.dart';
 import 'package:yismaw/pages/main/addUserPage.dart';

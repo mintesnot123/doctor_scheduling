@@ -300,7 +300,7 @@ class _AssociateListPageState extends State<AssociateListPage> {
                                                           ),
                                                         ),
                                                         Text(
-                                                          doctor['type'],
+                                                          doctor['type'] ?? "associate",
                                                           style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
                                                         ),
                                                       ],
