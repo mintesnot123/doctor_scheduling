@@ -149,7 +149,7 @@ class _ContainerPageState extends State<ContainerPage> {
               ),
               ListTile(
                 leading: Icon(
-                  Icons.screen_lock_landscape_rounded,
+                  Icons.dashboard,
                   size: _drawerIconSize,
                   color: Theme.of(context).accentColor,
                 ),
@@ -222,7 +222,7 @@ class _ContainerPageState extends State<ContainerPage> {
                   color: Theme.of(context).accentColor,
                 ),
                 title: Text(
-                  'Add Users',
+                  'Add Doctor',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
                 selected: _selectedIndex == 4,
@@ -234,6 +234,22 @@ class _ContainerPageState extends State<ContainerPage> {
               Divider(
                 color: Theme.of(context).primaryColor,
                 height: 1,
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.verified_user_sharp,
+                  size: _drawerIconSize,
+                  color: Theme.of(context).accentColor,
+                ),
+                title: Text(
+                  'Add Associate',
+                  style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
+                ),
+                selected: _selectedIndex == 5,
+                onTap: () {
+                  _onItemTapped(5);
+                  Navigator.pop(context);
+                },
               ),
               ListTile(
                 leading: Icon(
