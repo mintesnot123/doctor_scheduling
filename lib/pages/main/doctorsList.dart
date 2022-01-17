@@ -272,7 +272,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                       mainAxisAlignment: MainAxisAlignment.center,
                                                       children: [
                                                         Text(
-                                                          doctor['name'],
+                                                          'Dr. ${doctor['name'] ?? 'User'}',
                                                           style: GoogleFonts.lato(
                                                             fontWeight: FontWeight.bold,
                                                             fontSize: 17,
@@ -280,7 +280,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                           ),
                                                         ),
                                                         Text(
-                                                          doctor['type'],
+                                                          '${doctor['type'] ?? "Specialist Doctor"}',
                                                           style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
                                                         ),
                                                       ],

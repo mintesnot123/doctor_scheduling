@@ -181,7 +181,7 @@ class _SearchListState extends State<SearchList> {
                                                 mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
                                                   Text(
-                                                    doctor['name'],
+                                                    'Dr. ${doctor['name'] ?? "User"}',
                                                     style: GoogleFonts.lato(
                                                       fontWeight: FontWeight.bold,
                                                       fontSize: 17,
@@ -189,7 +189,7 @@ class _SearchListState extends State<SearchList> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    doctor['type'],
+                                                    '${doctor['type'] ?? "Specialist Doctor"}',
                                                     style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
                                                   ),
                                                 ],
