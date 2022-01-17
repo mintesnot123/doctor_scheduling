@@ -20,7 +20,9 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
 
   int _selectedIndex = 0;
   List<Widget> _pages = [
-    DashboardPage(),
+    DashboardPage(
+      role: 'doctor',
+    ),
     MyAppointmentsScreen(),
     UserProfile(),
   ];

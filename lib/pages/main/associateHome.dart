@@ -20,7 +20,9 @@ class _AssociateHomePageState extends State<AssociateHomePage> {
 
   int _selectedIndex = 0;
   List<Widget> _pages = [
-    DashboardPage(),
+    DashboardPage(
+      role: 'associate',
+    ),
     DoctorsListPage(
       role: 'associate',
     ),

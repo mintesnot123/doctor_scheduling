@@ -17,6 +17,8 @@ import 'package:yismaw/pages/main/doctorsSearchList.dart';
 import 'package:yismaw/pages/exploreList.dart';
 
 class DashboardPage extends StatefulWidget {
+  final String role;
+  const DashboardPage({Key key, this.role}) : super(key: key);
   @override
   _DashboardPageState createState() => new _DashboardPageState();
 }
@@ -125,6 +127,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                             MaterialPageRoute(
                                               builder: (context) => SearchList(
                                                 searchKey: _doctorName.text,
+                                                role: widget.role,
                                               ),
                                             ),
                                           );

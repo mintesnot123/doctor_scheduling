@@ -6,7 +6,8 @@ import 'package:yismaw/pages/main/doctorDetail.dart';
 
 class SearchList extends StatefulWidget {
   final String searchKey;
-  const SearchList({Key key, this.searchKey}) : super(key: key);
+  final String role;
+  const SearchList({Key key, this.searchKey, this.role}) : super(key: key);
 
   @override
   _SearchListState createState() => _SearchListState();
@@ -128,6 +129,7 @@ class _SearchListState extends State<SearchList> {
                                               MaterialPageRoute(
                                                 builder: (context) => DoctorDetail(
                                                   doctor: doctor.id,
+                                                  role: widget.role,
                                                 ),
                                               ),
                                             );

@@ -22,7 +22,9 @@ class _AdminHomePageState extends State<AdminHomePage> {
 
   int _selectedIndex = 0;
   List<Widget> _pages = [
-    DashboardPage(),
+    DashboardPage(
+      role: 'admin',
+    ),
     DoctorsListPage(
       role: 'admin',
     ),
