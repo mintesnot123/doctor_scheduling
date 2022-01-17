@@ -8,14 +8,14 @@ import 'package:yismaw/pages/main/addUserPage.dart';
 import 'package:yismaw/pages/main/associateList.dart';
 import 'package:yismaw/pages/main/profilePage.dart';
 
-class ContainerPage extends StatefulWidget {
+class AssociateHomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ContainerPageState();
+    return _AssociateHomePageState();
   }
 }
 
-class _ContainerPageState extends State<ContainerPage> {
+class _AssociateHomePageState extends State<AssociateHomePage> {
   FirebaseAuth _auth = FirebaseAuth.instance;
   double _drawerIconSize = 24;
   double _drawerFontSize = 17;

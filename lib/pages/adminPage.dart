@@ -18,7 +18,9 @@ import 'package:yismaw/pages/associateList.dart';
 import 'package:yismaw/pages/userProfile.dart';
 import 'package:yismaw/pages/auth/splash.dart';
 import 'package:yismaw/pages/auth/emailVerificationPage.dart';
-import 'package:yismaw/pages/main/doctorPage.dart';
+import 'package:yismaw/pages/main/doctorHome.dart';
+import 'package:yismaw/pages/main/adminHome.dart';
+import 'package:yismaw/pages/main/associateHome.dart';
 
 class Home extends StatelessWidget {
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -72,11 +74,11 @@ class Home extends StatelessWidget {
 
   Widget checkRole(Map<String, dynamic> snapshot) {
     if (snapshot['role'] == 'ADMIN') {
-      return MainPage();
+      return AdminHomePage();
     } else if (snapshot['role'] == 'DOCTOR') {
-      return ContainerPage();
+      return DoctorHomePage();
     } else if (snapshot['role'] == 'ASSOCIATE') {
-      return AssociatePage();
+      return AssociateHomePage();
     } else {
       return Scaffold(
           body: Center(
