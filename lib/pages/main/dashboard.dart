@@ -149,6 +149,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                           MaterialPageRoute(
                                             builder: (context) => SearchList(
                                               searchKey: value,
+                                              role: widget.role,
                                             ),
                                           ),
                                         );
