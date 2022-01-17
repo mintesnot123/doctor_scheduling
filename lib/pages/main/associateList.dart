@@ -32,6 +32,7 @@ import 'package:yismaw/pages/exploreList.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:yismaw/pages/main/doctorDetail.dart';
+import 'package:yismaw/pages/main/addAssociatePage.dart';
 
 class AssociateListPage extends StatefulWidget {
   @override
@@ -358,7 +359,7 @@ class _AssociateListPageState extends State<AssociateListPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddDoctorPage(),
+                  builder: (context) => AddAssociatePage(),
                 ),
               );
             },
