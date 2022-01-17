@@ -194,7 +194,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
                             ),
-                            Row(
+                            Column(
                               children: <Widget>[
                                 ListTile(
                                   title: Text(
