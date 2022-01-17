@@ -210,7 +210,8 @@ class _AddUserPageState extends State<AddUserPage> {
     setState(() {
       signingup = true;
     });
-    FirebaseApp app = await Firebase.initializeApp(name: 'Secondary', options: Firebase.app().options);
+    FirebaseApp app = Firebase.app('SecondaryApp');
+    //FirebaseApp app = await Firebase.initializeApp(name: 'Secondary', options: Firebase.app().options);
 
     try {
       credential = await FirebaseAuth.instanceFor(app: app).createUserWithEmailAndPassword(email: emailController.text, password: defaultPassword);
@@ -274,6 +275,6 @@ class _AddUserPageState extends State<AddUserPage> {
         signingup = false;
       });
     }
-    await app.delete();
+    //await app.delete();
   }
 }
