@@ -364,7 +364,7 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _registerAccount() async {
-    FocusScope.of(context).unfocus()
+    FocusScope.of(context).unfocus();
     User user;
     UserCredential credential;
 
