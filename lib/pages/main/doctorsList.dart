@@ -11,6 +11,7 @@ import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 import 'package:yismaw/pages/auth/emailVerificationPage.dart';
 import 'package:yismaw/pages/adminPage.dart';
+import 'package:yismaw/pages/main/addDoctorPage.dart';
 
 import 'dart:async';
 import 'dart:ui';
@@ -362,7 +363,14 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddDoctorPage(),
+                ),
+              );
+            },
             backgroundColor: Colors.blue.withOpacity(0.7),
             child: const Icon(Icons.add),
           ),

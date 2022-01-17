@@ -11,7 +11,7 @@ import 'package:yismaw/pages/auth/forgotPasswordPage.dart';
 import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/main/dashboard.dart';
 import 'package:yismaw/pages/main/doctorsList.dart';
-import 'package:yismaw/pages/main/addDoctorPage.dart';
+import 'package:yismaw/pages/main/addUserPage.dart';
 
 class ContainerPage extends StatefulWidget {
   @override
@@ -31,7 +31,7 @@ class _ContainerPageState extends State<ContainerPage> {
     DoctorsListPage(),
     RegisterPage(),
     ForgotPasswordPage(),
-    AddDoctorPage(),
+    AddUserPage(),
   ];
 
   void _onItemTapped(int index) {
