@@ -1,10 +1,6 @@
-import 'package:modal_progress_hud/modal_progress_hud.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yismaw/widgets/header_widget.dart';
-import 'package:yismaw/common/theme_helper.dart';
-import 'package:yismaw/pages/main/doctorBookingPage.dart';
 import 'package:yismaw/pages/main/doctorAppointments.dart';
 import 'package:flutter/gestures.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -18,7 +14,6 @@ class UserProfile extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfile> {
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   FirebaseAuth _auth = FirebaseAuth.instance;
   User user;
 
