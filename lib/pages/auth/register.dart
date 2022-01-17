@@ -196,6 +196,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             Column(
                               children: <Widget>[
+                                SizedBox(
+                                  height: 20,
+                                ),
                                 Text(
                                   "Register As",
                                   style: TextStyle(
@@ -205,7 +208,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 20,
+                                  height: 10,
                                 ),
                                 ListTile(
                                   title: Text(
