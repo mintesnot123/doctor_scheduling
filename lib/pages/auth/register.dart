@@ -194,46 +194,40 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
                             ),
-                            Row(children: <Widget>[
-                              Text(
-                                "I accept all terms and conditions.",
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              Column(
-                                children: <Widget>[
-                                  ListTile(
-                                    title: Text(
-                                      'Doctor',
-                                    ),
-                                    leading: Radio(
-                                      value: "doctor",
-                                      groupValue: _registorAs,
-                                      activeColor: Color(0xFF6200EE),
-                                      onChanged: (String value) {
-                                        setState(() {
-                                          _registorAs = value;
-                                        });
-                                      },
-                                    ),
+                            Column(
+                              children: <Widget>[
+                                ListTile(
+                                  title: Text(
+                                    'Doctor',
                                   ),
-                                  ListTile(
-                                    title: Text(
-                                      'Associate',
-                                    ),
-                                    leading: Radio(
-                                      value: "associate",
-                                      groupValue: _registorAs,
-                                      activeColor: Color(0xFF6200EE),
-                                      onChanged: (String value) {
-                                        setState(() {
-                                          _registorAs = value;
-                                        });
-                                      },
-                                    ),
+                                  leading: Radio(
+                                    value: "doctor",
+                                    groupValue: _registorAs,
+                                    activeColor: Color(0xFF6200EE),
+                                    onChanged: (String value) {
+                                      setState(() {
+                                        _registorAs = value;
+                                      });
+                                    },
                                   ),
-                                ],
-                              ),
-                            ]),
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    'Associate',
+                                  ),
+                                  leading: Radio(
+                                    value: "associate",
+                                    groupValue: _registorAs,
+                                    activeColor: Color(0xFF6200EE),
+                                    onChanged: (String value) {
+                                      setState(() {
+                                        _registorAs = value;
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
                             SizedBox(height: 15.0),
                             FormField<bool>(
                               builder: (state) {
