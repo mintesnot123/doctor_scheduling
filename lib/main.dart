@@ -12,6 +12,7 @@ import 'package:yismaw/pages/adminPage.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await Firebase.initializeApp(name: 'SecondaryApp', options: Firebase.app().options);
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
