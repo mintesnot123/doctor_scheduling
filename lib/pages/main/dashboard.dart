@@ -169,7 +169,9 @@ class _DashboardPageState extends State<DashboardPage> {
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width,
-                          child: Carouselslider(),
+                          child: Carouselslider(
+                            role: widget.role,
+                          ),
                         ),
                         Container(
                           padding: EdgeInsets.only(left: 20),

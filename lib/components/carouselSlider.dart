@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yismaw/model/bannerModel.dart';
-import 'package:yismaw/components/disease.dart';
-import 'package:yismaw/components/diseasedetail.dart';
+import 'package:yismaw/pages/main/associateListWrapper.dart';
+import 'package:yismaw/pages/main/doctorListWrapper.dart';
 
-class Carouselslider extends StatelessWidget {
+class Carouselslider extends StatefulWidget {
+  final String role;
+  const Carouselslider({Key key, this.role}) : super(key: key);
+  @override
+  _CarouselsliderState createState() => _CarouselsliderState();
+}
+
+class _CarouselsliderState extends State<Carouselslider> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,10 +43,12 @@ class Carouselslider extends StatelessWidget {
               onTap: () {
                 index == 0
                     ? Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-                        return Disease();
+                        return DoctorListWrapperPage(
+                          role: widget.role,
+                        );
                       }))
                     : Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-                        return DiseaseDetail(disease: 'Covid-19');
+                        return AssociateListWrapperPage();
                       }));
               },
               child: Stack(
