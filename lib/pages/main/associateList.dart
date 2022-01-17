@@ -30,16 +30,7 @@ import 'package:yismaw/firebase/topRatedList.dart';
 import 'package:yismaw/firebase/notificationList.dart';
 import 'package:yismaw/pages/exploreList.dart';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:yismaw/pages/doctorProfile.dart';
-import 'package:typicons_flutter/typicons_flutter.dart';
-
-import 'package:yismaw/firebase/searchList.dart';
-import 'package:yismaw/firebase/notificationList.dart';
 import 'package:yismaw/pages/main/doctorDetail.dart';
 
 class AssociateListPage extends StatefulWidget {
@@ -107,7 +98,7 @@ class _AssociateListPageState extends State<AssociateListPage> {
                           alignment: Alignment.centerLeft,
                           padding: EdgeInsets.only(left: 20, bottom: 25),
                           child: Text(
-                            "Let's Find Your\nDoctor",
+                            "Let's Find Associates",
                             style: GoogleFonts.lato(
                               fontSize: 35,
                               fontWeight: FontWeight.bold,
@@ -193,7 +184,7 @@ class _AssociateListPageState extends State<AssociateListPage> {
                           height: 30,
                         ),
                         StreamBuilder(
-                          stream: FirebaseFirestore.instance.collection('users').orderBy('name').snapshots(),
+                          stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "ASSOCIATE").orderBy('name').snapshots(),
                           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                             if (!snapshot.hasData)
                               return Center(
@@ -207,7 +198,7 @@ class _AssociateListPageState extends State<AssociateListPage> {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'No Doctor found!',
+                                            'No Associate found!',
                                             style: GoogleFonts.lato(
                                               color: Colors.blue[800],
                                               fontSize: 25,
