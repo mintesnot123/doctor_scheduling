@@ -243,7 +243,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               ],
                             ),
                             SizedBox(height: 15.0),
-                            FormField<bool>(
+                            /* FormField<bool>(
                               builder: (state) {
                                 return Column(
                                   children: <Widget>[
@@ -284,7 +284,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   return null;
                                 }
                               },
-                            ),
+                            ), */
                             SizedBox(height: 20.0),
                             Container(
                               decoration: ThemeHelper().buttonBoxDecoration(context),
