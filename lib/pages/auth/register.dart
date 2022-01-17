@@ -10,7 +10,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:yismaw/pages/auth/login.dart';
 import 'package:yismaw/pages/auth/emailVerificationPage.dart';
-import 'package:yismaw/pages/adminPage.dart';
+import 'package:yismaw/pages/mainPage.dart';
 import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/widgets/header_widget.dart';
 
