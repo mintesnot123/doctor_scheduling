@@ -7,6 +7,7 @@ import 'package:yismaw/pages/auth/register.dart';
 import 'package:yismaw/pages/main/dashboard.dart';
 import 'package:yismaw/pages/main/doctorsList.dart';
 import 'package:yismaw/pages/main/addUserPage.dart';
+import 'package:yismaw/pages/main/associateList.dart';
 
 class ContainerPage extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _ContainerPageState extends State<ContainerPage> {
   List<Widget> _pages = [
     DashboardPage(),
     DoctorsListPage(),
-    RegisterPage(),
+    AssociateListPage(),
     ForgotPasswordPage(),
     AddUserPage(
       type: "doctor",
