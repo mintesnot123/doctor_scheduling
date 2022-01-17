@@ -12,6 +12,7 @@ import 'package:yismaw/firebase/searchList.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:yismaw/pages/main/doctorDetail.dart';
 import 'package:yismaw/pages/main/addAssociatePage.dart';
+import 'package:yismaw/pages/main/associateDetail.dart';
 
 class AssociateListPage extends StatefulWidget {
   @override
@@ -219,7 +220,7 @@ class _AssociateListPageState extends State<AssociateListPage> {
                                                   Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
-                                                      builder: (context) => DoctorDetail(
+                                                      builder: (context) => AssociateDetail(
                                                         doctor: doctor.id,
                                                       ),
                                                     ),
@@ -280,7 +281,7 @@ class _AssociateListPageState extends State<AssociateListPage> {
                                                           ),
                                                         ),
                                                         Text(
-                                                          doctor['type'] ?? "associate",
+                                                          doctor['type'] ?? "Free Subsctiption",
                                                           style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
                                                         ),
                                                       ],
