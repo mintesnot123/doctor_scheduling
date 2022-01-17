@@ -196,6 +196,14 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             Column(
                               children: <Widget>[
+                                Text(
+                                  "Register As",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
                                 ListTile(
                                   title: Text(
                                     'Doctor',
