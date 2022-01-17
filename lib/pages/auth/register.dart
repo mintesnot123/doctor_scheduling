@@ -201,9 +201,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                    color: Colors.black,
                                   ),
                                 ),
+                                SizedBox(
+                                  height: 20,
+                                )
                                 ListTile(
                                   title: Text(
                                     'Doctor',
