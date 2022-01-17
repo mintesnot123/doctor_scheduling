@@ -10,7 +10,8 @@ import 'package:flutter/gestures.dart';
 
 class DoctorDetail extends StatefulWidget {
   final String doctor;
-  const DoctorDetail({Key key, this.doctor}) : super(key: key);
+  final String role;
+  const DoctorDetail({Key key, this.doctor, this.role}) : super(key: key);
 
   @override
   _DoctorDetailState createState() => _DoctorDetailState();
@@ -198,54 +199,62 @@ class _DoctorDetailState extends State<DoctorDetail> {
                           SizedBox(
                             height: 20,
                           ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                            child: Text.rich(TextSpan(children: [
-                              TextSpan(
-                                text: 'See doctor appointments',
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => DoctorAppointmentsScreen(
-                                                  doctor: document.id,
-                                                  doctorName: document['name'],
-                                                )));
-                                  },
-                                style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).accentColor),
-                              ),
-                            ])),
-                          ),
+                          (widget.role == 'admin')
+                              ? Container(
+                                  margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                  child: Text.rich(TextSpan(children: [
+                                    TextSpan(
+                                      text: 'See doctor appointments',
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) => DoctorAppointmentsScreen(
+                                                        doctor: document.id,
+                                                        doctorName: document['name'],
+                                                      )));
+                                        },
+                                      style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).accentColor),
+                                    ),
+                                  ])),
+                                )
+                              : SizedBox(
+                                  height: 1,
+                                ),
                           SizedBox(
                             height: 50,
                           ),
-                          Container(
-                            padding: EdgeInsets.symmetric(horizontal: 30),
-                            height: 50,
-                            width: MediaQuery.of(context).size.width,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                elevation: 2,
-                                primary: document['approved'] == "APPROVED" ? Colors.red[400].withOpacity(0.9) : Colors.green[400].withOpacity(0.9),
-                                onPrimary: Colors.black,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(32.0),
+                          (widget.role == 'admin')
+                              ? Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 30),
+                                  height: 50,
+                                  width: MediaQuery.of(context).size.width,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      elevation: 2,
+                                      primary: document['approved'] == "APPROVED" ? Colors.red[400].withOpacity(0.9) : Colors.green[400].withOpacity(0.9),
+                                      onPrimary: Colors.black,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(32.0),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      document['approved'] == "APPROVED" ? _aproveAccount(false) : _aproveAccount(true);
+                                    },
+                                    child: Text(
+                                      document['approved'] == "APPROVED" ? 'Block Account' : 'Approve Account',
+                                      style: GoogleFonts.lato(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : SizedBox(
+                                  height: 1,
                                 ),
-                              ),
-                              onPressed: () {
-                                document['approved'] == "APPROVED" ? _aproveAccount(false) : _aproveAccount(true);
-                              },
-                              child: Text(
-                                document['approved'] == "APPROVED" ? 'Block Account' : 'Approve Account',
-                                style: GoogleFonts.lato(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
                           SizedBox(
                             height: 15,
                           ),

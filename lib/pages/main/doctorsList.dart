@@ -14,6 +14,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:yismaw/pages/main/doctorDetail.dart';
 
 class DoctorsListPage extends StatefulWidget {
+  final String role;
+  const DoctorsListPage({Key key, this.role}) : super(key: key);
   @override
   _DoctorsListPageState createState() => new _DoctorsListPageState();
 }
@@ -219,9 +221,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                   Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
-                                                      builder: (context) => DoctorDetail(
-                                                        doctor: doctor.id,
-                                                      ),
+                                                      builder: (context) => DoctorDetail(doctor: doctor.id, role: widget.role),
                                                     ),
                                                   );
                                                 },
