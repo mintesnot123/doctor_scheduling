@@ -189,7 +189,7 @@ class _ContainerPageState extends State<ContainerPage> {
               ),
               ListTile(
                 leading: Icon(
-                  Icons.user,
+                  Icons.person,
                   size: _drawerIconSize,
                   color: Theme.of(context).accentColor,
                 ),
