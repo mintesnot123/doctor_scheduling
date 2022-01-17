@@ -20,11 +20,11 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
 
   int _selectedIndex = 0;
   List<Widget> _pages = [
-    DashboardPage(
+    /* DashboardPage(
       role: 'doctor',
-    ),
-    MyAppointmentsScreen(),
+    ), */
     UserProfile(),
+    MyAppointmentsScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -38,9 +38,9 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
   }
 
   List<String> pageTitle = [
-    'Dashboard',
+    /* 'Dashboard', */
+    "My Profile",
     'My Appointments',
-    "Profile",
   ];
 
   @override
@@ -132,7 +132,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
                   ),
                 ),
               ),
-              ListTile(
+              /* ListTile(
                 leading: Icon(
                   Icons.dashboard,
                   size: _drawerIconSize,
@@ -147,6 +147,22 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
                   _onItemTapped(0);
                   Navigator.pop(context);
                 },
+              ), */
+              ListTile(
+                leading: Icon(
+                  Icons.person,
+                  size: _drawerIconSize,
+                  color: Theme.of(context).accentColor,
+                ),
+                title: Text(
+                  'My Profile',
+                  style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
+                ),
+                selected: _selectedIndex == 2,
+                onTap: () {
+                  _onItemTapped(2);
+                  Navigator.pop(context);
+                },
               ),
               ListTile(
                 leading: Icon(Icons.list, size: _drawerIconSize, color: Theme.of(context).accentColor),
@@ -157,22 +173,6 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
                 selected: _selectedIndex == 1,
                 onTap: () {
                   _onItemTapped(1);
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.person,
-                  size: _drawerIconSize,
-                  color: Theme.of(context).accentColor,
-                ),
-                title: Text(
-                  'Profile Page',
-                  style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
-                ),
-                selected: _selectedIndex == 2,
-                onTap: () {
-                  _onItemTapped(2);
                   Navigator.pop(context);
                 },
               ),
