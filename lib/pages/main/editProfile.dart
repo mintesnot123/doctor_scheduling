@@ -9,7 +9,7 @@ import 'package:yismaw/pages/main/profilePage.dart';
 import 'package:flutter/gestures.dart';
 
 class EditProfileScreen extends StatefulWidget {
-  final String doctor;
+  final var doctor;
   final String userId;
   final String role;
 
