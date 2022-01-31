@@ -58,14 +58,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   void initState() {
     super.initState();
-    _nameController.text = widget.doctor.name ?? '';
-    _phoneController.text = widget.doctor.phone ?? '';
-    _specialityController.text = widget.doctor.type ?? '';
-    _addressController.text = widget.doctor.location ?? '';
-    _localityController.text = widget.doctor.locality ?? '';
-    _cityController.text = widget.doctor.city ?? '';
-    _stateController.text = widget.doctor.state ?? '';
-    _countryController.text = widget.doctor.country ?? '';
+    _nameController.text = widget.doctor['name'] ?? '';
+    _phoneController.text = widget.doctor['phone'] ?? '';
+    _specialityController.text = widget.doctor['type'] ?? '';
+    _addressController.text = widget.doctor['location'] ?? '';
+    _localityController.text = widget.doctor['locality'] ?? '';
+    _cityController.text = widget.doctor['city'] ?? '';
+    _stateController.text = widget.doctor['state'] ?? '';
+    _countryController.text = widget.doctor['country'] ?? '';
   }
 
   @override
