@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:yismaw/common/theme_helper.dart';
-import 'package:yismaw/pages/main/doctorAppointments.dart';
+import 'package:yismaw/pages/main/profilePage.dart';
 import 'package:flutter/gestures.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -467,9 +467,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => DoctorAppointmentsScreen(
-                doctor: widget.doctor,
-                doctorName: widget.doctorName,
+              builder: (context) => UserProfile(
+                role: widget.role,
               ),
             ),
           );
