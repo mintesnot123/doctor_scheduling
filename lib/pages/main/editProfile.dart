@@ -109,11 +109,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 child: Container(
                   child: Column(
                     children: [
-                      Container(
-                        child: Image(
-                          image: AssetImage('assets/images/appointment.jpg'),
-                          height: 250,
-                        ),
+                      CircleAvatar(
+                        backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                        radius: 80,
                       ),
                       SizedBox(
                         height: 10,
