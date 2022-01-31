@@ -456,7 +456,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         'city': _cityController.text,
         'state': _stateController.text,
         'country': _countryController.text,
-      }, SetOptions(merge: true));
+      });
 
       Widget okButton = TextButton(
         child: Text(
