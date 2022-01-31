@@ -207,7 +207,7 @@ class _UserProfileState extends State<UserProfile> {
                               height: 2,
                             ),
                       SizedBox(
-                        height: 50,
+                        height: 30,
                       ),
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 30),
