@@ -149,12 +149,6 @@ class _UserProfileState extends State<UserProfile> {
                                           color: Colors.grey,
                                           tiles: [
                                             ListTile(
-                                              contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                                              leading: Icon(Icons.my_location),
-                                              title: Text("Location"),
-                                              subtitle: Text("${document['location'] ?? "not found"}"),
-                                            ),
-                                            ListTile(
                                               leading: Icon(Icons.email),
                                               title: Text("Email"),
                                               subtitle: Text("${document['email'] ?? "not found"}"),
@@ -163,6 +157,12 @@ class _UserProfileState extends State<UserProfile> {
                                               leading: Icon(Icons.phone),
                                               title: Text("Phone"),
                                               subtitle: Text("${document['phone'] ?? "not found"}"),
+                                            ),
+                                            ListTile(
+                                              contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                                              leading: Icon(Icons.my_location),
+                                              title: Text("Location"),
+                                              subtitle: Text("${document['location'] ?? "not found"}"),
                                             ),
                                             ListTile(
                                               leading: Icon(Icons.person),
