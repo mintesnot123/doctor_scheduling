@@ -162,7 +162,7 @@ class _UserProfileState extends State<UserProfile> {
                                               contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                                               leading: Icon(Icons.my_location),
                                               title: Text("Location"),
-                                              subtitle: Text("${document['location'] ?? "not found"}"),
+                                              subtitle: Text("Address: ${document['location'] ?? "not found"}\nLocality: ${document['locality'] ?? "not found"}\nCity: ${document['city'] ?? "not found"}\nState: ${document['state'] ?? "not found"}\nCountry: ${document['country'] ?? "not found"}"),
                                             ),
                                             ListTile(
                                               leading: Icon(Icons.person),
