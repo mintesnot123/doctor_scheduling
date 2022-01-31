@@ -446,6 +446,10 @@ class _RegisterPageState extends State<RegisterPage> {
           'approved': 'ONPROGRESS',
           'type': null,
           'location': null,
+          'locality': null,
+          'city': null,
+          'state': null,
+          'country': null,
           'aboutme': null,
         }, SetOptions(merge: true));
 
