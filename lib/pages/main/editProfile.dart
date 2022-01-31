@@ -109,9 +109,52 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 child: Container(
                   child: Column(
                     children: [
-                      CircleAvatar(
-                        backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
-                        radius: 80,
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          border: Border.all(width: 1, color: Colors.white),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 20,
+                              offset: const Offset(5, 5),
+                            ),
+                          ],
+                        ),
+                        child: (widget.doctor['approved'] == "APPROVED")
+                            ? Stack(
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                    radius: 80,
+                                  ),
+                                  Positioned(
+                                    bottom: 0,
+                                    right: 0,
+                                    child: Container(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: FittedBox(
+                                        child: Icon(
+                                          Icons.check,
+                                          color: Colors.blue[900],
+                                          size: 24,
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              )
+                            : CircleAvatar(
+                                backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                radius: 80,
+                              ),
                       ),
                       SizedBox(
                         height: 10,
