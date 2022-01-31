@@ -188,7 +188,7 @@ class _UserProfileState extends State<UserProfile> {
                               margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                               child: Text.rich(TextSpan(children: [
                                 TextSpan(
-                                  text: 'See my appointments',
+                                  text: 'See my schedule',
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
                                       Navigator.push(
