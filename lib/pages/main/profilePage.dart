@@ -164,11 +164,11 @@ class _UserProfileState extends State<UserProfile> {
                                               title: Text("Location"),
                                               subtitle: Text("Address: ${document['location'] ?? "not found"}\nLocality: ${document['locality'] ?? "not found"}\nCity: ${document['city'] ?? "not found"}\nState: ${document['state'] ?? "not found"}\nCountry: ${document['country'] ?? "not found"}"),
                                             ),
-                                            ListTile(
+                                            /* ListTile(
                                               leading: Icon(Icons.person),
                                               title: Text("About Me"),
                                               subtitle: Text("${document['aboutme'] ?? "not found"}"),
-                                            ),
+                                            ), */
                                           ],
                                         ),
                                       ],
