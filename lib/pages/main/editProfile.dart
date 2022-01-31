@@ -157,7 +157,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       Form(
                         key: _formKey,
@@ -166,7 +166,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           padding: EdgeInsets.only(top: 0),
                           child: Column(
                             children: [
-                              Container(
+                              /* Container(
                                 alignment: Alignment.centerLeft,
                                 padding: EdgeInsets.only(left: 16),
                                 child: Text(
@@ -177,7 +177,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     color: Colors.black54,
                                   ),
                                 ),
-                              ),
+                              ), */
                               SizedBox(
                                 height: 30,
                               ),
