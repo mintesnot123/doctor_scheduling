@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yismaw/widgets/header_widget.dart';
 import 'package:yismaw/pages/main/doctorAppointments.dart';
+import 'package:yismaw/pages/main/editProfile.dart';
 import 'package:flutter/gestures.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -222,15 +223,16 @@ class _UserProfileState extends State<UserProfile> {
                             ),
                           ),
                           onPressed: () {
-                            /* Navigator.push(
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => DoctorBookingScreen(
-                                  doctor: document.id,
-                                  doctorName: document['name'],
+                                builder: (context) => EditProfileScreen(
+                                  userId: document.id,
+                                  doctor: document,
+                                  role: widget.role,
                                 ),
                               ),
-                            ); */
+                            );
                           },
                           child: Text(
                             'Edit Profile',
