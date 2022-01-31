@@ -114,7 +114,7 @@ class _UserProfileState extends State<UserProfile> {
                         height: 20,
                       ),
                       Text(
-                        '${document['role'] ?? "Doctor"}',
+                        document['role'] == "DOCTOR" ? '${document['type'] ?? "Doctor"}' : '${document['role'] ?? "Doctor"}',
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
