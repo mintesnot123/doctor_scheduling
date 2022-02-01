@@ -191,6 +191,9 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                             },
                           ),
                         ),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Container(
                           padding: EdgeInsets.only(left: 20),
                           alignment: Alignment.centerLeft,
