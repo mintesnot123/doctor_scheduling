@@ -12,6 +12,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:yismaw/firebase/searchList.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:yismaw/pages/main/doctorDetail.dart';
+import 'package:yismaw/pages/main/searchResultPage.dart';
 
 class DoctorsListPage extends StatefulWidget {
   final String role;
@@ -134,8 +135,11 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                         : Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                              builder: (context) => SearchList(
+                                              builder: (context) => SearchResultPage(
                                                 searchKey: _doctorName.text,
+                                                filter: selectedFilter,
+                                                type: "DOCTOR",
+                                                role: "ADMIN",
                                               ),
                                             ),
                                           );
@@ -155,8 +159,11 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                       : Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => SearchList(
-                                              searchKey: value,
+                                            builder: (context) => SearchResultPage(
+                                              searchKey: _doctorName.text,
+                                              filter: selectedFilter,
+                                              type: "DOCTOR",
+                                              role: "ADMIN",
                                             ),
                                           ),
                                         );
