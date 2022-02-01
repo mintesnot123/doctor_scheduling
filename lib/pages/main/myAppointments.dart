@@ -56,7 +56,7 @@ class _MyAppointmentsScreenState extends State<MyAppointmentsScreen> {
                 padding: EdgeInsets.only(left: 20),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Pending Appointments",
+                  "My Availabilities",
                   textAlign: TextAlign.center,
                   style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
                 ),

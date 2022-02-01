@@ -21,12 +21,11 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _doctorController = TextEditingController();
+  final TextEditingController _hospitalController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
-  final TextEditingController _timeController = TextEditingController();
+  final TextEditingController _fromController = TextEditingController();
+  final TextEditingController _toController = TextEditingController();
 
   FocusNode f1 = FocusNode();
   FocusNode f2 = FocusNode();
@@ -38,26 +37,27 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
 
   @override
   void dispose() {
-    _nameController.dispose();
-    _phoneController.dispose();
-    _descriptionController.dispose();
     _doctorController.dispose();
+    _hospitalController.dispose();
     _dateController.dispose();
-    _timeController.dispose();
+    _fromController.dispose();
+    _toController.dispose();
     super.dispose();
   }
 
   DateTime selectedDate = DateTime.now();
   TimeOfDay currentTime = TimeOfDay.now();
-  String timeText = 'Select Time';
+  String timeText = 'Select starting time';
+  String timeText2 = 'Select final Time';
   String dateUTC;
   String date_Time;
+  String date_Time2;
 
   Future<void> selectDate(BuildContext context) async {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2021),
+      firstDate: DateTime(2022),
       lastDate: DateTime(2025),
     ).then(
       (date) {
@@ -85,16 +85,34 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
     if (formattedTime != null) {
       setState(() {
         timeText = formattedTime;
-        _timeController.text = timeText;
+        _fromController.text = timeText;
       });
     }
     date_Time = selectedTime.toString().substring(10, 15);
   }
 
+  Future<void> selectTime2(BuildContext context) async {
+    TimeOfDay selectedTime2 = await showTimePicker(
+      context: context,
+      initialTime: currentTime,
+    );
+
+    MaterialLocalizations localizations = MaterialLocalizations.of(context);
+    String formattedTime = localizations.formatTimeOfDay(selectedTime2, alwaysUse24HourFormat: false);
+
+    if (formattedTime != null) {
+      setState(() {
+        timeText2 = formattedTime;
+        _toController.text = timeText2;
+      });
+    }
+    date_Time2 = selectedTime2.toString().substring(10, 15);
+  }
+
   @override
   void initState() {
     super.initState();
-    selectTime(context);
+    //selectTime(context);
     _doctorController.text = widget.doctorName ?? '';
   }
 
@@ -107,7 +125,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
           key: _scaffoldKey,
           appBar: AppBar(
             title: Text(
-              'Appointment booking',
+              'Add Availability',
               style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
             elevation: 0.5,
@@ -159,7 +177,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                 alignment: Alignment.centerLeft,
                                 padding: EdgeInsets.only(left: 16),
                                 child: Text(
-                                  'Enter Patient Details',
+                                  'Enter Details',
                                   style: GoogleFonts.lato(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
@@ -171,106 +189,8 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                 height: 30,
                               ),
                               TextFormField(
-                                controller: _nameController,
-                                focusNode: f1,
-                                validator: (value) {
-                                  if (value.isEmpty) return 'Please Enter Patient Name';
-                                  return null;
-                                },
-                                style: GoogleFonts.lato(fontSize: 18),
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(90.0)),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  filled: true,
-                                  fillColor: Colors.grey[350],
-                                  hintText: 'Patient Name*',
-                                  hintStyle: GoogleFonts.lato(
-                                    color: Colors.black26,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                                ),
-                                onFieldSubmitted: (String value) {
-                                  f1.unfocus();
-                                  FocusScope.of(context).requestFocus(f2);
-                                },
-                                textInputAction: TextInputAction.next,
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              TextFormField(
-                                keyboardType: TextInputType.phone,
-                                focusNode: f2,
-                                controller: _phoneController,
-                                style: GoogleFonts.lato(fontSize: 18),
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(90.0)),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  filled: true,
-                                  fillColor: Colors.grey[350],
-                                  hintText: 'Mobile*',
-                                  hintStyle: GoogleFonts.lato(
-                                    color: Colors.black26,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                                ),
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return 'Please Enter Phone number';
-                                  } else if (value.length < 10) {
-                                    return 'Please Enter correct Phone number';
-                                  }
-                                  return null;
-                                },
-                                onFieldSubmitted: (String value) {
-                                  f2.unfocus();
-                                  FocusScope.of(context).requestFocus(f3);
-                                },
-                                textInputAction: TextInputAction.next,
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              TextFormField(
-                                focusNode: f3,
-                                controller: _descriptionController,
-                                keyboardType: TextInputType.multiline,
-                                maxLines: null,
-                                style: GoogleFonts.lato(fontSize: 18),
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(90.0)),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  filled: true,
-                                  fillColor: Colors.grey[350],
-                                  hintText: 'Description',
-                                  hintStyle: GoogleFonts.lato(
-                                    color: Colors.black26,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                                ),
-                                onFieldSubmitted: (String value) {
-                                  f3.unfocus();
-                                  FocusScope.of(context).requestFocus(f4);
-                                },
-                                textInputAction: TextInputAction.next,
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              TextFormField(
                                 controller: _doctorController,
+                                focusNode: f1,
                                 validator: (value) {
                                   if (value.isEmpty) return 'Please enter Doctor name';
                                   return null;
@@ -291,6 +211,43 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                     fontWeight: FontWeight.w800,
                                   ),
                                 ),
+                                onFieldSubmitted: (String value) {
+                                  f1.unfocus();
+                                  FocusScope.of(context).requestFocus(f2);
+                                },
+                                textInputAction: TextInputAction.next,
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              TextFormField(
+                                controller: _hospitalController,
+                                focusNode: f2,
+                                validator: (value) {
+                                  if (value.isEmpty) return 'Please Enter Hospital Name';
+                                  return null;
+                                },
+                                style: GoogleFonts.lato(fontSize: 18),
+                                decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(90.0)),
+                                    borderSide: BorderSide.none,
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.grey[350],
+                                  hintText: 'Hospital Name*',
+                                  hintStyle: GoogleFonts.lato(
+                                    color: Colors.black26,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                                onFieldSubmitted: (String value) {
+                                  f2.unfocus();
+                                  FocusScope.of(context).requestFocus(f3);
+                                },
+                                textInputAction: TextInputAction.next,
                               ),
                               SizedBox(
                                 height: 20,
@@ -371,7 +328,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                   alignment: Alignment.centerRight,
                                   children: [
                                     TextFormField(
-                                      focusNode: f5,
+                                      focusNode: f4,
                                       decoration: InputDecoration(
                                         contentPadding: EdgeInsets.only(
                                           left: 20,
@@ -384,20 +341,21 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                         ),
                                         filled: true,
                                         fillColor: Colors.grey[350],
-                                        hintText: 'Select Time*',
+                                        hintText: 'Select Starting Time*',
                                         hintStyle: GoogleFonts.lato(
                                           color: Colors.black26,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w800,
                                         ),
                                       ),
-                                      controller: _timeController,
+                                      controller: _fromController,
                                       validator: (value) {
-                                        if (value.isEmpty) return 'Please Enter the Time';
+                                        if (value.isEmpty) return 'Please Enter the starting Time';
                                         return null;
                                       },
                                       onFieldSubmitted: (String value) {
-                                        f5.unfocus();
+                                        f4.unfocus();
+                                        FocusScope.of(context).requestFocus(f5);
                                       },
                                       textInputAction: TextInputAction.next,
                                       style: GoogleFonts.lato(fontSize: 18),
@@ -428,6 +386,73 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                 ),
                               ),
                               SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                alignment: Alignment.center,
+                                height: 60,
+                                width: MediaQuery.of(context).size.width,
+                                child: Stack(
+                                  alignment: Alignment.centerRight,
+                                  children: [
+                                    TextFormField(
+                                      focusNode: f4,
+                                      decoration: InputDecoration(
+                                        contentPadding: EdgeInsets.only(
+                                          left: 20,
+                                          top: 10,
+                                          bottom: 10,
+                                        ),
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(Radius.circular(90.0)),
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.grey[350],
+                                        hintText: 'Select final Time*',
+                                        hintStyle: GoogleFonts.lato(
+                                          color: Colors.black26,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w800,
+                                        ),
+                                      ),
+                                      controller: _toController,
+                                      validator: (value) {
+                                        if (value.isEmpty) return 'Please Enter the final Time';
+                                        return null;
+                                      },
+                                      onFieldSubmitted: (String value) {
+                                        f5.unfocus();
+                                      },
+                                      textInputAction: TextInputAction.next,
+                                      style: GoogleFonts.lato(fontSize: 18),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 5.0),
+                                      child: ClipOval(
+                                        child: Material(
+                                          color: Theme.of(context).primaryColor,
+                                          child: InkWell(
+                                            // inkwell color
+                                            child: SizedBox(
+                                              width: 40,
+                                              height: 40,
+                                              child: Icon(
+                                                Icons.timer_outlined,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            onTap: () {
+                                              selectTime2(context);
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
                                 height: 40,
                               ),
                               Container(
@@ -448,7 +473,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                     }
                                   },
                                   child: Text(
-                                    "Book Appointment",
+                                    "Submit",
                                     style: GoogleFonts.lato(
                                       color: Colors.white,
                                       fontSize: 18,
@@ -464,7 +489,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                 margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                                 child: Text.rich(TextSpan(children: [
                                   TextSpan(
-                                    text: 'See doctor appointments',
+                                    text: 'See availability',
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
                                         Navigator.push(
@@ -502,19 +527,19 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
 
     try {
       await FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('pending').doc().set({
-        'name': _nameController.text,
-        'phone': _phoneController.text,
-        'description': _descriptionController.text,
         'doctor': _doctorController.text,
+        'hospital': _hospitalController.text,
         'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
+        'from': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
+        'to': DateTime.parse(dateUTC + ' ' + date_Time2 + ':00'),
       }, SetOptions(merge: true));
 
       await FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('all').doc().set({
-        'name': _nameController.text,
-        'phone': _phoneController.text,
-        'description': _descriptionController.text,
         'doctor': _doctorController.text,
+        'hospital': _hospitalController.text,
         'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
+        'from': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
+        'to': DateTime.parse(dateUTC + ' ' + date_Time2 + ':00'),
       }, SetOptions(merge: true));
       Widget okButton = TextButton(
         child: Text(
@@ -541,7 +566,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
           ),
         ),
         content: Text(
-          "Appointment is registered.",
+          "Availability is registered.",
           style: GoogleFonts.lato(),
         ),
         actions: [

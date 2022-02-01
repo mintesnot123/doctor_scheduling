@@ -46,7 +46,7 @@ class _AppointmentListState extends State<AppointmentList> {
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("Confirm Delete"),
-      content: Text("Are you sure you want to delete this Appointment?"),
+      content: Text("Are you sure you want to delete this schedule?"),
       actions: [
         cancelButton,
         continueButton,
@@ -93,7 +93,7 @@ class _AppointmentListState extends State<AppointmentList> {
           return snapshot.data.size == 0
               ? Center(
                   child: Text(
-                    'No Appointment Scheduled',
+                    'No Availability Scheduled',
                     style: GoogleFonts.lato(
                       color: Colors.grey,
                       fontSize: 18,
@@ -155,7 +155,7 @@ class _AppointmentListState extends State<AppointmentList> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        "Patient name: " + document['name'],
+                                        "Hospital: " + document['hospital'],
                                         style: GoogleFonts.lato(
                                           fontSize: 16,
                                         ),
@@ -166,7 +166,11 @@ class _AppointmentListState extends State<AppointmentList> {
                                       Text(
                                         "Time: " +
                                             _timeFormatter(
-                                              document['date'].toDate().toString(),
+                                              document['from'].toDate().toString(),
+                                            ) +
+                                            " - " +
+                                            _timeFormatter(
+                                              document['to'].toDate().toString(),
                                             ),
                                         style: GoogleFonts.lato(
                                           fontSize: 16,
