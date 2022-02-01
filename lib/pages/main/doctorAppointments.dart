@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:yismaw/pages/main/appointmentsList.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yismaw/pages/main/doctorBookingPage.dart';
 
 class DoctorAppointmentsScreen extends StatefulWidget {
   final String doctor;
@@ -77,6 +78,43 @@ class _DoctorAppointmentsScreenState extends State<DoctorAppointmentsScreen> {
               ),
               AppointmentList(
                 doctor: widget.doctor,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                height: 50,
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 2,
+                    primary: Theme.of(context).primaryColor.withOpacity(0.9),
+                    onPrimary: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DoctorBookingScreen(
+                          doctor: widget.doctor,
+                          doctorName: widget.doctorName,
+                        ),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Add Availability',
+                    style: GoogleFonts.lato(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ),
             ]),
           ),
