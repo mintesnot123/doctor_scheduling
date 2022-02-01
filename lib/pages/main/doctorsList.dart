@@ -272,7 +272,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                       mainAxisAlignment: MainAxisAlignment.center,
                                                       children: [
                                                         Text(
-                                                          'Dr. ${doctor['name'] ?? 'User'}'.length > 30 ? 'Dr. ${doctor['name'] ?? 'User'}'.substring(0, 27) + "..." : 'Dr. ${doctor['name'] ?? 'User'}',
+                                                          'Dr. ${doctor['name'] ?? 'User'}'.length > 18 ? 'Dr. ${doctor['name'] ?? 'User'}'.substring(0, 18) + "..." : 'Dr. ${doctor['name'] ?? 'User'}',
                                                           style: GoogleFonts.lato(
                                                             fontWeight: FontWeight.bold,
                                                             fontSize: 17,
