@@ -18,7 +18,7 @@ class SearchResultPage extends StatefulWidget {
 class _SearchResultPageState extends State<SearchResultPage> {
   void load() async {
     try {
-      var soem = await FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR" /* widget.type */).where('name' /* widget.filter */, isEqualTo: widget.searchKey). /* orderBy('name'). */ snapshots();
+      var soem = await FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR" /* widget.type */).where('name' /* widget.filter */, isEqualTo: "A" /* widget.searchKey */). /* orderBy('name'). */ snapshots();
       print("loaded");
     } catch (error) {
       print(error);
@@ -72,7 +72,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
             ),
             SafeArea(
               child: StreamBuilder(
-                stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR" /* widget.type */).where('name' /* widget.filter */, isEqualTo: widget.searchKey). /* orderBy('name'). */ snapshots(),
+                stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR" /* widget.type */).where('name' /* widget.filter */, isEqualTo: "A" /* widget.searchKey */). /* orderBy('name'). */ snapshots(),
                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (!snapshot.hasData)
                     return Center(
