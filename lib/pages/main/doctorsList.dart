@@ -45,13 +45,17 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
 
   bool loggingin = false;
   var filters = [
+    'name',
     'locality',
     'city',
     'state',
     'country',
     'speciality'
   ];
-  String selectedFilter = '';
+  String selectedFilter = 'name';
+  void setSelectedFilter(value){
+    selectedFilter = value;
+  } 
 
   @override
   Widget build(BuildContext context) {
@@ -174,18 +178,17 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                               return Container(
                                   margin: EdgeInsets.only(left: 10.0),
                                   child: Chip(
-                                    labelPadding: EdgeInsets.all(2.0),
-                                    /* avatar: CircleAvatar(
-                                  backgroundColor: Colors.white70,
-                                  child: Text(label[0].toUpperCase()),
-                                ), */
+                                    labelPadding: EdgeInsets.all(2.0),                                    
                                     label: Text(
                                       filters[index],
                                       style: TextStyle(
                                         color: Colors.white,
                                       ),
                                     ),
-                                    backgroundColor: Colors.blue[index * 100],
+                                    onPressed: () {
+                                      setSelectedFilter(filters[index])
+                                    },
+                                    backgroundColor: selectedFilter == filters[index]?Colors.blue[600]:Colors.blue[0],
                                     elevation: 6.0,
                                     shadowColor: Colors.grey[60],
                                     padding: EdgeInsets.all(8.0),
