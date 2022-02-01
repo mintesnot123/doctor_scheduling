@@ -131,7 +131,7 @@ class _AssociateDetailState extends State<AssociateDetail> {
                             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 20,
                           ),
                           Container(
                             padding: EdgeInsets.all(10),
@@ -141,7 +141,7 @@ class _AssociateDetailState extends State<AssociateDetail> {
                                   padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
                                   alignment: Alignment.topLeft,
                                   child: Text(
-                                    "User Information",
+                                    "Associate Information",
                                     style: TextStyle(
                                       color: Colors.black87,
                                       fontWeight: FontWeight.w500,
@@ -162,12 +162,6 @@ class _AssociateDetailState extends State<AssociateDetail> {
                                               color: Colors.grey,
                                               tiles: [
                                                 ListTile(
-                                                  contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                                                  leading: Icon(Icons.my_location),
-                                                  title: Text("Location"),
-                                                  subtitle: Text("${document['location'] ?? "not found"}"),
-                                                ),
-                                                ListTile(
                                                   leading: Icon(Icons.email),
                                                   title: Text("Email"),
                                                   subtitle: Text("${document['email'] ?? "not found"}"),
@@ -178,10 +172,16 @@ class _AssociateDetailState extends State<AssociateDetail> {
                                                   subtitle: Text("${document['phone'] ?? "not found"}"),
                                                 ),
                                                 ListTile(
+                                                  contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                                                  leading: Icon(Icons.my_location),
+                                                  title: Text("Location"),
+                                                  subtitle: Text("${document['location'] ?? "not found"}"),
+                                                ),
+                                                /* ListTile(
                                                   leading: Icon(Icons.person),
                                                   title: Text("About Me"),
                                                   subtitle: Text("${document['aboutme'] ?? "not found"}"),
-                                                ),
+                                                ), */
                                               ],
                                             ),
                                           ],
