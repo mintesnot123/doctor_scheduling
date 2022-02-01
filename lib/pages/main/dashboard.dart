@@ -188,9 +188,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           ),
                         ),
                         Row(children: <Widget>[
-                          Expanded(
-                            child: Text('Deliver features faster', textAlign: TextAlign.center),
-                          ),
+                          Text('Search by: ', textAlign: TextAlign.left),
                           Container(
                             height: 45.0,
                             child: ListView.builder(
