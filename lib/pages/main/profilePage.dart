@@ -118,7 +118,7 @@ class _UserProfileState extends State<UserProfile> {
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       Container(
                         padding: EdgeInsets.all(10),
@@ -158,12 +158,22 @@ class _UserProfileState extends State<UserProfile> {
                                               title: Text("Phone"),
                                               subtitle: Text("${document['phone'] ?? "not found"}"),
                                             ),
-                                            ListTile(
-                                              contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                                              leading: Icon(Icons.my_location),
-                                              title: Text("Location"),
-                                              subtitle: Text("Address: ${document['location'] ?? "not found"}\nLocality: ${document['locality'] ?? "not found"}\nCity: ${document['city'] ?? "not found"}\nState: ${document['state'] ?? "not found"}\nCountry: ${document['country'] ?? "not found"}"),
-                                            ),
+                                            (widget.role == "DOCTOR"
+                                                ? (ListTile(
+                                                    contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                                                    leading: Icon(Icons.my_location),
+                                                    title: Text("Location"),
+                                                    subtitle: Text("Address: ${document['location'] ?? "not found"}\nLocality: ${document['locality'] ?? "not found"}\nCity: ${document['city'] ?? "not found"}\nState: ${document['state'] ?? "not found"}\nCountry: ${document['country'] ?? "not found"}"),
+                                                  ))
+                                                : (widget.role == "ASSOCIATE"
+                                                    ? ListTile(
+                                                        leading: Icon(Icons.phone),
+                                                        title: Text("Phone"),
+                                                        subtitle: Text("${document['phone'] ?? "not found"}"),
+                                                      )
+                                                    : SizedBox(
+                                                        height: 1,
+                                                      )))
                                             /* ListTile(
                                               leading: Icon(Icons.person),
                                               title: Text("About Me"),
