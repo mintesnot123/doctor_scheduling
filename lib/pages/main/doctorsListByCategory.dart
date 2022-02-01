@@ -14,6 +14,21 @@ class DoctorsListByCategory extends StatefulWidget {
 }
 
 class _DoctorsListByCategoryState extends State<DoctorsListByCategory> {
+  void load() async {
+    try {
+      var soem = await FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").where("type", isEqualTo: widget.searchKey).orderBy('name').snapshots();
+    } catch (error) {
+      print(error);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    //selectTime(context);
+    load();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
