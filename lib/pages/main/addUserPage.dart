@@ -975,7 +975,7 @@ class _AddUserPageState extends State<AddUserPage> {
   @override
   void initState() {
     super.initState();
-    _registerAllAccount();
+    //_registerAllAccount();
   }
 
   @override

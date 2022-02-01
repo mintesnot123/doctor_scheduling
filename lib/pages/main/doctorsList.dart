@@ -218,18 +218,18 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                               height: MediaQuery.of(context).size.height / 9,
                                               child: TextButton(
                                                 onPressed: () {
-                                                  Navigator.push(
+                                                  /* Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) => DoctorDetail(doctor: doctor.id, role: widget.role),
                                                     ),
-                                                  );
+                                                  ); */
                                                 },
                                                 child: Row(
                                                   crossAxisAlignment: CrossAxisAlignment.center,
                                                   //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                   children: [
-                                                    (doctor['approved'] == "APPROVED")
+                                                    (/* doctor['approved'] == "APPROVED" */ true)
                                                         ? Flexible(
                                                             flex: 1,
                                                             child: Stack(
@@ -272,17 +272,18 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                       mainAxisAlignment: MainAxisAlignment.center,
                                                       children: [
                                                         Text(
-                                                          'Dr. ${doctor['name'] ?? 'User'}',
+                                                          'doc',
+                                                          /* 'Dr. ${doctor['name'] ?? 'User'}', */
                                                           style: GoogleFonts.lato(
                                                             fontWeight: FontWeight.bold,
                                                             fontSize: 17,
                                                             color: Colors.black87,
                                                           ),
                                                         ),
-                                                        Text(
+                                                        /* Text(
                                                           '${doctor['type'] ?? "Specialist Doctor"}',
                                                           style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
-                                                        ),
+                                                        ), */
                                                       ],
                                                     ),
                                                     SizedBox(
