@@ -165,12 +165,6 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                               color: Colors.grey,
                                               tiles: [
                                                 ListTile(
-                                                  contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                                                  leading: Icon(Icons.my_location),
-                                                  title: Text("Location"),
-                                                  subtitle: Text("${document['location'] ?? "not found"}"),
-                                                ),
-                                                ListTile(
                                                   leading: Icon(Icons.email),
                                                   title: Text("Email"),
                                                   subtitle: Text("${document['email'] ?? "not found"}"),
@@ -181,10 +175,16 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                                   subtitle: Text("${document['phone'] ?? "not found"}"),
                                                 ),
                                                 ListTile(
+                                                  contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                                                  leading: Icon(Icons.my_location),
+                                                  title: Text("Location"),
+                                                  subtitle: Text("Address: ${document['location'] ?? "not found"}\nLocality: ${document['locality'] ?? "not found"}\nCity: ${document['city'] ?? "not found"}\nState: ${document['state'] ?? "not found"}\nCountry: ${document['country'] ?? "not found"}"),
+                                                ),
+                                                /* ListTile(
                                                   leading: Icon(Icons.person),
                                                   title: Text("About Me"),
                                                   subtitle: Text("${document['aboutme'] ?? "not found"}"),
-                                                ),
+                                                ), */
                                               ],
                                             ),
                                           ],
