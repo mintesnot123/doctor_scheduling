@@ -108,9 +108,9 @@ class _AppointmentListState extends State<AppointmentList> {
                   itemBuilder: (context, index) {
                     DocumentSnapshot document = snapshot.data.docs[index];
                     print(_compareDate(document['date'].toDate().toString()));
-                    if (_checkDiff(document['date'].toDate())) {
+                    /* if (_checkDiff(document['date'].toDate())) {
                       deleteAppointment(document.id);
-                    }
+                    } */
                     return Card(
                       elevation: 2,
                       child: InkWell(
