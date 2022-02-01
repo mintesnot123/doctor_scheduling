@@ -171,24 +171,25 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                             padding: EdgeInsets.symmetric(horizontal: 20.0),
                             itemCount: filters.length,
                             itemBuilder: (context, index) {
-                              return Chip(
-                                margin: EdgeInsets.only(left: 10.0),
-                                labelPadding: EdgeInsets.all(2.0),
-                                /* avatar: CircleAvatar(
+                              return Container(
+                                  margin: EdgeInsets.only(top: 10.0),
+                                  child: Chip(
+                                    labelPadding: EdgeInsets.all(2.0),
+                                    /* avatar: CircleAvatar(
                                   backgroundColor: Colors.white70,
                                   child: Text(label[0].toUpperCase()),
                                 ), */
-                                label: Text(
-                                  filters[index],
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                backgroundColor: Colors.blue[index * 100],
-                                elevation: 6.0,
-                                shadowColor: Colors.grey[60],
-                                padding: EdgeInsets.all(8.0),
-                              );
+                                    label: Text(
+                                      filters[index],
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    backgroundColor: Colors.blue[index * 100],
+                                    elevation: 6.0,
+                                    shadowColor: Colors.grey[60],
+                                    padding: EdgeInsets.all(8.0),
+                                  ));
                             },
                           ),
                         ),
