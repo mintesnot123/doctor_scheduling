@@ -165,12 +165,14 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                           height: 30,
                         ),
                         Container(
+                          height: 80.0,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             padding: EdgeInsets.symmetric(horizontal: 20.0),
-                            height: 20,
                             itemCount: filters.length,
                             itemBuilder: (context, index) {
+                              Container(
+              
                               //print("images path: ${cards[index].cardImage.toString()}");
                               return Chip(
                                 labelPadding: EdgeInsets.all(2.0),
@@ -184,7 +186,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                     color: Colors.white,
                                   ),
                                 ),
-                                backgroundColor: Colors.grey[200],
+                                backgroundColor: Colors.blue[index * 100],
                                 elevation: 6.0,
                                 shadowColor: Colors.grey[60],
                                 padding: EdgeInsets.all(8.0),
