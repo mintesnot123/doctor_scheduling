@@ -17,7 +17,12 @@ class SearchResultPage extends StatefulWidget {
 
 class _SearchResultPageState extends State<SearchResultPage> {
   void load() {
-    FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR" /* widget.type */).where('name' /* widget.filter */, isEqualTo: "A" /* widget.searchKey */). /* orderBy('name'). */ snapshots().then((value) => {print("User Added");}).catchError((error) => {print("Failed to add user: $error");});
+    FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR" /* widget.type */).where('name' /* widget.filter */, isEqualTo: "A" /* widget.searchKey */). /* orderBy('name'). */ snapshots()
+    .then((value) => {
+      print("User Added");
+      }).catchError((error) => {
+        print("Failed to add user: $error");
+        });
   }
 
   @override
