@@ -134,7 +134,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 20,
                           ),
                           Container(
                             padding: EdgeInsets.all(10),
@@ -144,13 +144,13 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                   padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
                                   alignment: Alignment.topLeft,
                                   child: Text(
-                                    "User Information",
+                                    "Doctor Information",
                                     style: TextStyle(
                                       color: Colors.black87,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 16,
                                     ),
-                                    textAlign: TextAlign.left,
+                                    textAlign: TextAlign.center,
                                   ),
                                 ),
                                 Card(
