@@ -280,7 +280,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                           ),
                                                         ), */
                                                         Text(
-                                                          '${doctor['type'] ?? "Specialist Doctor"}'.length > 30 ? "user" : '${doctor['type'] ?? "Specialist Doctor"}',
+                                                          '${doctor['type'] ?? "Specialist Doctor"}'.length > 30 ? '${doctor['type'] ?? "Specialist Doctor"}'substring(0, 27) + "..."; : '${doctor['type'] ?? "Specialist Doctor"}',
                                                           style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
                                                         ),
                                                       ],
