@@ -15,7 +15,7 @@ List<CardModel> cards = [
   new CardModel("CONSULTANT PHYSICIAN", "Physician", 0xFFec407a, FlutterIcons.heart_ant),
   new CardModel("ORTHOPEDICIAN", "Orthopedician", 0xFF5c6bc0, FlutterIcons.tooth_mco),
   new CardModel("NEUROLOGIST", "Neurologist", 0xFFfbc02d, TablerIcons.eye),
-  new CardModel("GENERAL SURGEON", "Surgeon", 0xFF1565C0, Icons.wheelchair_pickup_sharp),
+  new CardModel("GENERAL SURGEON", "General Sur..", 0xFF1565C0, Icons.wheelchair_pickup_sharp),
   new CardModel("URO SURGEON", "Uro Surgeon", 0xFF2E7D32, FlutterIcons.baby_faw5s),
-  new CardModel("CHEST SPECIALIST", "Chest", 0xFFfbc02d, TablerIcons.eye),
+  new CardModel("CHEST SPECIALIST", "Chest Spec...", 0xFFfbc02d, TablerIcons.eye),
 ];
