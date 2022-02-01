@@ -217,7 +217,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 15,
                         ),
                         Container(
                           padding: EdgeInsets.only(left: 23, bottom: 10),
