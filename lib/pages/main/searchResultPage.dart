@@ -20,7 +20,14 @@ class _SearchResultPageState extends State<SearchResultPage> {
     FirebaseFirestore.instance
         .collection('users')
         .where("role", isEqualTo: "DOCTOR" /* widget.type */)
-        .where('name' /* widget.filter */, isEqualTo: "A" /* widget.searchKey */)
+        .orderBy(widget.filter)
+        .startAt([
+          /* 'Dr. ' +  */ widget.searchKey
+        ])
+        .endAt([
+          /* 'Dr. ' +  */ widget.searchKey + '\uf8ff'
+        ])
+        /* .where('name' */ /* widget.filter */ /* , isEqualTo: "A" */ /* widget.searchKey */ /* ) */
         . /* orderBy('name'). */ /* snapshots() */ get()
         .then((value) => {
               print("User Added")
