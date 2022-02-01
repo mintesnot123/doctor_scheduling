@@ -40,7 +40,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
   List<String> pageTitle = [
     /* 'Dashboard', */
     "My Profile",
-    'My Appointments',
+    'My Availabilities',
   ];
 
   @override
@@ -158,16 +158,16 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
                   'My Profile',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
-                selected: _selectedIndex == 2,
+                selected: _selectedIndex == 0,
                 onTap: () {
-                  _onItemTapped(2);
+                  _onItemTapped(0);
                   Navigator.pop(context);
                 },
               ),
               ListTile(
                 leading: Icon(Icons.list, size: _drawerIconSize, color: Theme.of(context).accentColor),
                 title: Text(
-                  'My Appointments',
+                  'My Availabilities',
                   style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
                 ),
                 selected: _selectedIndex == 1,
