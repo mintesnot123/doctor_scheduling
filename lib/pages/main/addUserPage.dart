@@ -176,7 +176,7 @@ class _AddUserPageState extends State<AddUserPage> {
                                 child: Padding(
                                   padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
                                   child: Text(
-                                    "Registor".toUpperCase(),
+                                    "Register".toUpperCase(),
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -240,6 +240,10 @@ class _AddUserPageState extends State<AddUserPage> {
           'approved': 'ONPROGRESS',
           'type': null,
           'location': null,
+          'locality': null,
+          'city': null,
+          'state': null,
+          'country': null,
           'aboutme': null,
         }, SetOptions(merge: true));
 
