@@ -162,7 +162,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                           ),
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 10,
                         ),
                         Container(
                           height: 80.0,
