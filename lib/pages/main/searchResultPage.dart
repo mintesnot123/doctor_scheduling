@@ -84,7 +84,15 @@ class _SearchResultPageState extends State<SearchResultPage> {
             ),
             SafeArea(
               child: StreamBuilder(
-                stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: widget.type).where(widget.filter, isEqualTo: widget.searchKey). /* orderBy('name'). */ snapshots(),
+                stream: FirebaseFirestore.instance
+                    .collection('users')
+                    .where("role", isEqualTo: widget.type) /* .where(widget.filter, isEqualTo: widget.searchKey) */
+                    .orderBy(widget.filter)
+                    .startAt([
+                  /* 'Dr. ' +  */ widget.searchKey
+                ]).endAt([
+                  /* 'Dr. ' +  */ widget.searchKey + '\uf8ff'
+                ]). /* orderBy('name'). */ snapshots(),
                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (!snapshot.hasData)
                     return Center(
