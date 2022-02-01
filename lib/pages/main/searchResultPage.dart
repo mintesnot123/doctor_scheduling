@@ -72,7 +72,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
             ),
             SafeArea(
               child: StreamBuilder(
-                stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: widget.type).where(widget.filter, isEqualTo: widget.searchKey).orderBy('name').snapshots(),
+                stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: widget.type).where(widget.filter, isEqualTo: widget.searchKey). /* orderBy('name'). */ snapshots(),
                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (!snapshot.hasData)
                     return Center(
@@ -86,7 +86,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'No ${widget.searchKey} ${widget.type == "DOCTOR"?"Doctor":"Associate"} found!',
+                                  'No ${widget.searchKey} ${widget.type == "DOCTOR" ? "Doctor" : "Associate"} found!',
                                   style: GoogleFonts.lato(
                                     color: Colors.blue[800],
                                     fontSize: 25,
@@ -109,7 +109,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
                                 padding: EdgeInsets.only(left: 20),
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "All ${widget.searchKey} ${widget.type == "DOCTOR"?"Doctors":"Associates"}",
+                                  "All ${widget.searchKey} ${widget.type == "DOCTOR" ? "Doctors" : "Associates"}",
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
                                 ),
