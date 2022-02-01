@@ -271,18 +271,18 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                       mainAxisAlignment: MainAxisAlignment.center,
                                                       children: [
-                                                        Text(
+                                                        /* Text(
                                                           'Dr. ${doctor['name'] ?? 'User'}',
                                                           style: GoogleFonts.lato(
                                                             fontWeight: FontWeight.bold,
                                                             fontSize: 17,
                                                             color: Colors.black87,
                                                           ),
-                                                        ),
-                                                        /* Text(
+                                                        ), */
+                                                        Text(
                                                           '${doctor['type'] ?? "Specialist Doctor"}',
                                                           style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
-                                                        ), */
+                                                        ),
                                                       ],
                                                     ),
                                                     SizedBox(
