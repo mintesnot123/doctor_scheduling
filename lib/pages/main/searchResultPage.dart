@@ -29,7 +29,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
   void initState() {
     super.initState();
     //selectTime(context);
-    load();
+    //load();
   }
 
   @override
