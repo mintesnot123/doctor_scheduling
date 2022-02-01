@@ -187,39 +187,44 @@ class _DashboardPageState extends State<DashboardPage> {
                             style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
                           ),
                         ),
-                        Container(
-                          height: 45.0,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            padding: EdgeInsets.symmetric(horizontal: 20.0),
-                            itemCount: filters.length,
-                            itemBuilder: (context, index) {
-                              return GestureDetector(
-                                child: Container(
-                                  margin: EdgeInsets.only(left: 10.0),
-                                  child: Chip(
-                                    labelPadding: EdgeInsets.all(2.0),
-                                    label: Text(
-                                      filters[index],
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    backgroundColor: selectedFilter == filters[index] ? Colors.blue[600] : Colors.blue[0],
-                                    elevation: 6.0,
-                                    shadowColor: Colors.grey[60],
-                                    padding: EdgeInsets.all(8.0),
-                                  ),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    selectedFilter = filters[index];
-                                  });
-                                },
-                              );
-                            },
+                        Row(children: const <Widget>[
+                          Expanded(
+                            child: Text('Deliver features faster', textAlign: TextAlign.center),
                           ),
-                        ),
+                          Container(
+                            height: 45.0,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              padding: EdgeInsets.symmetric(horizontal: 20.0),
+                              itemCount: filters.length,
+                              itemBuilder: (context, index) {
+                                return GestureDetector(
+                                  child: Container(
+                                    margin: EdgeInsets.only(left: 10.0),
+                                    child: Chip(
+                                      labelPadding: EdgeInsets.all(2.0),
+                                      label: Text(
+                                        filters[index],
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      backgroundColor: selectedFilter == filters[index] ? Colors.blue[600] : Colors.blue[0],
+                                      elevation: 6.0,
+                                      shadowColor: Colors.grey[60],
+                                      padding: EdgeInsets.all(8.0),
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      selectedFilter = filters[index];
+                                    });
+                                  },
+                                );
+                              },
+                            ),
+                          ),
+                        ]),
                         SizedBox(
                           height: 10,
                         ),
