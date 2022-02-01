@@ -162,8 +162,8 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                           ),
                         ),
                         Container(
-                          height: 30,
-                          padding: EdgeInsets.only(top: 14),
+                          height: 60,
+                          padding: EdgeInsets.only(top: 10),
                           child: ListView.builder(
                             physics: ClampingScrollPhysics(),
                             scrollDirection: Axis.horizontal,
