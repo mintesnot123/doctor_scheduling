@@ -53,9 +53,9 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     'speciality'
   ];
   String selectedFilter = 'name';
-  void setSelectedFilter(value){
+  void setSelectedFilter(value) {
     selectedFilter = value;
-  } 
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -178,17 +178,19 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                               return Container(
                                   margin: EdgeInsets.only(left: 10.0),
                                   child: Chip(
-                                    labelPadding: EdgeInsets.all(2.0),                                    
+                                    labelPadding: EdgeInsets.all(2.0),
                                     label: Text(
                                       filters[index],
                                       style: TextStyle(
                                         color: Colors.white,
                                       ),
                                     ),
-                                    onPressed: () {
-                                      setSelectedFilter(filters[index])
+                                    onTap: () {
+                                      setState(() {
+                                        selectedFilter = filters[index];
+                                      });
                                     },
-                                    backgroundColor: selectedFilter == filters[index]?Colors.blue[600]:Colors.blue[0],
+                                    backgroundColor: selectedFilter == filters[index] ? Colors.blue[600] : Colors.blue[0],
                                     elevation: 6.0,
                                     shadowColor: Colors.grey[60],
                                     padding: EdgeInsets.all(8.0),
