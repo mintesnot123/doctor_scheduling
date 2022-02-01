@@ -24,7 +24,7 @@ class _DoctorAppointmentsScreenState extends State<DoctorAppointmentsScreen> {
           backgroundColor: Colors.white,
           appBar: AppBar(
             title: Text(
-              'Appointments',
+              'Availabilities',
               style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
             elevation: 0.5,
@@ -67,7 +67,7 @@ class _DoctorAppointmentsScreenState extends State<DoctorAppointmentsScreen> {
                 padding: EdgeInsets.only(left: 20),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Pending Appointments",
+                  "Availabilities",
                   textAlign: TextAlign.center,
                   style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
                 ),
