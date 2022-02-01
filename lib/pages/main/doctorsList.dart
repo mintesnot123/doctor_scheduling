@@ -172,7 +172,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                             itemCount: filters.length,
                             itemBuilder: (context, index) {
                               return Container(
-                                  margin: EdgeInsets.only(top: 10.0),
+                                  margin: EdgeInsets.only(left: 10.0),
                                   child: Chip(
                                     labelPadding: EdgeInsets.all(2.0),
                                     /* avatar: CircleAvatar(
