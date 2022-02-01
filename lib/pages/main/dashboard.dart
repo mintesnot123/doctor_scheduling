@@ -187,11 +187,11 @@ class _DashboardPageState extends State<DashboardPage> {
                             style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
                           ),
                         ),
-                        Row(children: const <Widget>[
+                        Row(children: <Widget>[
                           Expanded(
                             child: Text('Deliver features faster', textAlign: TextAlign.center),
                           ),
-                          const Container(
+                          Container(
                             height: 45.0,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
