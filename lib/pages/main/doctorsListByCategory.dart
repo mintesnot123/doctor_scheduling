@@ -101,7 +101,9 @@ class _DoctorsListByCategoryState extends State<DoctorsListByCategory> {
                           ),
                         )
                       : Scrollbar(
-                          child: /* Column(
+                          child: SizedBox(
+                            height: 30,
+                          ), /* Column(
                             children: [
                               Container(
                                 padding: EdgeInsets.only(left: 20),
@@ -115,7 +117,7 @@ class _DoctorsListByCategoryState extends State<DoctorsListByCategory> {
                               SizedBox(
                                 height: 30,
                               ), */
-                              /* ListView.builder(
+                          /* ListView.builder(
                             scrollDirection: Axis.vertical,
                             physics: ClampingScrollPhysics(),
                             shrinkWrap: true,
