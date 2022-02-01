@@ -191,7 +191,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           Expanded(
                             child: Text('Deliver features faster', textAlign: TextAlign.center),
                           ),
-                          Container(
+                          const Container(
                             height: 45.0,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
