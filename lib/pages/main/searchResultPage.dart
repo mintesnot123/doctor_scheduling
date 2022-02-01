@@ -21,7 +21,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
         .collection('users')
         .where("role", isEqualTo: "DOCTOR" /* widget.type */)
         .where('name' /* widget.filter */, isEqualTo: "A" /* widget.searchKey */)
-        . /* orderBy('name'). */ snapshots()
+        . /* orderBy('name'). */ /* snapshots() */ get()
         .then((value) => {
               print("User Added")
             })
