@@ -178,16 +178,11 @@ class _DashboardPageState extends State<DashboardPage> {
                         SizedBox(
                           height: 10,
                         ),
-                        Container(
-                          padding: EdgeInsets.only(left: 23, bottom: 10),
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Search by",
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
-                          ),
+                        Text(
+                          'Search by: ',
+                          textAlign: TextAlign.left,
+                          style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
                         ),
-                        Text('Search by: ', textAlign: TextAlign.left),
                         Container(
                           height: 45.0,
                           child: ListView.builder(
