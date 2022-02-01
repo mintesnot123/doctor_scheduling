@@ -17,6 +17,7 @@ class _DoctorsListByCategoryState extends State<DoctorsListByCategory> {
   void load() async {
     try {
       var soem = await FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").where("type", isEqualTo: widget.searchKey).orderBy('name').snapshots();
+      print("loaded")
     } catch (error) {
       print(error);
     }
