@@ -7,6 +7,7 @@ import 'package:yismaw/common/theme_helper.dart';
 import 'package:yismaw/pages/main/doctorBookingPage.dart';
 import 'package:yismaw/pages/main/doctorAppointments.dart';
 import 'package:flutter/gestures.dart';
+import 'package:yismaw/pages/main/doctorAppointments.dart';
 
 class DoctorDetail extends StatefulWidget {
   final String doctor;
@@ -199,29 +200,31 @@ class _DoctorDetailState extends State<DoctorDetail> {
                           SizedBox(
                             height: 20,
                           ),
-                          (widget.role == 'admin')
-                              ? Container(
-                                  margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                                  child: Text.rich(TextSpan(children: [
-                                    TextSpan(
-                                      text: 'See doctor availability',
-                                      recognizer: TapGestureRecognizer()
-                                        ..onTap = () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) => DoctorAppointmentsScreen(
-                                                        doctor: document.id,
-                                                        doctorName: document['name'],
-                                                      )));
-                                        },
-                                      style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).accentColor),
-                                    ),
-                                  ])),
-                                )
-                              : SizedBox(
+                          /* (widget.role == 'admin')
+                              ?  */
+                          Container(
+                            margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                            child: Text.rich(TextSpan(children: [
+                              TextSpan(
+                                text: 'See doctor availability',
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => DoctorAppointmentsScreen(
+                                                  doctor: document.id,
+                                                  doctorName: document['name'],
+                                                )));
+                                  },
+                                style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).accentColor),
+                              ),
+                            ])),
+                          )
+                          /* : SizedBox(
                                   height: 1,
-                                ),
+                                ) */
+                          ,
                           SizedBox(
                             height: 50,
                           ),
