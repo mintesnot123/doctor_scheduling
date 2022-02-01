@@ -120,7 +120,7 @@ class _AssociateDetailState extends State<AssociateDetail> {
                             height: 20,
                           ),
                           Text(
-                            'Dr. ${document['name'] ?? "User"}',
+                            '${document['name'] ?? "User"}',
                             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
