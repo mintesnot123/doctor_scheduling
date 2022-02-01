@@ -177,7 +177,7 @@ class _DoctorsListByCategoryState extends State<DoctorsListByCategory> {
                                                 mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
                                                   Text(
-                                                    'Dr. ${doctor['name'] ?? "User"}',
+                                                    'Dr. ${doctor['name'] ?? 'User'}'.length > 18 ? 'Dr. ${doctor['name'] ?? 'User'}'.substring(0, 18) + "..." : 'Dr. ${doctor['name'] ?? 'User'}',
                                                     style: GoogleFonts.lato(
                                                       fontWeight: FontWeight.bold,
                                                       fontSize: 17,
@@ -185,7 +185,7 @@ class _DoctorsListByCategoryState extends State<DoctorsListByCategory> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    '${doctor['type'] ?? "Specialist Doctor"}',
+                                                    '${doctor['type'] ?? "Specialist Doctor"}'.length > 30 ? '${doctor['type'] ?? "Specialist Doctor"}'.substring(0, 27) + "..." : '${doctor['type'] ?? "Specialist Doctor"}',
                                                     style: GoogleFonts.lato(fontSize: 16, color: Colors.black54),
                                                   ),
                                                 ],
