@@ -218,12 +218,12 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                               height: MediaQuery.of(context).size.height / 9,
                                               child: TextButton(
                                                 onPressed: () {
-                                                  /* Navigator.push(
+                                                  Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) => DoctorDetail(doctor: doctor.id, role: widget.role),
                                                     ),
-                                                  ); */
+                                                  );
                                                 },
                                                 child: Row(
                                                   crossAxisAlignment: CrossAxisAlignment.center,
