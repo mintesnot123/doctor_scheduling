@@ -15,6 +15,7 @@ import 'package:yismaw/widgets/header_widget.dart';
 import 'package:yismaw/components/carouselSlider.dart';
 import 'package:yismaw/pages/main/doctorsSearchList.dart';
 import 'package:yismaw/pages/main/doctorsListByCategory.dart';
+import 'package:yismaw/pages/main/searchResultPage.dart';
 
 class DashboardPage extends StatefulWidget {
   final String role;
@@ -47,6 +48,18 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   bool loggingin = false;
+  var filters = [
+    'name',
+    'locality',
+    'city',
+    'state',
+    'country',
+    'speciality'
+  ];
+  String selectedFilter = 'name';
+  void setSelectedFilter(value) {
+    selectedFilter = value;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,9 +138,11 @@ class _DashboardPageState extends State<DashboardPage> {
                                         : Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                              builder: (context) => SearchList(
+                                              builder: (context) => SearchResultPage(
                                                 searchKey: _doctorName.text,
-                                                role: widget.role,
+                                                filter: selectedFilter,
+                                                type: "DOCTOR",
+                                                role: "ADMIN",
                                               ),
                                             ),
                                           );
@@ -147,9 +162,11 @@ class _DashboardPageState extends State<DashboardPage> {
                                       : Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => SearchList(
+                                            builder: (context) => SearchResultPage(
                                               searchKey: value,
-                                              role: widget.role,
+                                              filter: selectedFilter,
+                                              type: "DOCTOR",
+                                              role: "ADMIN",
                                             ),
                                           ),
                                         );
@@ -157,6 +174,45 @@ class _DashboardPageState extends State<DashboardPage> {
                               );
                             },
                           ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: 45.0,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            itemCount: filters.length,
+                            itemBuilder: (context, index) {
+                              return GestureDetector(
+                                child: Container(
+                                  margin: EdgeInsets.only(left: 10.0),
+                                  child: Chip(
+                                    labelPadding: EdgeInsets.all(2.0),
+                                    label: Text(
+                                      filters[index],
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    backgroundColor: selectedFilter == filters[index] ? Colors.blue[600] : Colors.blue[0],
+                                    elevation: 6.0,
+                                    shadowColor: Colors.grey[60],
+                                    padding: EdgeInsets.all(8.0),
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    selectedFilter = filters[index];
+                                  });
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
                         ),
                         Container(
                           padding: EdgeInsets.only(left: 23, bottom: 10),

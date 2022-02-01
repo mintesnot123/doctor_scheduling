@@ -160,7 +160,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) => SearchResultPage(
-                                              searchKey: _doctorName.text,
+                                              searchKey: value,
                                               filter: selectedFilter,
                                               type: "DOCTOR",
                                               role: "ADMIN",
