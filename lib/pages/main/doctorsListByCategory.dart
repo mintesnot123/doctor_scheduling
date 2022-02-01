@@ -115,7 +115,7 @@ class _DoctorsListByCategoryState extends State<DoctorsListByCategory> {
                               SizedBox(
                                 height: 30,
                               ), */
-                              ListView.builder(
+                              /* ListView.builder(
                             scrollDirection: Axis.vertical,
                             physics: ClampingScrollPhysics(),
                             shrinkWrap: true,
@@ -243,7 +243,7 @@ class _DoctorsListByCategoryState extends State<DoctorsListByCategory> {
                                 ),
                               );
                             },
-                          ),
+                          ), */
                           /* ],
                           ), */
                         );
