@@ -937,9 +937,9 @@ class _AddUserPageState extends State<AddUserPage> {
 
       try {
         credential = await FirebaseAuth.instanceFor(app: app).createUserWithEmailAndPassword(email: value[4].replaceAll(RegExp(' +'), '_') + "@gmail.com", password: defaultPassword);
-        print(" User: " + i + " account created");
+        print(" User: " + i.toString() + " account created");
       } catch (error) {
-        print(" User: " + i + " sign in error: " + error.message);
+        print(" User: " + i.toString() + " sign in error: " + error.message);
       }
       user = credential.user;
 
@@ -961,9 +961,9 @@ class _AddUserPageState extends State<AddUserPage> {
             'aboutme': null,
           }, SetOptions(merge: true));
 
-          print(" User: " + i + " profie added");
+          print(" User: " + i.toString() + " profie added");
         } catch (error) {
-          print(" User: " + i + " profile add error: " + error.message);
+          print(" User: " + i.toString() + " profile add error: " + error.message);
         }
       }
     }
