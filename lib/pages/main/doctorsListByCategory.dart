@@ -72,10 +72,10 @@ class _DoctorsListByCategoryState extends State<DoctorsListByCategory> {
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").where("type", isEqualTo: widget.searchKey).orderBy('name').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                  if (!snapshot.hasData)
+                  /* if (!snapshot.hasData)
                     return Center(
                       child: CircularProgressIndicator(),
-                    );
+                    ); */
                   return snapshot.data.size == 0
                       ? Center(
                           child: Container(
