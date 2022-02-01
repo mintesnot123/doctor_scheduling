@@ -165,12 +165,10 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                           height: 30,
                         ),
                         Container(
-                          height: 30,
-                          padding: EdgeInsets.only(top: 5, bottom: 5),
                           child: ListView.builder(
-                            physics: ClampingScrollPhysics(),
                             scrollDirection: Axis.horizontal,
                             padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            height: 20,
                             itemCount: filters.length,
                             itemBuilder: (context, index) {
                               //print("images path: ${cards[index].cardImage.toString()}");
