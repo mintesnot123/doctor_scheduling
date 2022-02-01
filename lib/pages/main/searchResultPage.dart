@@ -18,7 +18,7 @@ class SearchResultPage extends StatefulWidget {
 class _SearchResultPageState extends State<SearchResultPage> {
   void load() async {
     try {
-      var soem = await FirebaseFirestore.instance.collection('users').where("role", isEqualTo: widget.type).where(widget.filter, isEqualTo: widget.searchKey).orderBy('name').snapshots();
+      var soem = await FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR" /* widget.type */).where('name' /* widget.filter */, isEqualTo: widget.searchKey). /* orderBy('name'). */ snapshots();
       print("loaded");
     } catch (error) {
       print(error);
@@ -29,7 +29,7 @@ class _SearchResultPageState extends State<SearchResultPage> {
   void initState() {
     super.initState();
     //selectTime(context);
-    //load();
+    load();
   }
 
   @override
