@@ -171,9 +171,6 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                             padding: EdgeInsets.symmetric(horizontal: 20.0),
                             itemCount: filters.length,
                             itemBuilder: (context, index) {
-                              Container(
-              
-                              //print("images path: ${cards[index].cardImage.toString()}");
                               return Chip(
                                 labelPadding: EdgeInsets.all(2.0),
                                 /* avatar: CircleAvatar(
