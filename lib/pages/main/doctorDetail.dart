@@ -150,7 +150,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                       fontWeight: FontWeight.w500,
                                       fontSize: 16,
                                     ),
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.left,
                                   ),
                                 ),
                                 Card(
@@ -204,7 +204,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                   margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                                   child: Text.rich(TextSpan(children: [
                                     TextSpan(
-                                      text: 'See doctor appointments',
+                                      text: 'See doctor availability',
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () {
                                           Navigator.push(
@@ -283,7 +283,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                 );
                               },
                               child: Text(
-                                'Book an Appointment',
+                                'Add availability',
                                 style: GoogleFonts.lato(
                                   color: Colors.white,
                                   fontSize: 16,
