@@ -165,13 +165,14 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                           height: 10,
                         ),
                         Container(
-                          height: 30.0,
+                          height: 45.0,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             padding: EdgeInsets.symmetric(horizontal: 20.0),
                             itemCount: filters.length,
                             itemBuilder: (context, index) {
                               return Chip(
+                                margin: const EdgeInsets.only(left: 10.0),
                                 labelPadding: EdgeInsets.all(2.0),
                                 /* avatar: CircleAvatar(
                                   backgroundColor: Colors.white70,
