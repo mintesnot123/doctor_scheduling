@@ -244,7 +244,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                       Container(
                                         alignment: Alignment.bottomCenter,
                                         child: Text(
-                                          cards[index].doctor.split(' ')[0],
+                                          cards[index].label,
                                           style: GoogleFonts.lato(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
                                         ),
                                       ),
