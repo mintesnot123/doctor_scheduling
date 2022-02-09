@@ -163,7 +163,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                           width: 11,
                         ),
                         TextButton(
-                          onPressed: () => /* _launchCaller("tel:" + document['phone'] */),
+                          onPressed: () => {/* _launchCaller("tel:" + document['phone'] */}),
                           child: Text(
                             document['phone'].toString(),
                             style: GoogleFonts.lato(fontSize: 16, color: Colors.blue),
