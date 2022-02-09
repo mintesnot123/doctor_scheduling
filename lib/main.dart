@@ -81,9 +81,9 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => user == null ? SplashPage() : Home(),
-          /* '/login': (context) => LoginPage(),
+          '/login': (context) => LoginPage(),
           '/register': (context) => RegisterPage(),
-          '/home': (context) => Home(), */
+          '/home': (context) => Home(),
         },
       ),
     );
