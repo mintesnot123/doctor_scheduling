@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
+//import 'package:url_launcher/url_launcher.dart';
 import 'package:yismaw/pages/bookingScreen.dart';
 
 class DoctorProfile extends StatefulWidget {
@@ -15,13 +15,13 @@ class DoctorProfile extends StatefulWidget {
 }
 
 class _DoctorProfileState extends State<DoctorProfile> {
-  _launchCaller(String url) async {
+  /* _launchCaller(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
       throw 'Could not launch $url';
     }
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +163,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                           width: 11,
                         ),
                         TextButton(
-                          onPressed: () => _launchCaller("tel:" + document['phone']),
+                          onPressed: () => /* _launchCaller("tel:" + document['phone'] */),
                           child: Text(
                             document['phone'].toString(),
                             style: GoogleFonts.lato(fontSize: 16, color: Colors.blue),
