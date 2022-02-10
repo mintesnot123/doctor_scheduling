@@ -391,7 +391,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
               ],
             ),
           ),
-          floatingActionButton: (widget.role == 'admin')
+          floatingActionButton: (widget.role == 'admin' || widget.role == 'associate')
               ? FloatingActionButton(
                   onPressed: () {
                     Navigator.push(
