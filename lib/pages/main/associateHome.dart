@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:yismaw/pages/main/dashboard.dart';
 import 'package:yismaw/pages/main/doctorsList.dart';
 import 'package:yismaw/pages/main/profilePage.dart';
+import 'package:yismaw/pages/main/addUserPage.dart';
 
 class AssociateHomePage extends StatefulWidget {
   @override
@@ -27,6 +28,9 @@ class _AssociateHomePageState extends State<AssociateHomePage> {
       role: 'associate',
     ),
     UserProfile(),
+    AddUserPage(
+      type: "doctor",
+    ),
   ];
 
   void _onItemTapped(int index) {
@@ -43,6 +47,7 @@ class _AssociateHomePageState extends State<AssociateHomePage> {
     'Dashboard',
     'Doctors',
     "Profile",
+    "Add Doctor",
   ];
 
   @override
@@ -175,6 +180,22 @@ class _AssociateHomePageState extends State<AssociateHomePage> {
                 selected: _selectedIndex == 2,
                 onTap: () {
                   _onItemTapped(2);
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.person_add_alt_1,
+                  size: _drawerIconSize,
+                  color: Theme.of(context).accentColor,
+                ),
+                title: Text(
+                  'Add Doctor',
+                  style: TextStyle(fontSize: _drawerFontSize, color: Theme.of(context).accentColor),
+                ),
+                selected: _selectedIndex == 3,
+                onTap: () {
+                  _onItemTapped(3);
                   Navigator.pop(context);
                 },
               ),
