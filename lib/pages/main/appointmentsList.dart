@@ -122,7 +122,7 @@ class _AppointmentListState extends State<AppointmentList> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 5),
                                 child: Text(
-                                  widget.doctor, //document['doctor'],
+                                  "Hospital: " + document['hospital'], //document['doctor'],
                                   style: GoogleFonts.lato(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
@@ -155,15 +155,6 @@ class _AppointmentListState extends State<AppointmentList> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        "Hospital: " + document['hospital'],
-                                        style: GoogleFonts.lato(
-                                          fontSize: 16,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
                                         "Time: " +
                                             _timeFormatter(
                                               document['from'].toDate().toString(),
@@ -172,6 +163,15 @@ class _AppointmentListState extends State<AppointmentList> {
                                             _timeFormatter(
                                               document['to'].toDate().toString(),
                                             ),
+                                        style: GoogleFonts.lato(
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        document['comment'],
                                         style: GoogleFonts.lato(
                                           fontSize: 16,
                                         ),
@@ -191,12 +191,6 @@ class _AppointmentListState extends State<AppointmentList> {
                                     },
                                   ),
                                 ],
-                              ),
-                            ),
-                            Text(
-                              "Hospital: " + document['hospital'],
-                              style: GoogleFonts.lato(
-                                fontSize: 16,
                               ),
                             ),
                           ],
