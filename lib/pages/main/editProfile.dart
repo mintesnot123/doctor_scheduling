@@ -127,7 +127,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             ? Stack(
                                 children: <Widget>[
                                   CircleAvatar(
-                                    backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                    backgroundImage: AssetImage('assets/images/doctor_profile.jpg'), //NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
                                     radius: 80,
                                   ),
                                   Positioned(
@@ -152,7 +152,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 ],
                               )
                             : CircleAvatar(
-                                backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                backgroundImage: AssetImage('assets/images/doctor_profile.jpg'), //NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
                                 radius: 80,
                               ),
                       ),
@@ -234,9 +234,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   ),
                                 ),
                                 validator: (value) {
-                                  if (value.isEmpty) {
+                                  /* if (value.isEmpty) {
                                     return 'Please Enter Phone number';
                                   } else if (value.length < 10) {
+                                    return 'Please Enter correct Phone number';
+                                  } */
+                                  if (value.length > 15) {
                                     return 'Please Enter correct Phone number';
                                   }
                                   return null;
@@ -254,7 +257,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 controller: _specialityController,
                                 focusNode: f3,
                                 validator: (value) {
-                                  //if (value.isEmpty) return 'Please Enter Your Speciality';
+                                  if (value.isEmpty) return 'Please Enter Your Speciality';
                                   return null;
                                 },
                                 style: GoogleFonts.lato(fontSize: 18),
@@ -316,7 +319,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 focusNode: f5,
                                 controller: _localityController,
                                 validator: (value) {
-                                  //if (value.isEmpty) return 'Please enter Your Locality';
+                                  if (value.isEmpty) return 'Please enter Your Locality';
                                   return null;
                                 },
                                 style: GoogleFonts.lato(fontSize: 18),
@@ -348,7 +351,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 focusNode: f6,
                                 controller: _cityController,
                                 validator: (value) {
-                                  //if (value.isEmpty) return 'Please enter Your City';
+                                  if (value.isEmpty) return 'Please enter Your City';
                                   return null;
                                 },
                                 style: GoogleFonts.lato(fontSize: 18),
@@ -380,7 +383,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 focusNode: f7,
                                 controller: _stateController,
                                 validator: (value) {
-                                  //if (value.isEmpty) return 'Please enter Your State';
+                                  if (value.isEmpty) return 'Please enter Your State';
                                   return null;
                                 },
                                 style: GoogleFonts.lato(fontSize: 18),
@@ -412,7 +415,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 focusNode: f8,
                                 controller: _countryController,
                                 validator: (value) {
-                                  //if (value.isEmpty) return 'Please enter Your Country';
+                                  if (value.isEmpty) return 'Please enter Your Country';
                                   return null;
                                 },
                                 style: GoogleFonts.lato(fontSize: 18),
