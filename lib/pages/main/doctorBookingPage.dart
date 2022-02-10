@@ -21,14 +21,14 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final TextEditingController _doctorController = TextEditingController();
+  //final TextEditingController _doctorController = TextEditingController();
   final TextEditingController _hospitalController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
   final TextEditingController _fromController = TextEditingController();
   final TextEditingController _toController = TextEditingController();
   final TextEditingController _commentController = TextEditingController();
 
-  FocusNode f1 = FocusNode();
+  //FocusNode f1 = FocusNode();
   FocusNode f2 = FocusNode();
   FocusNode f3 = FocusNode();
   FocusNode f4 = FocusNode();
@@ -39,7 +39,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
 
   @override
   void dispose() {
-    _doctorController.dispose();
+    //_doctorController.dispose();
     _hospitalController.dispose();
     _dateController.dispose();
     _fromController.dispose();
@@ -118,7 +118,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
   void initState() {
     super.initState();
     //selectTime(context);
-    _doctorController.text = widget.doctorName ?? '';
+    //_doctorController.text = widget.doctorName ?? '';
   }
 
   @override
@@ -193,7 +193,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                               SizedBox(
                                 height: 30,
                               ),
-                              TextFormField(
+                              /* TextFormField(
                                 controller: _doctorController,
                                 focusNode: f1,
                                 validator: (value) {
@@ -224,7 +224,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                               ),
                               SizedBox(
                                 height: 20,
-                              ),
+                              ), */
                               TextFormField(
                                 controller: _hospitalController,
                                 focusNode: f2,
@@ -563,7 +563,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
 
     try {
       await FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('pending').doc().set({
-        'doctor': _doctorController.text,
+        'doctor': widget.doctorName ?? '', //_doctorController.text,
         'hospital': _hospitalController.text,
         'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
         'from': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
@@ -572,7 +572,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
       }, SetOptions(merge: true));
 
       await FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('all').doc().set({
-        'doctor': _doctorController.text,
+        'doctor': widget.doctorName ?? '', //_doctorController.text,
         'hospital': _hospitalController.text,
         'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
         'from': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
