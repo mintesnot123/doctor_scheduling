@@ -70,6 +70,8 @@ flutter:
     - assets/images/error-404.jpg 
     - assets/images/appointment.jpg 
     - assets/images/search-bg.png
+    - assets/images/doctor_profile.jpg 
+    - assets/images/associate_profile.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
