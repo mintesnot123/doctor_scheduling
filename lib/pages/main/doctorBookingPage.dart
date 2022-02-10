@@ -26,12 +26,14 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
   final TextEditingController _dateController = TextEditingController();
   final TextEditingController _fromController = TextEditingController();
   final TextEditingController _toController = TextEditingController();
+  final TextEditingController _commentController = TextEditingController();
 
   FocusNode f1 = FocusNode();
   FocusNode f2 = FocusNode();
   FocusNode f3 = FocusNode();
   FocusNode f4 = FocusNode();
   FocusNode f5 = FocusNode();
+  FocusNode f6 = FocusNode();
 
   bool booking = false;
 
@@ -42,6 +44,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
     _dateController.dispose();
     _fromController.dispose();
     _toController.dispose();
+    _commentController.dispose();
     super.dispose();
   }
 
@@ -423,6 +426,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                       },
                                       onFieldSubmitted: (String value) {
                                         f5.unfocus();
+                                        FocusScope.of(context).requestFocus(f6);
                                       },
                                       textInputAction: TextInputAction.next,
                                       style: GoogleFonts.lato(fontSize: 18),
@@ -451,6 +455,36 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                     )
                                   ],
                                 ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              TextFormField(
+                                controller: _commentController,
+                                focusNode: f2,
+                                validator: (value) {
+                                  /* if (value.isEmpty) return 'Please Enter Comment'; */
+                                  return null;
+                                },
+                                style: GoogleFonts.lato(fontSize: 18),
+                                decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(90.0)),
+                                    borderSide: BorderSide.none,
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.grey[350],
+                                  hintText: 'Comment',
+                                  hintStyle: GoogleFonts.lato(
+                                    color: Colors.black26,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                                onFieldSubmitted: (String value) {
+                                  f6.unfocus();
+                                },
                               ),
                               SizedBox(
                                 height: 40,
@@ -532,6 +566,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
         'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
         'from': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
         'to': DateTime.parse(dateUTC + ' ' + date_Time2 + ':00'),
+        'comment': _commentController.text,
       }, SetOptions(merge: true));
 
       await FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('all').doc().set({
@@ -540,6 +575,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
         'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
         'from': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
         'to': DateTime.parse(dateUTC + ' ' + date_Time2 + ':00'),
+        'comment': _commentController.text,
       }, SetOptions(merge: true));
       Widget okButton = TextButton(
         child: Text(
