@@ -563,7 +563,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
 
     try {
       await FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('pending').doc().set({
-        'doctor': widget.doctorName ?? '', //_doctorController.text,
+        //'doctor': widget.doctorName ?? '', //_doctorController.text,
         'hospital': _hospitalController.text,
         'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
         'from': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
@@ -572,7 +572,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
       }, SetOptions(merge: true));
 
       await FirebaseFirestore.instance.collection('appointments').doc(widget.doctor).collection('all').doc().set({
-        'doctor': widget.doctorName ?? '', //_doctorController.text,
+        //'doctor': widget.doctorName ?? '', //_doctorController.text,
         'hospital': _hospitalController.text,
         'date': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),
         'from': DateTime.parse(dateUTC + ' ' + date_Time + ':00'),

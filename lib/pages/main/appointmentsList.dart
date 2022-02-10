@@ -122,7 +122,7 @@ class _AppointmentListState extends State<AppointmentList> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 5),
                                 child: Text(
-                                  document['doctor'],
+                                  widget.doctor, //document['doctor'],
                                   style: GoogleFonts.lato(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
@@ -191,6 +191,12 @@ class _AppointmentListState extends State<AppointmentList> {
                                     },
                                   ),
                                 ],
+                              ),
+                            ),
+                            Text(
+                              "Hospital: " + document['hospital'],
+                              style: GoogleFonts.lato(
+                                fontSize: 16,
                               ),
                             ),
                           ],
