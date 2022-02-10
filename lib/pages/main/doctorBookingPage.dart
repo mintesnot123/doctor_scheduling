@@ -60,8 +60,9 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(initialDate),
+      firstDate: DateTime(2022),
       lastDate: DateTime(2025),
+      enablePastDates: false,
     ).then(
       (date) {
         setState(
