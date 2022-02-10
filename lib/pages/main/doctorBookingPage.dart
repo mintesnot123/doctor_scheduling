@@ -60,7 +60,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2022),
+      firstDate: DateTime(initialDate),
       lastDate: DateTime(2025),
     ).then(
       (date) {
@@ -461,7 +461,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                               ),
                               TextFormField(
                                 controller: _commentController,
-                                focusNode: f2,
+                                focusNode: f6,
                                 validator: (value) {
                                   /* if (value.isEmpty) return 'Please Enter Comment'; */
                                   return null;
