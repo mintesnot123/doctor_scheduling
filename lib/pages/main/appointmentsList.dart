@@ -170,12 +170,6 @@ class _AppointmentListState extends State<AppointmentList> {
                                       SizedBox(
                                         height: 10,
                                       ),
-                                      /* Text(
-                                        document['comment'],
-                                        style: GoogleFonts.lato(
-                                          fontSize: 16,
-                                        ),
-                                      ), */
                                     ],
                                   ),
                                   IconButton(
