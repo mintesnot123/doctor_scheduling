@@ -91,7 +91,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                 ? Stack(
                                     children: <Widget>[
                                       CircleAvatar(
-                                        backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                        backgroundImage: AssetImage('assets/images/doctor_profile.jpg'), //NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
                                         radius: 80,
                                       ),
                                       Positioned(
@@ -116,7 +116,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                     ],
                                   )
                                 : CircleAvatar(
-                                    backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
+                                    backgroundImage: AssetImage('assets/images/doctor_profile.jpg'), //NetworkImage('https://cdn.pixabay.com/photo/2017/11/02/14/26/model-2911329_960_720.jpg' /* doctor['image'] */),
                                     radius: 80,
                                   ),
                           ),
