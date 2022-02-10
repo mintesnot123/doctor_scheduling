@@ -59,10 +59,11 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
   Future<void> selectDate(BuildContext context) async {
     showDatePicker(
       context: context,
+
       initialDate: DateTime.now(),
-      firstDate: DateTime(2022),
+      firstDate: DateTime.now().subtract(Duration(days: 1)),
+      //firstDate: DateTime(2022),
       lastDate: DateTime(2025),
-      enablePastDates: false,
     ).then(
       (date) {
         setState(
