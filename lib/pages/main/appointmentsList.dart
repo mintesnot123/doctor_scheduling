@@ -170,12 +170,12 @@ class _AppointmentListState extends State<AppointmentList> {
                                       SizedBox(
                                         height: 10,
                                       ),
-                                      Text(
+                                      /* Text(
                                         document['comment'],
                                         style: GoogleFonts.lato(
                                           fontSize: 16,
                                         ),
-                                      ),
+                                      ), */
                                     ],
                                   ),
                                   IconButton(
@@ -191,6 +191,15 @@ class _AppointmentListState extends State<AppointmentList> {
                                     },
                                   ),
                                 ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 20, right: 10, left: 16),
+                              child: Text(
+                                document['comment'],
+                                style: GoogleFonts.lato(
+                                  fontSize: 16,
+                                ),
                               ),
                             ),
                           ],
