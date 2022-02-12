@@ -288,6 +288,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               TextFormField(
                                 focusNode: f4,
                                 controller: _addressController,
+                                validator: (value) {
+                                  if (value.isEmpty) return 'Please enter Your Address';
+                                  return null;
+                                },
                                 keyboardType: TextInputType.multiline,
                                 maxLines: null,
                                 style: GoogleFonts.lato(fontSize: 18),
