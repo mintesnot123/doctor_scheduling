@@ -35,10 +35,12 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     print('infds sdj');
     FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").get().then((QuerySnapshot querySnapshot) {
       print('loaded');
-      print(querySnapshot.docs);
+      final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
+      print(allData);
+      /* print(querySnapshot.docs);
       querySnapshot.docs.forEach((doc) {
         print(doc["first_name"]);
-      });
+      }); */
     }).catchError((error) => print("Failed to add user: $error"));
     //FirebaseFirestore.instance.collection('doctors').orderBy('name').snapshots()
   }
