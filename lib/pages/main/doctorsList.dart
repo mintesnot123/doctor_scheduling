@@ -26,25 +26,37 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   TextEditingController _doctorName = TextEditingController();
   FirebaseAuth _auth = FirebaseAuth.instance;
   User user;
+  var doctors = [];
+  String loadError = '';
+  bool isLoading = false;
 
   Future<void> _getUser() async {
     user = _auth.currentUser;
   }
 
   Future getData() {
-    print('infds sdj');
+    setState(() {
+        doctors = [];
+        isLoading = true;
+        loadError = '';
+      });
     FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").get().then((QuerySnapshot querySnapshot) {
-      print('loaded');
       final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
-      print(allData);
-      /* print(querySnapshot.docs);
-      querySnapshot.docs.forEach((doc) {
-        print(doc["first_name"]);
-      }); */
-    }).catchError((error) => print("Failed to add user: $error"));
+      setState(() {
+        doctors = allData;
+        isLoading = false;
+        loadError = '';
+      });
+    }).catchError((error) => {      
+      setState(() {
+        doctors = [];
+        isLoading = false;
+        loadError = 'Some thing went wrong while loading doctors';
+      });
+    });
     //FirebaseFirestore.instance.collection('doctors').orderBy('name').snapshots()
   }
-
+print(doctors)
   @override
   void initState() {
     super.initState();
@@ -76,7 +88,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
-        inAsyncCall: loggingin,
+        inAsyncCall: isLoading,
         child: Scaffold(
           backgroundColor: Colors.white,
           body: SingleChildScrollView(
