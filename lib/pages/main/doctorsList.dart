@@ -59,12 +59,12 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
       setState(() {
         doctors = [];
       });
-      /*  setState(() {        
-        isLoading = false;        
+      setState(() {
+        isLoading = false;
       });
-      setState(() {        
+      setState(() {
         loadError = 'Some thing went wrong while loading doctors';
-      }); */
+      });
     });
   }
 
