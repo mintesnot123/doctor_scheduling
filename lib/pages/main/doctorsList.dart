@@ -34,6 +34,8 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   Future getData() {
     print('infds sdj');
     FirebaseFirestore.instance.collection('doctors').get().then((QuerySnapshot querySnapshot) {
+      print('loaded');
+      print(querySnapshot.docs);
       querySnapshot.docs.forEach((doc) {
         print(doc["first_name"]);
       });
