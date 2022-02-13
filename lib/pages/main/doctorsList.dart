@@ -36,27 +36,27 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
 
   Future getData() {
     setState(() {
-        doctors = [];        
-      });
-      setState(() {        
-        isLoading = true;      
-      });
-      setState(() {        
-        loadError = '';
-      });
+      doctors = [];
+    });
+    setState(() {
+      isLoading = true;
+    });
+    setState(() {
+      loadError = '';
+    });
     FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").get().then((QuerySnapshot querySnapshot) {
       final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
       setState(() {
-        doctors = allData;        
+        doctors = allData;
       });
-      setState(() {        
-        isLoading = false;        
+      setState(() {
+        isLoading = false;
       });
-      setState(() {        
+      setState(() {
         loadError = '';
       });
-    }).catchError((error) => {      
-      setState(() {
+    }).catchError((error) => {
+          /* setState(() {
         doctors = [];        
       });
       setState(() {        
@@ -64,8 +64,8 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
       });
       setState(() {        
         loadError = 'Some thing went wrong while loading doctors';
-      });
-    });    
+      }); */
+        });
   }
 
   @override
