@@ -56,10 +56,10 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
         loadError = '';
       });
     }).catchError((error) => {
-          /*  setState(() {
+          setState(() {
         doctors = [];        
       });
-      setState(() {        
+      /*  setState(() {        
         isLoading = false;        
       });
       setState(() {        
@@ -67,8 +67,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
       }); */
         });
   }
-
-  print(doctors);
+  
   @override
   void initState() {
     super.initState();
