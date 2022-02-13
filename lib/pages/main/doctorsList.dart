@@ -37,9 +37,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
       querySnapshot.docs.forEach((doc) {
         print(doc["first_name"]);
       });
-    }).catch(error => {
-      print(error);
-    });
+    }).catchError((error) => print("Failed to add user: $error"));
     //FirebaseFirestore.instance.collection('doctors').orderBy('name').snapshots()
   }
 
