@@ -1179,6 +1179,17 @@ class _AddUserPageState extends State<AddUserPage> {
 
         if (widget.type == "doctor") {
         } else {}
+
+        if (!user.emailVerified) {
+          try {
+            await user.sendEmailVerification();
+            print("email sent!");
+          } catch (error) {
+            print("email sent error!");
+          }
+        } else {
+          print("email already verified!");
+        }
         // todo back to doctors list
         //Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Home()), (Route<dynamic> route) => false);
         nameController.text = "";
