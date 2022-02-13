@@ -32,21 +32,6 @@ class _DoctorsListState extends State<DoctorsList> {
     super.dispose();
   }
 
-  Future getData() {
-    FirebaseFirestore.instance.collection('doctors').get().then((QuerySnapshot querySnapshot) {
-      querySnapshot.docs.forEach((doc) {
-        print(doc["first_name"]);
-      });
-    });
-    //FirebaseFirestore.instance.collection('doctors').orderBy('name').snapshots()
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

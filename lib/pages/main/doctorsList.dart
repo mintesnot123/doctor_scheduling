@@ -31,11 +31,22 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     user = _auth.currentUser;
   }
 
+  Future getData() {
+    print('infds sdj')
+    FirebaseFirestore.instance.collection('doctors').get().then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        print(doc["first_name"]);
+      });
+    });
+    //FirebaseFirestore.instance.collection('doctors').orderBy('name').snapshots()
+  }
+
   @override
   void initState() {
     super.initState();
     _getUser();
     _doctorName = new TextEditingController();
+    getData();
   }
 
   @override
