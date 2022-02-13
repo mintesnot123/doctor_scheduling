@@ -55,9 +55,9 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
       setState(() {
         loadError = '';
       });
-    }).catchError((error) => {
-          setState(() {
-        doctors = [];        
+    }).catchError((error) {
+      setState(() {
+        doctors = [];
       });
       /*  setState(() {        
         isLoading = false;        
@@ -65,9 +65,9 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
       setState(() {        
         loadError = 'Some thing went wrong while loading doctors';
       }); */
-        });
+    });
   }
-  
+
   @override
   void initState() {
     super.initState();
