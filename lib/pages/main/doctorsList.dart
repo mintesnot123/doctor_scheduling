@@ -56,7 +56,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     });
     //FirebaseFirestore.instance.collection('doctors').orderBy('name').snapshots()
   }
-print(doctors)
+print(doctors);
   @override
   void initState() {
     super.initState();
