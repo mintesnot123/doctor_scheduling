@@ -106,25 +106,6 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     selectedFilter = value;
   }
 
-  void openFilterDialog() async {
-    await FilterListDialog.display<User>(
-      context,
-      listData: userList,
-      selectedListData: selectedUserList,
-      choiceChipLabel: (user) => user.name,
-      validateSelectedItem: (list, val) => list.contains(val),
-      onItemSearch: (user, query) {
-        return user.name.toLowerCase().contains(query.toLowerCase());
-      },
-      onApplyButtonClick: (list) {
-        setState(() {
-          selectedUserList = List.from(list);
-        });
-        Navigator.pop(context);
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
@@ -267,10 +248,9 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                   ),
                                 ),
                                 onTap: () {
-                                  openFilterDialog();
-                                  /* setState(() {
+                                  setState(() {
                                     selectedFilter = filters[index];
-                                  }); */
+                                  });
                                 },
                               );
                             },
