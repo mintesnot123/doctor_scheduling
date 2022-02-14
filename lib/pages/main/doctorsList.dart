@@ -301,7 +301,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                                   Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
-                                                      builder: (context) => DoctorDetail(doctor: doctor.id, role: widget.role),
+                                                      builder: (context) => DoctorDetail(doctor: doctor["id"], role: widget.role),
                                                     ),
                                                   );
                                                 },
