@@ -46,10 +46,13 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     });
     FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").get().then((QuerySnapshot querySnapshot) {
       final allData = querySnapshot.docs.map((doc) {
-        return {
-          ...doc.data(),
-          id: doc.id
-        };
+        console.log(doc.data());
+        return /* {
+          ... */
+            doc.data()
+            /* id: doc.id
+        } */
+            ;
       }).toList();
       setState(() {
         doctors = allData;
