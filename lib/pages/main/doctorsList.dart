@@ -13,6 +13,7 @@ import 'package:yismaw/firebase/searchList.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:yismaw/pages/main/doctorDetail.dart';
 import 'package:yismaw/pages/main/searchResultPage.dart';
+import 'package:filter_list/filter_list.dart';
 
 class DoctorsListPage extends StatefulWidget {
   final String role;
@@ -103,6 +104,25 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   String selectedFilter = 'name';
   void setSelectedFilter(value) {
     selectedFilter = value;
+  }
+
+  void openFilterDialog() async {
+    await FilterListDialog.display<User>(
+      context,
+      listData: userList,
+      selectedListData: selectedUserList,
+      choiceChipLabel: (user) => user!.name,
+      validateSelectedItem: (list, val) => list!.contains(val),
+      onItemSearch: (user, query) {
+        return user.name!.toLowerCase().contains(query.toLowerCase());
+      },
+      onApplyButtonClick: (list) {
+        setState(() {
+          selectedUserList = List.from(list!);
+        });
+        Navigator.pop(context);
+      },
+    );
   }
 
   @override
@@ -247,9 +267,10 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                   ),
                                 ),
                                 onTap: () {
-                                  setState(() {
+                                  openFilterDialog();
+                                  /* setState(() {
                                     selectedFilter = filters[index];
-                                  });
+                                  }); */
                                 },
                               );
                             },
@@ -614,4 +635,10 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
               : null,
         ));
   }
+}
+
+class User {
+  final String? name;
+  final String? avatar;
+  User({this.name, this.avatar});
 }
