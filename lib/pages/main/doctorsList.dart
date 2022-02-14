@@ -13,7 +13,6 @@ import 'package:yismaw/firebase/searchList.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:yismaw/pages/main/doctorDetail.dart';
 import 'package:yismaw/pages/main/searchResultPage.dart';
-import 'package:filter_list/filter_list.dart';
 
 class DoctorsListPage extends StatefulWidget {
   final String role;
