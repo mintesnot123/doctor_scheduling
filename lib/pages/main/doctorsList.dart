@@ -118,7 +118,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
       },
       onApplyButtonClick: (list) {
         setState(() {
-          selectedUserList = List.from(list!);
+          selectedUserList = List.from(list);
         });
         Navigator.pop(context);
       },
