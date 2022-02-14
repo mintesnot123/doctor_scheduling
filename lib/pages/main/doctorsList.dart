@@ -48,7 +48,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
       final allData = querySnapshot.docs
           .map((doc) => {
                 ...doc.data(),
-                id: doc.id
+                id: doc.data().id
               })
           .toList();
       setState(() {
