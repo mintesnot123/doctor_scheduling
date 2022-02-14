@@ -269,7 +269,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                   shrinkWrap: true,
                                   itemCount: doctors.length,
                                   itemBuilder: (context, index) {
-                                    DocumentSnapshot doctor = doctors[index];
+                                    var doctor = doctors[index];
                                     return Padding(
                                       padding: const EdgeInsets.only(top: 0.0),
                                       child: Card(
