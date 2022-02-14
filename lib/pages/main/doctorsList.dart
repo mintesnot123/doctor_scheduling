@@ -261,7 +261,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                         SizedBox(
                           height: 30,
                         ),
-                        Container((doctors.length > 0)
+                        (doctors.length > 0)
                             ? Scrollbar(
                                 child: ListView.builder(
                                   scrollDirection: Axis.vertical,
@@ -420,7 +420,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                       )
                                     : Center(
                                         child: CircularProgressIndicator(),
-                                      )))),
+                                      ))),
                         StreamBuilder(
                           stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").orderBy('name').snapshots(),
                           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
