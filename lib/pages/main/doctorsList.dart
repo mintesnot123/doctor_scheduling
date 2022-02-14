@@ -111,10 +111,10 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
       context,
       listData: userList,
       selectedListData: selectedUserList,
-      choiceChipLabel: (user) => user!.name,
-      validateSelectedItem: (list, val) => list!.contains(val),
+      choiceChipLabel: (user) => user.name,
+      validateSelectedItem: (list, val) => list.contains(val),
       onItemSearch: (user, query) {
-        return user.name!.toLowerCase().contains(query.toLowerCase());
+        return user.name.toLowerCase().contains(query.toLowerCase());
       },
       onApplyButtonClick: (list) {
         setState(() {
