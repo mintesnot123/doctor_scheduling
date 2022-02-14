@@ -50,7 +50,6 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
         var idVar = {
           "id": doc.id
         };
-        print(doc.data());
         return {
           ...dataVar,
           ...idVar,
