@@ -304,15 +304,15 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                         ? Center(
                             child: CircularProgressIndicator(),
                           )
-                        : (doctors.length > 0
+                        : (filteredDoctors.length > 0
                             ? Scrollbar(
                                 child: ListView.builder(
                                   scrollDirection: Axis.vertical,
                                   physics: ClampingScrollPhysics(),
                                   shrinkWrap: true,
-                                  itemCount: doctors.length,
+                                  itemCount: filteredDoctors.length,
                                   itemBuilder: (context, index) {
-                                    var doctor = doctors[index];
+                                    var doctor = filteredDoctors[index];
                                     return Padding(
                                       padding: const EdgeInsets.only(top: 0.0),
                                       child: Card(
