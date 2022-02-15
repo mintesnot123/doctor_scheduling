@@ -16,6 +16,7 @@ import 'package:yismaw/components/carouselSlider.dart';
 import 'package:yismaw/pages/main/doctorsSearchList.dart';
 import 'package:yismaw/pages/main/doctorsListByCategory.dart';
 import 'package:yismaw/pages/main/searchResultPage.dart';
+import 'package:yismaw/pages/main/doctorsList.dart';
 
 class DashboardPage extends StatefulWidget {
   final String role;
@@ -138,10 +139,15 @@ class _DashboardPageState extends State<DashboardPage> {
                                         : Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                              builder: (context) => SearchResultPage(
+                                              builder: (context) => /* SearchResultPage(
                                                 searchKey: _doctorName.text,
                                                 filter: selectedFilter,
                                                 type: "DOCTOR",
+                                                role: "ADMIN",
+                                              ), */
+
+                                                  DoctorsListPage(
+                                                initSearchKey: _doctorName.text,
                                                 role: "ADMIN",
                                               ),
                                             ),
@@ -162,10 +168,14 @@ class _DashboardPageState extends State<DashboardPage> {
                                       : Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => SearchResultPage(
+                                            builder: (context) => /* SearchResultPage(
                                               searchKey: value,
                                               filter: selectedFilter,
                                               type: "DOCTOR",
+                                              role: "ADMIN",
+                                            ), */
+                                                DoctorsListPage(
+                                              initSearchKey: _doctorName.text,
                                               role: "ADMIN",
                                             ),
                                           ),
@@ -175,7 +185,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             },
                           ),
                         ),
-                        Text(
+                        /* Text(
                           'Search by',
                           textAlign: TextAlign.left,
                           style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
@@ -215,7 +225,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               );
                             },
                           ),
-                        ),
+                        ), */
                         SizedBox(
                           height: 15,
                         ),
