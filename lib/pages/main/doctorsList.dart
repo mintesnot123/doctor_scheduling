@@ -268,13 +268,16 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                             child: Container(
                               margin: EdgeInsets.only(left: 10.0),
                               child: index == 0
-                                  ? Text(
-                                      filters[index],
-                                      textAlign: TextAlign.left,
-                                      style: GoogleFonts.lato(
-                                        color: Colors.blue[800],
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
+                                  ? Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        filters[index],
+                                        textAlign: TextAlign.left,
+                                        style: GoogleFonts.lato(
+                                          color: Colors.blue[800],
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                        ),
                                       ),
                                     )
                                   : Chip(
@@ -315,7 +318,6 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                               margin: EdgeInsets.only(left: 10.0),
                               child: index == 0
                                   ? Container(
-                                      margin: EdgeInsets.only(right: 10.0),
                                       padding: EdgeInsets.all(8.0),
                                       child: Text(
                                         sortBys[index],
