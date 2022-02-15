@@ -52,7 +52,10 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   ];
   String selectedFilter = 'name';
   void setSelectedFilter(value) {
-    selectedFilter = value;
+    setState(() {
+      selectedFilter = value;
+    });
+    generateFilteredDoctor();
   }
 
   String selectedSortBy = 'name';
