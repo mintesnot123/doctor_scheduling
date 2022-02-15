@@ -27,8 +27,36 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   FirebaseAuth _auth = FirebaseAuth.instance;
   User user;
   var doctors = [];
+  var filteredDoctors = [];
   String loadError = '';
   bool isLoading = true;
+  String searchKey = '';
+
+  var filters = [
+    'name',
+    'locality',
+    'city',
+    'state',
+    'country',
+    'speciality'
+  ];
+  var sortBys = [
+    'name',
+    'locality',
+    'city',
+    'state',
+    'country',
+    'speciality'
+  ];
+  String selectedFilter = 'name';
+  void setSelectedFilter(value) {
+    selectedFilter = value;
+  }
+
+  String selectedSortBy = 'name';
+  void setSelectedSortBy(value) {
+    selectedSortBy = value;
+  }
 
   Future<void> _getUser() async {
     user = _auth.currentUser;
@@ -58,6 +86,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
       setState(() {
         doctors = allData;
       });
+      generateFilteredDoctor();
       setState(() {
         isLoading = false;
       });
@@ -77,6 +106,18 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     });
   }
 
+  void generateFilteredDoctor() {
+    var output = [];
+    output = doctors;
+    if (searchKey && searchKey != '') {
+      output = output.where((value) => value[selectedFilter].toLowerCase().includes(searchKey)).toList();
+    }
+    output.sort((a, b) => a[selectedSortBy].compareTo(b[selectedSortBy]));
+    setState(() {
+      filteredDoctors = output;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -92,18 +133,6 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   }
 
   bool loggingin = false;
-  var filters = [
-    'name',
-    'locality',
-    'city',
-    'state',
-    'country',
-    'speciality'
-  ];
-  String selectedFilter = 'name';
-  void setSelectedFilter(value) {
-    selectedFilter = value;
-  }
 
   @override
   Widget build(BuildContext context) {
