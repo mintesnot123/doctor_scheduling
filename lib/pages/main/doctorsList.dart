@@ -120,7 +120,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     super.initState();
     _getUser();
     _doctorName = new TextEditingController();
-    _doctorName.text = initSearchKey ?? '';
+    _doctorName.text = widget.initSearchKey ?? '';
     getData();
   }
 
