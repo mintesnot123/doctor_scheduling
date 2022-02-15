@@ -30,7 +30,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   var filteredDoctors = [];
   String loadError = '';
   bool isLoading = true;
-  String searchKey = '';
+  //String searchKey = '';
 
   var filters = [
     'Filter By',
@@ -111,18 +111,6 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     });
   }
 
-  void generateFilteredDoctor() {
-    var output = [];
-    output = doctors;
-    if (searchKey != '') {
-      output = output.where((value) => value[selectedFilter].toLowerCase().includes(searchKey)).toList();
-    }
-    output.sort((a, b) => a[selectedSortBy].toString().toLowerCase().compareTo(b[selectedSortBy].toString().toLowerCase()));
-    setState(() {
-      filteredDoctors = output;
-    });
-  }
-
   @override
   void initState() {
     super.initState();
@@ -135,6 +123,19 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   void dispose() {
     _doctorName.dispose();
     super.dispose();
+  }
+
+  void generateFilteredDoctor() {
+    var output = [];
+    String searchKey = _doctorName.text ?? "";
+    output = doctors;
+    if (searchKey != '') {
+      output = output.where((value) => value[selectedFilter].toLowerCase().includes(searchKey)).toList();
+    }
+    output.sort((a, b) => a[selectedSortBy].toString().toLowerCase().compareTo(b[selectedSortBy].toString().toLowerCase()));
+    setState(() {
+      filteredDoctors = output;
+    });
   }
 
   bool loggingin = false;
@@ -212,7 +213,8 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                               color: Colors.white,
                               icon: Icon(FlutterIcons.search1_ant),
                               onPressed: () {
-                                _doctorName.text.length == 0
+                                generateFilteredDoctor();
+                                /*  _doctorName.text.length == 0
                                     ? Container()
                                     : Navigator.push(
                                         context,
@@ -224,7 +226,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                             role: "ADMIN",
                                           ),
                                         ),
-                                      );
+                                      ); */
                               },
                             ),
                           ),
@@ -234,7 +236,8 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                           fontWeight: FontWeight.w800,
                         ),
                         onFieldSubmitted: (String value) {
-                          setState(
+                          generateFilteredDoctor();
+                          /* setState(
                             () {
                               value.length == 0
                                   ? Container()
@@ -250,7 +253,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                       ),
                                     );
                             },
-                          );
+                          ); */
                         },
                       ),
                     ),
