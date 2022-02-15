@@ -115,7 +115,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     if (searchKey != '') {
       output = output.where((value) => value[selectedFilter].toLowerCase().includes(searchKey)).toList();
     }
-    output.sort((a, b) => a[selectedSortBy].compareTo(b[selectedSortBy]));
+    output.sort((a, b) => a[selectedSortBy].toString().toLowerCase().compareTo(b[selectedSortBy].toString().toLowerCase()));
     setState(() {
       filteredDoctors = output;
     });
