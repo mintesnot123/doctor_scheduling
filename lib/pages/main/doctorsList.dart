@@ -56,10 +56,9 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   String selectedSortBy = 'name';
   void setSelectedSortBy(value) {
     setState(() {
-                                selectedSortBy = value;
-                              });
-                              generateFilteredDoctor();
-    
+      selectedSortBy = value;
+    });
+    generateFilteredDoctor();
   }
 
   Future<void> _getUser() async {
@@ -316,8 +315,8 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                 padding: EdgeInsets.all(8.0),
                               ),
                             ),
-                            onTap: () {setSelectedSortBy(sortBys[index])
-                              
+                            onTap: () {
+                              () => setSelectedSortBy(sortBys[index]);
                             },
                           );
                         },
