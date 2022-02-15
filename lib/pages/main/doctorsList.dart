@@ -16,7 +16,8 @@ import 'package:yismaw/pages/main/searchResultPage.dart';
 
 class DoctorsListPage extends StatefulWidget {
   final String role;
-  const DoctorsListPage({Key key, this.role}) : super(key: key);
+  final String initSearchKey;
+  const DoctorsListPage({Key key, this.role, this.initSearchKey}) : super(key: key);
   @override
   _DoctorsListPageState createState() => new _DoctorsListPageState();
 }
@@ -119,6 +120,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     super.initState();
     _getUser();
     _doctorName = new TextEditingController();
+    _doctorName.text = initSearchKey ?? '';
     getData();
   }
 
