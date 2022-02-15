@@ -361,7 +361,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                       padding: EdgeInsets.only(left: 20),
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "All doctors",
+                        _doctorName.text == '' ? "All doctors" : "Doctors with ${_doctorName.text} ${selectedFilter}",
                         textAlign: TextAlign.center,
                         style: GoogleFonts.lato(color: Colors.blue[800], fontWeight: FontWeight.bold, fontSize: 18),
                       ),
@@ -510,7 +510,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'No Doctor found!',
+                                            '$loadError',
                                             style: GoogleFonts.lato(
                                               color: Colors.blue[800],
                                               fontSize: 25,
@@ -527,7 +527,27 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                     ),
                                   )
                                 : Center(
-                                    child: CircularProgressIndicator(),
+                                    child: Container(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            'No Doctor with ${selectedFilter} equals ${_doctorName.text} found!',
+                                            style: GoogleFonts.lato(
+                                              color: Colors.blue[800],
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Image(
+                                            image: AssetImage('assets/images/error-404.jpg'),
+                                            height: 250,
+                                            width: 250,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ))),
                     /* StreamBuilder(
                           stream: FirebaseFirestore.instance.collection('users').where("role", isEqualTo: "DOCTOR").orderBy('name').snapshots(),
