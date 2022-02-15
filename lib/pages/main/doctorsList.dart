@@ -275,7 +275,6 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                         color: Colors.blue[800],
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,
-                                        padding: EdgeInsets.all(8.0),
                                       ),
                                     )
                                   : Chip(
