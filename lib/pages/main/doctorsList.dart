@@ -314,13 +314,16 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                             child: Container(
                               margin: EdgeInsets.only(left: 10.0),
                               child: index == 0
-                                  ? Text(
-                                      sortBys[index],
-                                      textAlign: TextAlign.left,
-                                      style: GoogleFonts.lato(
-                                        color: Colors.blue[800],
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
+                                  ? Container(
+                                      margin: EdgeInsets.only(left: 10.0),
+                                      child: Text(
+                                        sortBys[index],
+                                        textAlign: TextAlign.left,
+                                        style: GoogleFonts.lato(
+                                          color: Colors.blue[800],
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                        ),
                                       ),
                                     )
                                   : Chip(
