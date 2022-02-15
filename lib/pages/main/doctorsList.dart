@@ -315,7 +315,8 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                               margin: EdgeInsets.only(left: 10.0),
                               child: index == 0
                                   ? Container(
-                                      margin: EdgeInsets.only(left: 10.0),
+                                      margin: EdgeInsets.only(right: 10.0),
+                                      padding: EdgeInsets.all(8.0),
                                       child: Text(
                                         sortBys[index],
                                         textAlign: TextAlign.left,
