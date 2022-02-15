@@ -301,9 +301,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                                     ),
                             ),
                             onTap: () {
-                              setState(() {
-                                selectedFilter = filters[index];
-                              });
+                              setSelectedFilter(filters[index]);
                             },
                           );
                         },
