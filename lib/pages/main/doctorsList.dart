@@ -55,7 +55,11 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
 
   String selectedSortBy = 'name';
   void setSelectedSortBy(value) {
-    selectedSortBy = value;
+    setState(() {
+                                selectedSortBy = value;
+                              });
+                              generateFilteredDoctor();
+    
   }
 
   Future<void> _getUser() async {
@@ -280,6 +284,40 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                               setState(() {
                                 selectedFilter = filters[index];
                               });
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      height: 45.0,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        padding: EdgeInsets.symmetric(horizontal: 20.0),
+                        itemCount: sortBys.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            child: Container(
+                              margin: EdgeInsets.only(left: 10.0),
+                              child: Chip(
+                                labelPadding: EdgeInsets.all(2.0),
+                                label: Text(
+                                  sortBys[index],
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                backgroundColor: selectedSortBy == sortBys[index] ? Colors.blue[600] : Colors.blue[0],
+                                elevation: 6.0,
+                                shadowColor: Colors.grey[60],
+                                padding: EdgeInsets.all(8.0),
+                              ),
+                            ),
+                            onTap: () {setSelectedSortBy(sortBys[index])
+                              
                             },
                           );
                         },
