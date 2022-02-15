@@ -109,7 +109,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   void generateFilteredDoctor() {
     var output = [];
     output = doctors;
-    if (searchKey && searchKey != '') {
+    if (searchKey?? && searchKey != '') {
       output = output.where((value) => value[selectedFilter].toLowerCase().includes(searchKey)).toList();
     }
     output.sort((a, b) => a[selectedSortBy].compareTo(b[selectedSortBy]));
