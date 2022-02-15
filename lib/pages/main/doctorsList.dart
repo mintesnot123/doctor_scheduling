@@ -316,7 +316,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                               ),
                             ),
                             onTap: () {
-                              () => setSelectedSortBy(sortBys[index]);
+                              setSelectedSortBy(sortBys[index]);
                             },
                           );
                         },
