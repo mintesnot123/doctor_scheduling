@@ -269,8 +269,8 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
                               margin: EdgeInsets.only(left: 10.0),
                               child: index == 0
                                   ? Text(
-                                    elevation: 6.0,
-                                      shadowColor: Colors.grey[60],
+                                    
+                                      
                                       padding: EdgeInsets.all(8.0),
                                       filters[index],
                                       textAlign: TextAlign.left,
