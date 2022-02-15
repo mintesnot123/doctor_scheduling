@@ -33,6 +33,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
   String searchKey = '';
 
   var filters = [
+    'Filter By',
     'name',
     'locality',
     'city',
@@ -41,6 +42,7 @@ class _DoctorsListPageState extends State<DoctorsListPage> {
     'speciality'
   ];
   var sortBys = [
+    'Sort By',
     'name',
     'locality',
     'city',
