@@ -145,13 +145,38 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 type: "DOCTOR",
                                                 role: "ADMIN",
                                               ), */
-
-                                                  DoctorsListPage(
-                                                initSearchKey: _doctorName.text,
-                                                role: "ADMIN",
+                                                  Scaffold(
+                                                backgroundColor: Colors.white,
+                                                appBar: AppBar(
+                                                  title: Text(
+                                                    'Search Doctors',
+                                                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                                                  ),
+                                                  elevation: 0.5,
+                                                  iconTheme: IconThemeData(color: Colors.white),
+                                                  flexibleSpace: Container(
+                                                    decoration: BoxDecoration(
+                                                        gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: <Color>[
+                                                      Theme.of(context).primaryColor,
+                                                      Theme.of(context).accentColor,
+                                                    ])),
+                                                  ),
+                                                  leading: IconButton(
+                                                      splashRadius: 20,
+                                                      icon: Icon(
+                                                        Icons.arrow_back_ios,
+                                                        color: Colors.white,
+                                                      ),
+                                                      onPressed: () {
+                                                        Navigator.pop(context);
+                                                      }),
+                                                ),
+                                                body: DoctorsListPage(
+                                                  initSearchKey: _doctorName.text,
+                                                  role: "ADMIN",
+                                                ),
                                               ),
-                                            ),
-                                          );
+                                            ));
                                   },
                                 ),
                               ),
@@ -174,12 +199,38 @@ class _DashboardPageState extends State<DashboardPage> {
                                               type: "DOCTOR",
                                               role: "ADMIN",
                                             ), */
-                                                DoctorsListPage(
-                                              initSearchKey: _doctorName.text,
-                                              role: "ADMIN",
+                                                Scaffold(
+                                              backgroundColor: Colors.white,
+                                              appBar: AppBar(
+                                                title: Text(
+                                                  'Search Doctors',
+                                                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                                                ),
+                                                elevation: 0.5,
+                                                iconTheme: IconThemeData(color: Colors.white),
+                                                flexibleSpace: Container(
+                                                  decoration: BoxDecoration(
+                                                      gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: <Color>[
+                                                    Theme.of(context).primaryColor,
+                                                    Theme.of(context).accentColor,
+                                                  ])),
+                                                ),
+                                                leading: IconButton(
+                                                    splashRadius: 20,
+                                                    icon: Icon(
+                                                      Icons.arrow_back_ios,
+                                                      color: Colors.white,
+                                                    ),
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    }),
+                                              ),
+                                              body: DoctorsListPage(
+                                                initSearchKey: _doctorName.text,
+                                                role: "ADMIN",
+                                              ),
                                             ),
-                                          ),
-                                        );
+                                          ));
                                 },
                               );
                             },
