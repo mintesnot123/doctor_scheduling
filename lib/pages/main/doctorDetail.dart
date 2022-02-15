@@ -23,6 +23,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
   bool approving = false;
   @override
   Widget build(BuildContext context) {
+    print(role)
     return ModalProgressHUD(
         inAsyncCall: approving,
         child: Scaffold(
